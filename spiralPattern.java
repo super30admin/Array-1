@@ -10,6 +10,10 @@
 
 public class spiralPattern {
     public static void printpattern(int[][] nums){
+        if(nums.length==0){
+        System.out.println("Empty Matrix");
+        return;
+        }
         int startrow = 0;
         int startcolumn = 0;
         int endrow = nums.length-1;
