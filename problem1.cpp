@@ -25,22 +25,20 @@ public:
         
         int temp = 1;
         
-  
-        for(int i = 0; i < vectorSize; i++)
+        for(int i = 0; i < vectorSize; i++) 
         {
-            answer[i] = temp;
+            answer[i] = temp; //first value to the left of index 0 is 1. Followed by product of previous values
             temp *= arr[i];
         }
         
-		temp = 1;
+		temp = 1; //reset the temp pointer
      
-        for(int i = vectorSize - 1;  i >= 0; i-- )
+        for(int i = vectorSize - 1; i >= 0; i--) //Update the left filled array by traversing from the end
         {
-            answer[i] = answer[i] * temp;
+            answer[i] = answer[i] * temp; //last value of answer remains the same followed by product of values to the right 
             temp *= arr[i];
         }
         
-
 		return answer;
 
 	}
