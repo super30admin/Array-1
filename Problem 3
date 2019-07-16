@@ -1,0 +1,61 @@
+//Time Complexity: O(n)
+//Space Complexity: O(n)
+
+//Accepted in Leetcode : Yes
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+    if (matrix == null || matrix.length ==0 ) //base case
+        return new ArrayList(); 
+    if (matrix.length == 1 && matrix[0].length ==1) //base case
+    {
+        List list = new ArrayList();
+        list.add(matrix[0][0]);
+        return list;
+    }
+        
+    int t = 0;                 // top
+    int b = matrix.length-1;  // bottom
+    int l = 0;                // left
+    int r = matrix[0].length-1;  // right
+    int dir = 0;  // defines direction of movement 
+    List<Integer> list = new ArrayList<>();
+    while ( l <= r && t <= b) {
+        if (dir == 0){
+            // L -> R 
+            for (int i = l; i <= r ; i++ ) {
+                list.add(matrix[t][i]);
+            }
+            t++;
+    
+        } 
+        
+         if (dir == 1){
+            // T . -> B 
+            for (int i = t; i <= b ; i++ ) {
+                list.add(matrix[i][r]);
+            }
+            r--;
+ 
+        }
+         if (dir == 2){
+            // R . -> L
+              for (int i = r; i >= l ; i-- ) {
+                list.add(matrix[b][i]);
+            }
+            b--;
+    
+        }
+         if (dir == 3){
+            // B . -> T
+            for (int i = b; i >= t ; i-- ) {
+                list.add(matrix[i][l]);
+            }
+            l++;
+        }
+        
+        dir = (dir+1)%4;
+    }
+    return list;
+    }
+}
