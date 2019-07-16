@@ -1,53 +1,50 @@
+/**
+ * #Idea: 
+ * 1. (i+j) is even - upward traversal. (i+j) is odd downward traversal.
+ * 2. Upward -> row-1 and col+1; Downward -> row+1 and col-1
+ * 3. When hitting edge cases attend to special cases and move accordingly.
+ * # Time Complexity : O(n) - number of elements. (X*Y -> X rows, Y cols)
+ * # Space Complexity : O(n) - result array
+ */
 class TraverseDiagonalMatrix {
-    public void traverseMatrix(int[][] mat, int n){
-        int i = 0, j = 0; 
-  
-        // Direction is initially from down to up 
-        boolean isUp = true; 
-        int[][] dagMatrix = new int[mat.length][mat[0].length];
-        
-        // To do n*m matrices
-        // Traverse the matrix till all elements get traversed 
-        for (int k = 0; k < n * n;) { 
-            // If isUp = true then traverse from downward 
-            // to upward 
-            if (isUp) { 
-                for (; i >= 0 && j < n; j++, i--) { 
-                    // System.out.print(mat[i][j] + " "); 
-                    dagMatrix[i][j] = mat[i][j];
-                    k++; 
-                } 
-  
-                // Set i and j according to direction 
-                if (i < 0 && j <= n - 1) 
-                    i = 0; 
-                if (j == n) { 
-                    i = i + 2; 
-                    j--; 
-                } 
-            } 
-  
-            // If isUp = 0 then traverse up to down 
-            else { 
-                for (; j >= 0 && i < n; i++, j--) { 
-                    // System.out.print(mat[i][j] + " "); 
-                    dagMatrix[i][j] = mat[i][j];
-                    k++; 
-                } 
-  
-                // Set i and j according to direction 
-                if (j < 0 && i <= n - 1) 
-                    j = 0; 
-                if (i == n) { 
-                    j = j + 2; 
-                    i--; 
-                } 
-            } 
-  
-            // Revert the isUp to change the direction 
-            isUp = !isUp; 
+    
+    public int[] findDiagonalOrder(int[][] matrix) {
+        if(matrix.length == 0) return new int[0];
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int r = 0;
+        int c = 0;
+        int[] diagonalArray = new int[m * n];
+
+        for(int i=0;i<m*n;i++){
+            diagonalArray[i] = matrix[r][c];
+            if((r+c) % 2 == 0){
+                if(c == n - 1)
+                    r++;                
+                else if(r == 0) 
+                    c++;
+                else {
+                    r--;
+                    c++;
+                }                
+            }
+            else {
+                if(r == m - 1) 
+                    c++;                
+                else if(c == 0) 
+                    r++;
+                else {
+                    r++;
+                    c--;
+                }
+                
+            }
         }
+
+        return diagonalArray;
     }
+    
     public static void main(String[] args){
         System.out.println("TraverseDiagonalMatrix");
         int[][] mat = {
@@ -58,5 +55,10 @@ class TraverseDiagonalMatrix {
 
         TraverseDiagonalMatrix obj = new TraverseDiagonalMatrix();
         obj.traverseMatrix(mat, mat.length);
+        int[] result = obj.findDiagonalOrder(mat);
+
+        for(int i=0;i<result.length;i++){
+            System.out.println(result[i]);
+        }
     }
 }

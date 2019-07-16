@@ -1,3 +1,15 @@
+/**
+ * # Idea: 
+ * [ 1, 2, 3, 4]
+ * [ 1 * (2*3*4) , 1 * (3 * 4) , (1* 2) * (4) , (1*2*3) * 4]
+ * 1. Traverse the array calculate forward pass product. 
+ * 2. Traverse the array from end multiply the product with backward pass. 
+ * 3. return result 
+ * 
+ * # Time Complexity : O(n) - number of elements
+ * # Space Complexity : O(n) - result array
+ */
+
 class ProductExceptSelf {
 
     public int[] productExceptSelf(int[] nums) {
