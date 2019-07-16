@@ -2,14 +2,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SpinalOrderRecursion {
-	  List<Integer> result =new ArrayList<>();
+	  public static List<Integer> result =new ArrayList<>();
 	    public static  List < Integer > spiralOrder(int[][] matrix) {
 	        if(matrix.length ==0) return     result;
 	         helper(matrix, 0, matrix[0].length -1, 0, matrix.length-1);
 	        return result;
 	        
 	    }
-	     public void helper(int[][] matrix, int left, int right, int top, int bottom){
+	     public static void helper(int[][] matrix, int left, int right, int top, int bottom){
 	         if(left>right || top>bottom) return;
 	         for( int i=left; i<=right; i++) result.add(matrix[top][i]);
 	         top++;
