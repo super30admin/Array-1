@@ -10,18 +10,16 @@ class ProductExceptSelf {
         }
 
         p=1;
-        int[] product_after = new int[nums.length];
+        
         for(int i=nums.length-1;i>=0;i--){
-            product_after[i] = p;
+            product_before[i] = product_before[i] * p;
             p = p * nums[i];
         }
 
-        int[] result = new int[nums.length];
-        for(int i=0;i<nums.length;i++){
-            result[i] = product_before[i] * product_after[i];
-        }
+        for(int i=0;i<product_before.length;i++)
+            System.out.println(product_before[i]);
         
-        return result;
+        return product_before;
     }
     public static void main(String[] args){
         System.out.println("Product Except Self");
