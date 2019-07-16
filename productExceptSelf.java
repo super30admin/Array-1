@@ -21,6 +21,19 @@ public class productExceptSelf {
             result[i] = left[i]*right[i];
         return result;
     }
+    //Using a single array
+    public static int[] productOne(int[] nums){
+        int [] left = new int[nums.length];
+        int [] right = new int[nums.length];
+        left[0] = 1; int temp = 1;
+        for(int i = 1;i<nums.length;i++)
+            left[i] = left[i-1]*nums[i-1];
+        for(int i =nums.length-1;i>=0;i--){
+            right[i] = left[i]*temp;
+            temp *= nums[i];
+        }
+        return right;
+    }
 
     //brute force : O(n*n)
     //take a new array ,Take a loop ,initialize result[i] =1. take a loop inside this  loop and if indices are different,
