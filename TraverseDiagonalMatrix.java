@@ -5,9 +5,10 @@ class TraverseDiagonalMatrix {
         // Direction is initially from down to up 
         boolean isUp = true; 
         int[][] dagMatrix = new int[mat.length][mat[0].length];
- 
+        
+        // To do n*m matrices
         // Traverse the matrix till all elements get traversed 
-        for (int k = 0; k < n * m;) { 
+        for (int k = 0; k < n * n;) { 
             // If isUp = true then traverse from downward 
             // to upward 
             if (isUp) { 
