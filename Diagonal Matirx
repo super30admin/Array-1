@@ -19,6 +19,8 @@ class Solution {
             
             if((r+c)%2==0)
             {
+            //Remember to check for c/r=m-1 condition first and then r==0 as r++ can help skip the other condition
+            
                 if(c==colLen-1) r++;
                 else if(r==0)   c++;
                     else
