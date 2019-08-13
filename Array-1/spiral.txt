@@ -1,0 +1,43 @@
+// time complexity = O(m*n)
+// space Comp = O(m*n)
+// solution executed on leet code
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> list=new ArrayList<>();
+        if(matrix.length==0) return list;
+        int t=0,l=0,b=matrix.length-1,r=matrix[0].length-1;
+        while(t<=b && l<=r)
+        {
+            // with top pointer const
+            for(int i=l;i<=r;i++)
+            {
+                list.add(matrix[t][i]);
+            }
+            t++;
+            // with right pointer const
+            for(int i=t;i<=b;i++)
+            {
+                list.add(matrix[i][r]);
+            }
+            r--;
+            if(t<=b)  // checking boundary conditions inside loop
+            {
+                for(int i=r;i>=l;i--)
+                {
+                    list.add(matrix[b][i]);
+                }
+                b--;
+            }
+            if(l<=r)  // checking boundary conditions inside loop
+            {
+                for(int i=b;i>=t;i--)
+                {
+                    list.add(matrix[i][l]);
+                }
+                l++;
+            }
+        }
+        return list;
+    }
+}
