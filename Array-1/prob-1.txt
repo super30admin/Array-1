@@ -1,0 +1,23 @@
+// time comp = O(n) n=size of array
+// space Comp = O(1)
+// solution executed on leet code
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int[] out=new int[nums.length];
+        out[0]=1; // left prod of first ele = 1
+        int temp=1; // variable for right prod storage
+        for(int i=1;i<nums.length;i++)
+        {
+            out[i]=out[i-1]*nums[i-1];// stored the left prod values
+        }
+        for(int i=nums.length-1;i>=0;i--)
+        {
+            if(i!=nums.length-1)
+            {
+                out[i]*=temp; // final output array
+            }
+            temp*=nums[i]; // store the right prod values
+        }
+        return out;
+    }
+}
