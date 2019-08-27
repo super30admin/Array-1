@@ -1,9 +1,10 @@
 class Solution {
 public:
     vector<int> findDiagonalOrder(vector<vector<int>>& matrix) {
-         int m = matrix.size();
+       int m = matrix.size();
         int n=matrix[0].size(); 
         vector<int> result;
+        if(matrix.size()==0) return result;
          int r = 0, c = 0;
         int i = 0;
         int dir = 1;
