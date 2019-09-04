@@ -1,5 +1,5 @@
 """
-The approach with the comments.
+The approach with the comments. Solution from GeeksforGeeks
 """
 def spiralPrint(m, n, a) : 
     k = 0; l = 0
