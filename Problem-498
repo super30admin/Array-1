@@ -1,0 +1,160 @@
+/*
+
+Time Complexity: O(mn) according to me but please help me confirm it.
+
+Leetcode: 
+successful but the metrics are very low  : 13% only
+Runtime: 7 ms, faster than 13.10% of Java online submissions for Diagonal Traverse.
+Memory Usage: 38.3 MB, less than 100.00% of Java online submissions for Diagonal Traverse.
+
+Approach: 
+divided the entire process in terms of goup, godown, switchup, switchdown.
+then put these functions in a while loop,
+
+follow the sequence in while loop:
+switchup --> godwn --> switchdown --> goup
+
+the breakpoint is when the result arraylist has m*n elements.
+
+convert the arraylist to array 
+and return the result.
+
+
+*/
+
+class Solution {
+    ArrayList<Integer>  res= new ArrayList<>();
+   public int[] findDiagonalOrder(int[][] matrix) {
+      
+       
+       if(matrix.length==0 || matrix==null) return new int [0];
+      
+       int colen=matrix.length;
+       int rowlen=matrix[0].length;
+       int resultlen=colen*rowlen;
+       
+       int i=0;
+       int j=0;
+       
+       int [] index= new int [2];
+       res.add(matrix[0][0]);
+       
+       int itr =0;
+       
+       while(res.size()<resultlen)
+       {
+          
+           
+           System.out.printf(" iteration count %d ",itr);
+           itr++;
+           index= switchupdir(matrix,i,j,rowlen,colen);
+           i=index[0];
+           j=index[1];
+           
+           if(res.size()>=resultlen) break;
+           
+           index= godown(matrix,i,j,rowlen,colen);
+           i=index[0];
+           j=index[1];
+           
+           if(res.size()>=resultlen) break;
+           
+           index= switchdir(matrix,i,j,rowlen,colen);
+           i=index[0];
+           j=index[1];
+           
+           if(res.size()>=resultlen) break;
+           
+           index= goup(matrix,i,j,rowlen,colen);
+           i=index[0];
+           j=index[1];
+               
+       }
+       
+       int finalresult[] = new int [res.size()];
+       for(int k=0;k<finalresult.length;k++)
+           finalresult[k]=res.get(k);
+       
+        return finalresult;
+    }
+    
+    
+    int [] goup(int matrix[][],int i,int j, int rowlen, int colen)
+    {
+         
+        while(i>0 && j<rowlen-1 )
+        {
+                i--;
+                j++;
+            res.add(matrix[i][j]);
+           
+        }
+        
+        int index [] = new int[2];
+        index[0]=i;
+        index[1]=j;
+        
+        return index;
+    }
+    
+    int [] godown(int matrix[][],int i,int j, int rowlen, int colen)
+    {
+        while(i<colen-1 && j>0)
+        {
+                i++;
+                j--;
+            res.add(matrix[i][j]);
+           
+        }
+              int index [] = new int[2];
+        index[0]=i;
+        index[1]=j;
+        
+        return index;
+    }
+    
+    int [] switchdir(int matrix[][],int i,int j, int rowlen, int colen)
+    {
+ 
+        if(i<colen-1)
+        {
+            i++;
+            res.add(matrix[i][j]);
+        }
+        else if(j<rowlen-1){
+            j++;
+            res.add(matrix[i][j]);
+        }
+        
+        int index [] = new int[2];
+        index[0]=i;
+        index[1]=j;
+        
+        return index;
+        
+    }
+    
+    int [] switchupdir(int matrix[][],int i,int j, int rowlen, int colen)
+    {
+          
+        if( j<rowlen-1 )
+        {
+            j++;
+            res.add(matrix[i][j]);
+            
+        }else{
+            i++;
+            res.add(matrix[i][j]);
+        }
+        
+        
+              int index [] = new int[2];
+        index[0]=i;
+        index[1]=j;
+        
+        return index;
+        
+        
+        
+    }
+}

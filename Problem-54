@@ -1,0 +1,138 @@
+/*
+
+Time Complexity: O(mn)
+
+Leetcode: Successful
+
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Spiral Matrix.
+Memory Usage: 34.7 MB, less than 100.00% of Java online submissions for Spiral Matrix.
+
+
+Approach:
+
+divided the process of  going through array in sprial into 4 parts i.e:
+
+go right, go down, go left, go top.
+
+now, the movement is restricted through limiters, which are dynamic. i.e:
+
+rightlimit= no: of columns 
+leftlimit = 0
+down limit = no: of rows
+toplimit = 1
+
+
+all these functions are in a while loop and exit condition is when arraylist size is eqqual to the number of elements.
+
+Challenges:
+Here I have to check the size of the result arraylist again and again, which is my exit.
+could not think of a way of sticking with the same approach, and not having that redundant code.
+
+I tried using try catch, but did not work.
+
+*/
+
+class Solution {
+   int   leftlimit;
+   int     rightlimit;
+   int    toplimit;
+   int      downlimit;
+    ArrayList<Integer> res;
+    public List<Integer> spiralOrder(int[][] matrix) {
+        
+        if(matrix==null || matrix.length==0)
+            return new ArrayList<Integer>();
+        
+        //absolute limiters
+        int colen=matrix.length;
+        int rowlen=matrix[0].length;
+        int resultlen=colen*rowlen;
+        
+        res = new ArrayList<Integer>(resultlen);
+        
+        //initializers
+        int i=0;
+        int j=0;
+        
+        //dynamic limiters
+        leftlimit=0;
+        rightlimit=rowlen-1;
+        toplimit=1;
+        downlimit=colen-1;
+
+        while(res.size()<resultlen)  // exit condition 
+        {
+            
+            goright(matrix,i,j,rightlimit);
+            j=rightlimit;
+            i++;
+            rightlimit--;
+            
+            
+            if(res.size()>=resultlen)  // exit condition 
+            {
+                break;
+            }
+               
+            godown(matrix,i,j,downlimit);
+            i=downlimit;
+            j--;
+            downlimit--;
+            
+            
+            if(res.size()>=resultlen)   // exit condition 
+            {
+                break;
+            }
+              
+            goleft(matrix,i,j,leftlimit);
+            j=leftlimit;
+            i--;
+            leftlimit++;
+            
+            if(res.size()>=resultlen)   // exit condition 
+            {
+                break;
+            }
+            
+            goup(matrix,i,j,toplimit);
+            i=toplimit;
+            j++;
+            toplimit++;
+            
+        }
+        
+        return res;
+    }
+    
+   void  godown(int [][]matrix,int starti,int startj,int downlimit)
+    {
+        for(int i=starti;i<=downlimit;i++)
+        {
+            res.add(matrix[i][startj]);
+        }
+    }
+    
+  void   goup(int [][]matrix,int starti,int startj,int uplimit)
+    {
+        for(int i=starti;i>=uplimit;i--)
+        {
+            res.add(matrix[i][startj]);
+        }
+    }
+  void   goleft(int [][]matrix,int starti,int startj,int leftlimit)
+    {
+        for(int j=startj;j>=leftlimit;j--)
+        {
+            res.add(matrix[starti][j]);
+        }
+    }
+    
+   void  goright(int [][]matrix,int starti,int startj,int rightlimit)
+    {
+        for(int j=startj;j<=rightlimit;j++)
+        {
+            res.add(matrix[starti][j]);
+        }
+    }
+}

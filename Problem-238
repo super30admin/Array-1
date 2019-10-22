@@ -1,0 +1,49 @@
+/*
+
+Time Complexity: O(n).
+
+Space Complexity: constant.
+
+Leetcode Result: Accepted, 1 ms and 41 MB.
+
+
+Approach:
+
+I took two variables, prod and newprod.
+
+Iterate the nums once, to get the prod till last element i.e i-1 and store it in temp;
+again iterate over nums but this time from last element to first element to get the newprod till last element. 
+
+Now during this 2nd iteration, simply multiply the newprod to the number that is there in the temp for that particular index.
+
+this would give the result, except the number.
+
+
+
+*/
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        
+        int prod=1;
+        int output [] = new int [nums.length];
+        int temp[] = new int [nums.length];
+        int temp1[] = new int [nums.length];
+        
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            temp[i]=prod;
+            prod=prod*nums[i];
+        }
+        int newprod=1;
+        for(int i=nums.length-1;i>=0;i--)
+        {
+            temp[i]=temp[i]*newprod;
+            newprod=newprod*nums[i];
+        }
+        
+        
+        return temp;
+        
+    }
+}
