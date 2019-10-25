@@ -1,20 +1,23 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        int narr[]=new int[nums.length];
-        for(int i=0;i<nums.length;i++){
-            int mul=1;
-            for(int j=0;j<nums.length;j++){
-                if(i!=j)
-                {
-                    mul=mul*nums[j];
-                }
-            }
-            narr[i]=mul;
+
+       int length = nums.length;
+       int[] answer = new int[length];
+        answer[0] = 1;
+        for (int i = 1; i < length; i++) {
+         answer[i] = nums[i - 1] * answer[i - 1];
         }
-        return narr;
+
+        int R = 1;
+        for (int i = length - 1; i >= 0; i--) {
+          answer[i] = answer[i] * R;
+            R *= nums[i];
+        }
+
+        return answer;
     }
 }
-//TC O(n^2)
-//SC O(n)
-//Traverse the array and multiply the value other than the given index and store in the new array
-//Leetcode: 16/17 accepted . One test case time limit exceeded
+//TC O(n)
+//SC O(1)
+//improved
+//Leetcode:  accepted
