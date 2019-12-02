@@ -1,4 +1,4 @@
-// Time Complexity - O(n)
+// Time Complexity - O(m*n)
 // Space Complexity - O(1)
 // This Solution worked on LeetCode
 // This is a ziz zag diagonal order problem. So, I need both forward and backward traversal in diagonal order.
