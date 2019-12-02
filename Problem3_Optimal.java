@@ -1,7 +1,7 @@
 /**
 LeetCode Submitted : YES
 Runtime Complexity : O(N)
-Space Complexity : O(N)
+Space Complexity : O(1)
 
 Traverse each direction in matrix and accordingly increase pointers so that it changes directions when it is required
 **/
