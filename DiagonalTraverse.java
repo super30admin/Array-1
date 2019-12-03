@@ -16,7 +16,7 @@ public class DiagonalTraverse {
 		int dir = 1;
 		while(i < m*n){
 			result[i] = matrix[rows][cols];
-			//going in forward direction
+			//Csae 1 - going in forward direction
 			if(dir == 1){
 				//if last column is reached,going in reverse direction
 				if(cols==n-1) {
@@ -30,6 +30,7 @@ public class DiagonalTraverse {
 					rows--;
 					cols++;
 				}
+			//case 2- going in backward direction	
 			} else {
 				//if last row is reached, going in forward direction 
 				if(rows == m-1) {
