@@ -26,6 +26,7 @@ class Solution:
         
         row, col = 0, 0
         while((row_top != row_bottom) and (col_left != col_right)):
+            # left to right traversal
             while((col <= cols-1) and (col < col_right)):
                 if len(result)==rows*cols:
                     break
@@ -34,6 +35,7 @@ class Solution:
             row_top += 1
             col -= 1
             row += 1
+            # top to bottom  traversal
             while((row <= rows-1) and (row < row_bottom)):
                 if len(result)==rows*cols:
                     break
@@ -42,6 +44,7 @@ class Solution:
             col_right -= 1
             col -= 1
             row -= 1
+            # right to left traversal
             while((col >= 0) and (col > col_left)):
                 if len(result)==rows*cols:
                     break
@@ -50,6 +53,7 @@ class Solution:
             row_bottom -= 1
             col += 1
             row -= 1
+            # bottom to top traversal
             while((row >= 0) and (row > row_top)):
                 if len(result)==rows*cols:
                     break
