@@ -1,6 +1,6 @@
 # Running on Leetcode: Yes
 # Runtime complexity:   O(n)
-# Memory complexity:  O(n)
+# Memory complexity:  O(mn)
 
 '''
 On Leetcode, it shows as below but I am not satisfied with the solution as it looks very clumsy. Is there any way to
