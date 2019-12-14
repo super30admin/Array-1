@@ -1,3 +1,9 @@
+# Time Complexity : O(M * N)
+# Space Complexity : O(1)
+# Did this code successfully run on Leetcode : YES
+# Any problem you faced while coding this : Logic
+
+
 class Solution:
     def spiralOrder(self, matrix):
         if matrix == [] or len(matrix) == 0:
