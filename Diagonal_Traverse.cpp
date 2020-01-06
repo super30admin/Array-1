@@ -1,5 +1,5 @@
 Time Complexity-O(n*m)
-Space Complexity-O(n+m-1)----->  *size of deque* 
+Space Complexity-O(n+m-1)----->  *size of the vector which has n+m-1 deque's *
 Did the code run on Leetcode? Yes
 
 #include <iostream>
