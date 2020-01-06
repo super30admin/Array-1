@@ -1,5 +1,4 @@
 from typing import List
-from enum import Enum
 
 
 class Solution:
@@ -29,6 +28,7 @@ class Solution:
 
         if not matrix:
             return result
+
         rows = len(matrix)
         cols = len(matrix[0])
         top, bottom, left, right = 0, rows - 1, 0, cols - 1
