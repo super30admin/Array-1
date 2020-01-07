@@ -8,7 +8,7 @@ class Solution:
         """
             // Time Complexity : O(mn)
                     'm' is the number of rows, 'n' is the number of columns
-            // Space Complexity : O(mn)
+            // Space Complexity : O(1)
             // Did this code successfully run on Leetcode :
                     Yes
             // Three line explanation of solution in plain english :
