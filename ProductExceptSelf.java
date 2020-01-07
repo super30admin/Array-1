@@ -1,5 +1,5 @@
 // Time Complexity : O(n)
-// Space Complexity : O(n)
+// Space Complexity : O(1) (After Optimization
 // Did this code successfully run on Leetcode : Yes
 // Three line explanation of solution in plain english:
 // 		1. Left and Right Array of Products to left and right of i respectively
