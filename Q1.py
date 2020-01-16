@@ -1,33 +1,39 @@
-# Time Complexity : 
-# Space Complexity :
-# Did this code successfully run on Leetcode :
+# Time Complexity :O(n) 
+# Space Complexity :O(1)
+# Did this code successfully run on Leetcode : Yes
 # Three line explanation of solution in plain english
+
+'''
+Multiplying the each element in the list with the running product from the left
+Once we hae traversed the entire list then resetinng the running product to 1 and multiplying
+the list with the running product again and saving it in the result list
+'''
 
 # Your code here along with comments explaining your approach
 
 
-import numpy as np
-
-def productExceptSelf(self, nums):
-    self.nums = nums
-         
-    list1=[]
+class Solution:
+    def productExceptSelf(self, nums):
+        if(len(nums)==0):
+            return(nums)
+        result = []
+        rp = 1
+        temp = 1
+    
+        for i in range(len(nums)):
+            rp = rp*temp 
+            result.append(rp)
+            temp = nums[i]
         
-    for i in range(len(self.nums)):
-        a = np.array(self.nums[:i])
-        b = np.array(self.nums[i+1:])
-        if (a.size == 0):
-            c = np.prod(b)
-            list1.append(c)
-        else:
-            c= np.prod(a)*np.prod(b)
-            
-        list1.append(c.astype(int))
-                
-            
-            
-    return(list1)
-if __name__=='__main__': 
-    nums = [1,2,3,4]
-    print(productExceptSelf(nums)) 
+        
+        rp=1
+        temp = 1
+    
+        for i in range(len(nums)-1,-1,-1):
+            rp = rp*temp
+            result[i] = result[i]*rp
+            temp = nums[i]
+        
+        return(result)
+
   
