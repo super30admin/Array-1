@@ -1,5 +1,5 @@
 // Time Complexity : O(n)
-// Space Complexity : O(2n)=> O(n)
+// Space Complexity : O(1)
 // Did this code successfully run on Leetcode : Yes. I have already seen this problem.
 // I have two pass. I set the each elemnt  as pivot and compute the product of all the elements in each side. 
 //Then I find  product at  side to get the output .
@@ -9,31 +9,24 @@ class Problem1
 {
     public static int[] productExceptIteself(int[] nums)
     {
-        int [] arr1 = new int [nums.length];
-        int [] arr2 = new int [nums.length];
-        
-        arr1[0]=1;
-        arr2[nums.length-1]=1;
-        
-        // first pass
-        int i = 1;
-        while(i <nums.length)
+        int [] result = new int[nums.length];
+        int temp = 1, rp=1;
+        //first pass
+        for(int i = 0; i <nums.length;i++)
         {
-            arr1[i]= nums[i-1]*arr1[i-1];
-            i++;
+            rp = temp*rp;
+            result[i]=rp;
+            temp=nums[i];
         }
-        i = nums.length-2;
         //second pass
-        while(i >=0)
+        rp=1;temp=1;
+        for(int i = nums.length-1;i>=0;i--)
         {
-            arr2[i]=nums[i+1]*arr2[i+1];
-            i--;
+            rp = temp*rp;
+            result[i]= result[i] * rp;
+            temp=nums[i];
         }
-        for(int j = 0 ; j < nums.length;j++)
-        {
-            arr1[j]=arr1[j]*arr2[j];
-        }
-        return arr1;
+        return result;
     }
     public static void main(String [] args)
     {

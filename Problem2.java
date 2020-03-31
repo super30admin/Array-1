@@ -1,10 +1,9 @@
-// Time Complexity :O(r(r+c)) where r is # of rows and c is # of columns
-// Space Complexity : O(r*c)
+// Time Complexity :O(rc) where r is # of rows and c is # of columns
+// Space Complexity : O(1)
 // Did this code successfully run on Leetcode : yes 
 
-// i have to look for leet code for the solution.
-import java.util.ArrayList;
-import java.util.Collections;
+// Just followed the pattern and keeping track of direction
+
 
 class Problem2 {
     public static int[] findDiagonalOrder(int[][] matrix) {
@@ -13,31 +12,54 @@ class Problem2 {
         if(matrix==null || matrix.length==0) return new int[0];
         int R = matrix.length;
         int C = matrix[0].length;
-        
-        // Result array
-        int [] output = new int[R*C];
-        
-        ArrayList<Integer> temp  = new ArrayList<>();
-        int k = 0;
-        for(int i = 0 ; i <R+C-1;i++)
+        int dir =1;
+        int r=0;
+        int c=0;
+        int [] result= new int[R*C];
+        int k =0;
+        while(k<(R*C))
         {
-            int r = i<C?0:i-C+1;
-            int c = i<C?i:C-1;
-            
-            while(r<R && c>=0)
+            result[k++] = matrix[r][c];
+            //up
+            if(dir==1)
             {
-                temp.add(matrix[r++][c--]);
+                if(c==C-1)
+                {
+                    r++;
+                    dir=-1;
+                }
+                else if(r==0)
+                {
+                    c++;
+                    dir=-1;
+                }
+                else{
+                    r--;
+                    c++;
+                }
             }
-            
-            if(i%2==0) Collections.reverse(temp);
-            
-            for(int j = 0 ; j < temp.size();j++)
-            {
-                output[k++]= temp.get(j);
+            //down
+            else{
+                
+                 if(r==R-1)
+                {
+                    c++;
+                    dir=1;
+                }
+                else if(c==0)
+                {
+                    r++;
+                    dir=1;
+                }
+                else{
+                    r++;
+                    c--;
+                }
+                
             }
-            temp.clear();
         }
-        return output;
+        return result;
+        
     }
     public static void main(String[] args)
     {
