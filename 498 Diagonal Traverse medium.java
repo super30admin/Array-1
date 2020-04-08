@@ -1,3 +1,5 @@
+//Time Complexity:O(n)
+//Space Complexity:O(1)
 class Solution {
     public int[] findDiagonalOrder(int[][] matrix) {
         int count = 0;
