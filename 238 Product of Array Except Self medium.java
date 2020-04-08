@@ -1,4 +1,6 @@
 //238. Product of Array Except Self
+//Time Complexity:O(n)
+//Space Complexity:O(n)
 
 class Solution {
     public int[] productExceptSelf(int[] nums) {
