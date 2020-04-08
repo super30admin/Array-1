@@ -1,3 +1,5 @@
+//Time Complexity:O(n*m)
+//Space Complexity:O(1)
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
         if(matrix.length == 0) 
