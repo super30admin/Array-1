@@ -1,0 +1,44 @@
+// Time Complexity : O(n)
+// Space Complexity : O(n)
+// Did this code successfully run on Leetcode : yes
+
+Iterating over array in spiral manner using four pointer , 2pointer to point two rows, top and bottom and 2 pointer to point 2 column , left and right
+
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+       
+       /* list to store the result */
+       List<Integer> result = new ArrayList<>();
+
+       if(matrix.length == 0) return result;  // edge case
+
+       /* r1 to point top row, r2 to point last bottom row
+          c1 to point left most column , c2 to point right most column */
+       int r1 = 0, r2 = matrix.length-1, c1 = 0, c2 = matrix[0].length-1;
+       
+   /* iterating till r1 is less than or equal to r2 and c1 is less than or equal to c2 */
+       while(r1<=r2 &&  c1<=c2){
+            
+            /* adding r1 row elements from c1 to c2 to result list */
+            for(int i = c1; i<= c2;i++) result.add(matrix[r1][i]);
+
+            /* adding c2 column elements from r1+1(arr[c2][r1] is already added in above case) to r2 to result list */
+            for(int j = r1+1; j<=r2;j++) result.add(matrix[j][c2]);
+          
+           // if just the last element we do not need to excute below 2 steps 
+           if(r1<r2 && c1<c2){
+                /* adding r2 row elements from c2-1 to c1 to result list */
+                for(int i1 = c2-1; i1>=c1;i1--) result.add(matrix[r2][i1]);
+                /* adding c1 column elements from r2-1 to r1-1 to result list */
+                for(int j1 = r2-1; j1>r1;j1--) result.add(matrix[j1][c1]);                
+            }
+            
+            r1++; //Increment top row pointer
+            r2--; //decrement bottom row pointer
+            c1++; //Increment left column pointer
+            c2--; //Decrement right column pointer
+        }
+        return result; // return result list
+    }
+}
