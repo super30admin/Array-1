@@ -1,0 +1,56 @@
+// Time Complexity : O(m*n)   m*n is the size of array
+// Space Complexity : O(m*n)
+// Did this code successfully run on Leetcode :Yes
+
+/* Traversing the array starting from the [0,0] now go to  diaognal up or diagonal down direction  and incase the diagonal up or down cell doesnt exist we go to the next element */
+
+public class Solution {
+    public int[] findDiagonalOrder(int[][] matrix) {
+        
+        /* edge case */
+        if (matrix == null || matrix.length == 0) 
+                return new int[0];
+
+        /* row and column length of matrix */
+        int m = matrix.length, n = matrix[0].length;
+        
+        int[] result = new int[m * n]; // array to store result
+        int row = 0, col = 0, d = 0;   // intial starting from [0,0] cell
+        int[][] dirs = {{-1, 1}, {1, -1}}; // diagonal up and diagonal down direction
+        
+        for (int i = 0; i < m * n; i++) {
+
+            result[i] = matrix[row][col]; // add current cell value
+            row += dirs[d][0];            // adding direction
+            col += dirs[d][1];
+           
+            /* if next cell row index is  greater than m then go to next cross upward cell & now diagonal upward*/ 
+            if (row >= m) { 
+                row = m - 1; 
+                col += 2; 
+                d = 1 - d;
+            }
+
+            /* if next column index is  greater than nthen go to next cross downwardcell & now diagonal downward*/
+            if (col >= n) { 
+                col = n - 1; 
+                row += 2; 
+                d = 1 - d;
+             }
+
+            /* if next cell row index is  less than zero then go to next right cell & now diagonal downward */
+            if (row < 0)  { 
+                row = 0; 
+                d = 1 - d;
+            }
+
+            /* if next cell column index is  less than zero then go to next down cell & now diagonal upward*/
+            if (col < 0)  {
+                col = 0; 
+                d = 1 - d;
+           }  
+        }
+        
+        return result;  // return result array
+    }
+}
