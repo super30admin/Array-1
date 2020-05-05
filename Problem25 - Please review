@@ -1,0 +1,28 @@
+// Time Complexity :O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :Yes
+
+class Solution {
+    func productExceptSelf(_ nums: [Int]) -> [Int] {
+                guard nums.count > 1 else {
+            return []
+        }
+
+        var product = 1
+        var result: [Int] = Array(repeating: 1, count: nums.count)
+
+        // from left to right: reuse the product from previous entries for subsequent entries
+        for i in 0..<nums.count {
+            result[i] = product
+            product *= nums[i]
+        }
+
+        product = 1
+        // from right to left: resue the products from previous entries
+        for i in (0..<nums.count).reversed() {
+            result[i] *= product
+            product *= nums[i]
+        }
+        return result
+    }
+}
