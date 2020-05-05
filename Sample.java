@@ -108,7 +108,7 @@ class Solution {
         
     }
 
-    // Time Complexity : O(N)
+    // Time Complexity : O(N) Where N is total elments OR O(N*M) Where N is number of rows and M is number of columns
     // Space Complexity : O(1)
     // Did this code successfully run on Leetcode : Yes
 
