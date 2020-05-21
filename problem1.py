@@ -7,6 +7,8 @@ Create a dummy array to keep track of the product, for index i, the dummy[i] = p
 So for [1,2,3,4] on complete iteration from starting to end dummy = [1,1,2,6] now go from the end to the starting,
 intialise rp = 1 again and multiply the nums[i] to dummy[i], starting from end to 0 the final array would be
 [24,12,8,6]
+
+
 '''
 
 
