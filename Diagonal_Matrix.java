@@ -1,3 +1,9 @@
+/*
+    Time Complexity : O(M*N) M =  no of rows, N = no of columns
+    Space Complexity : O(1) No space except output array
+    Is Worked on LeetCode : YES
+    Difficulty Faced : While Handling edge case 
+*/
 public class Diagonal_Matrix{
 
     public int[] findDiagonalOrder(int[][] matrix) {
