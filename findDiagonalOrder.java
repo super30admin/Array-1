@@ -1,4 +1,4 @@
-// Time Complexity :O(n*m) n is vertical length of matrix and m is horizontal length(breadth) of matrix 
+// Time Complexity :O(max(m,n)) where m and n are the length and breath of the matrix
 // Space Complexity : O(1);
 // Did this code successfully run on Leetcode : Yes
 // Three line explanation of solution in plain english - depending on the direction the values of i and j are manipulated.
