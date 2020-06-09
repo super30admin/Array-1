@@ -1,6 +1,6 @@
 # Time Complexity : O(n*m), where n is the number of rows and m is the number of columns
 # Space Complexity : O(1), because there is no extra computational DS.
-# Did this code successfully run on Leetcode : Yes
+# Did this code successfully run on Leetcode : yes
 # Any problem you faced while coding this : no
 
 # Your code here along with comments explaining your approach
