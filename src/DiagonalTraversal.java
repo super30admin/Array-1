@@ -23,56 +23,56 @@ Input:
 
 Output:  [1,2,4,7,5,3,6,8,9]
 
+Strategy- array bounds check and up/down flag used to control the matrix traversal, always first check bounds for 
+row or column whichever reaches max as it can go out of bound. 
+
  */
 
 class DiagonalTraversal {
-    public int[] findDiagonalOrder(int[][] matrix) {
-        
-        if(matrix == null || matrix.length==0) {
-            return new int[0];
-        }
-       
-        int m=matrix.length, n = matrix[0].length;
-        int[] res = new int [m*n];
-        int cnt = 0;
-         
-        int i=0,j=0;
-        res[cnt++] = matrix[i][j];
-        
-        //use flags to know up or down movement
-        boolean up = true, down = false;
-        while(cnt < m*n) {
-            if(up){
-            	//can we go up?
-             if(i-1 >=0 && j + 1 < n) {
-                 i = i -1;
-                 j = j + 1;
-             }else{
-            	    //change flag values
-                 down = true; up =false;
-                 if(j+1<n) {
-                     j = j + 1;
-                 }else if( i + 1 <m) {
-                     i = i + 1;
-                 }
-             }   
-            }else if (down) {
-                if(i+1 < m && j -1 >=0) {
-                    i = i+ 1;
-                    j = j - 1;
-                } else {
-                    up = true; down = false;
-                    
-                    if(i+1 <m) {
-                        i = i+1;
-                    } else if(j+1 <n) {
-                        j = j+1;
-                    }
-                }
-            }
-            res[cnt++] = matrix[i][j];
-        }
-        
-        return res;
-    }
+	 public int[] findDiagonalOrder(int[][] matrix) {
+	        
+	        if(matrix == null || matrix.length==0) {
+	            return new int[0];
+	        }
+	       
+	        int m=matrix.length, n = matrix[0].length;
+	        int[] res = new int [m*n];
+	        int cnt = 0;
+	         
+	        int i=0,j=0;
+	        res[cnt++] = matrix[i][j];
+	        
+	        boolean up = true;
+	        while(cnt < m*n) {
+	            if(up){
+	             if(i-1 >=0 && j + 1 < n) {
+	                 i = i -1;
+	                 j = j + 1;
+	             }else{
+	                 up =false;
+	                 //while going up, j is reaching max so check bounds check for j first
+	                 if(j+1<n) {
+	                     j = j + 1;
+	                 }else {
+	                     i = i + 1;
+	                 }
+	             }   
+	            }else if (!up) {
+	                if(i+1 < m && j -1 >=0) {
+	                    i = i+ 1;
+	                    j = j - 1;
+	                } else {
+	                    up = true;
+	                    // while going down, i is reaching max so check bounds check for i first
+	                    if(i+1 <m) {
+	                        i = i+1;
+	                    } else {
+	                        j = j+1;
+	                    }
+	                }
+	            }
+	            res[cnt++] = matrix[i][j];
+	        }
+	        return res;
+	    }
 }
