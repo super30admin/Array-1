@@ -32,3 +32,36 @@ class Solution {
          return arr;
     }    
     }
+
+    //-------------As Shown in class -----------------
+
+
+    class Solution {
+   
+        public int[] productExceptSelf(int[] nums) {
+            
+          if(nums == null || nums.length == 0) return new int[0];
+            
+            int[] result = new int[nums.length];
+            int leftProduct = 1;
+            int rightProduct = 1;
+            result[0] = leftProduct;
+            for(int i = 1 ; i < nums.length ; i ++){
+                    int temp = leftProduct;
+                    leftProduct= nums[i-1] * temp;
+                result[i] = leftProduct;
+                
+            }
+            
+            for(int k = nums.length - 2; k >= 0 ; k --){
+                 int temp2 = result[k];
+                rightProduct = rightProduct * nums[k + 1]; 
+            
+                    result[k] = temp2 * rightProduct;
+                
+            }
+           
+           
+            return result;
+        }   
+    }
