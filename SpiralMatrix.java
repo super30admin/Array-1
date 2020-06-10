@@ -1,5 +1,5 @@
 // Time Complexity : O(n * m) where n & m are length of input matrix
-// Space Complexity : O(n * m);
+// Space Complexity : O(1) --> as the extra space O(m * n) which we are creating are returning as output so will not considered as auxillary space
 // Did this code successfully run on Leetcode (54): Yes
 // Three line explanation of solution in plain english: In this problem, we are simply iterating over the 2D-matrix. We maintain the order of direction while traversing. First we move from left --> right, top --> bottom, right --> left, bottom --> top. We are reducing the length of top, bottom, left and right end points once reached dead end of the matrix.
 
