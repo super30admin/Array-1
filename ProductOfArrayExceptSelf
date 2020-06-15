@@ -1,0 +1,40 @@
+// Time Complexity: O(n) n-> length of nums array
+// Space complexity: O(1): no extra space used
+
+// Algorithm
+
+/**
+ 1) We have to take the product of elements on the left and product of elements on the right and multiply them.
+ 2) Take 2 variables temp and runningProduct, initialize them to 1.
+ 3) multiply temp by running product and then update temp to nums[i].
+ 4) For the right pass, just multiply the elements in the resultant array with the current running product. This saves extra space for allocating an array for right product.
+
+ **/
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        if(nums == null || nums.length == 0) return new int[0];
+
+        int[] res = new int[nums.length];
+        int temp = 1 , runningProduct = 1;
+        int n  = nums.length - 1;
+
+        //product of elements to the left of each element in the array
+        for(int i = 0 ; i < nums.length ; i++){
+
+            runningProduct = temp * runningProduct;
+            res[i] = runningProduct;
+            temp = nums[i];
+        }
+        // right pass
+        temp = 1; runningProduct = 1;
+        for(int i = n ; i >=0  ; i--){
+
+            runningProduct = temp * runningProduct;
+            res[i] = res[i] * runningProduct;
+            temp = nums[i];
+        }
+        return res;
+
+    }
+}
