@@ -25,7 +25,7 @@ class Solution:
 			trigger = (trigger+1)%4
 		return ans
 
-#time complexity - O(n*m)
+#time complexity - O(n*m), dimensions of the input matrix
 #sapce complexity - O(1)
 
 #all test cases passed
