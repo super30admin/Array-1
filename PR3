@@ -1,0 +1,44 @@
+// Time Complexity : O(m*n) - all the elements in the matrix.
+// Space Complexity : O(1)- no extra space used.
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : understanding why the while loop check fails in between.
+
+
+// Your code here along with comments explaining your approach: Have four pointers from left, right top bottom and iterate respectively by updating the pointers.
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> result=new ArrayList<Integer>();
+        if(matrix.length==0 || matrix==null) return result;
+        int left=0;int right=matrix[0].length-1;
+        int top=0;int bottom=matrix.length-1;
+        while(left<=right && top<=bottom){
+            //left to right traversal
+            for(int i=left;i<=right;i++){
+                result.add(matrix[top][i]);
+            }
+            top++;
+            //top to bottom traversal
+            for(int i=top;i<=bottom;i++){
+                result.add(matrix[i][right]);
+            }
+            right--;
+            if(top<=bottom){
+            //right to left traversal 
+            for(int i=right;i>=left;i--){
+                result.add(matrix[bottom][i]);
+            }
+            }
+            bottom--;
+            if(left<=right){
+            //bottom to top traversal
+            for(int i=bottom;i>=top;i--){
+                result.add(matrix[i][left]);
+                System.out.println(i);
+            }
+            }
+            left++;
+        }
+        return result;
+    }
+}

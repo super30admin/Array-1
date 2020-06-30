@@ -1,0 +1,49 @@
+// Time Complexity : O(n) - n is the number of all the elements in the array.
+// Space Complexity : O(1) - no extra auxillary space used.
+// Did this code successfully run on Leetcode : Yes
+// Three line explanation of solution in plain english : STrt traversing, have a boolean for upwards for the direction, check for the edge cases for changing the direction.
+
+class Solution {
+    public int[] findDiagonalOrder(int[][] matrix) {
+        if(matrix.length==0 || matrix==null) return new int[0];
+        int rows=matrix.length;
+        int columns=matrix[0].length;
+        boolean upwards=true;
+        int[] result=new int[rows*columns];
+        int i=0;
+        int r=0;
+        int c=0;
+        while(i<rows*columns){
+            result[i]=matrix[r][c];
+            if(upwards==true){
+                if(c==columns-1){
+                    r++;
+                    upwards=false;
+                }
+                else if(r==0){
+                  c++;
+                    upwards=false;
+                }
+                else{
+                    r--;c++;
+                }
+             }
+             else{
+                if(r==rows-1){
+                   c++;
+                   upwards=true; 
+                }
+                else if(c==0){
+                    r++;
+                    upwards=true;
+                }
+                else{
+                    r++;c--;
+                }
+                
+            }
+            i++;
+        }
+        return result;
+    }
+}
