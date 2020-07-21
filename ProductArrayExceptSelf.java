@@ -1,3 +1,9 @@
+//TC: O(n), n:length of nums[]
+//SC: O(1), no auxilliary space
+
+//Approach:
+//1. We calculate the running product of array elements from left to right and then from right to left, where we exclude the current element. 
+
 class Solution {
     public int[] productExceptSelf(int[] nums) {
         int rp = 1;
@@ -14,7 +20,6 @@ class Solution {
             result[i] *= rp;
             temp = nums[i];
         }
-      
         return result;
     }
 }
