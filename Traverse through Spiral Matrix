@@ -1,0 +1,35 @@
+Approach 1 : Four Pointer Approach
+Time Complexity : O(m*n)= O(N)
+Space Complexity : O(N) . Creating a new matrix to store the result.
+                   O(1) . If we don't store the result array.
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        if len(matrix)==0: ### Edge case
+            return []
+        if len(matrix)==1:
+            return matrix[0]
+        self.row_top=0
+        self.row_bottom=len(matrix)-1
+        self.col_left=0
+        self.col_right=len(matrix[0])-1
+        print(len(matrix[0]))
+        self.output=[]
+        while(self.row_top<=self.row_bottom and self.col_left<=self.col_right):
+        ### left to right
+            for col in range(self.col_left,self.col_right+1):
+                print(col)
+                self.output.append(matrix [self.row_top][col])
+            self.row_top+=1
+        ### top to bottom
+            for row in range(self.row_top,self.row_bottom+1):
+                self.output.append(matrix[row][self.col_right])
+            self.col_right-=1
+        ### right to left
+            for col in range(self.col_right,self.col_left-1,-1):
+                self.output.append(matrix[self.row_bottom][col])
+            self.row_bottom-=1
+        ### bottom to top
+            for row in range(self.row_bottom,self.row_top-1,-1):
+                self.output.append(matrix[row][self.col_left])
+            self.col_left+=1
+        return self.output
