@@ -19,21 +19,18 @@
 // Could you solve it with constant space complexity? (The output array does not count 
 //     as extra space for the purpose of space complexity analysis.)
 
-var productExceptSelf = function(nums) {
-    let left = [1], leftSum = 1;
-    let right = [1], rightSum = 1;
-    let res = [];
-
-    for(let i = 1; i<nums.length; i++) {
-        leftSum *= nums[i - 1];
-        left.push(leftSum);
+const productExceptSelf = function(nums) {
+    if(!nums || nums.length === 0) return [];
+    let res = [1];
+    runSum = 1;
+    for(let i = 1; i < nums.length; i++) {
+        runSum *= nums[i - 1]
+        res.push(runSum);
     }
-    for(let j = nums.length - 2; j>= 0; j--) {
-        rightSum *= nums[j+1];
-        right.unshift(rightSum);
-    }
-    for(let z=0; z < left.length; z++) {
-        res.push(left[z] * right[z]);
+    runSum = 1;
+    for(let j = nums.length - 2; j >= 0; j--) {
+        runSum *= nums[j + 1];
+        res[j] *= runSum; 
     }
     return res;
 };

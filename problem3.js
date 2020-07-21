@@ -38,7 +38,7 @@
 // Output: [1,2,3,4,8,12,11,10,9,5,6,7]
 
 var spiralOrder = function(matrix) {
-    let ans = new Array();
+    let ans = [];
     if (matrix.length == 0) return ans;
     let r1 = 0, r2 = matrix.length - 1;
     let c1 = 0, c2 = matrix[0].length - 1;
