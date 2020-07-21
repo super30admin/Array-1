@@ -2,7 +2,7 @@
 //      n: number of rows
 //      m: number of columns
 // Space Complexity : O(1)
-//      Used the input matrix
+//      Use the input matrix
 // Did this code successfully run on Leetcode : yes
 // Any problem you faced while coding this : no
 
