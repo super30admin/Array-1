@@ -1,0 +1,40 @@
+Approach 1 : 
+Time Complexity : O(m*n)
+Space Complexity: O(n) : if we consider to store the result array of length m*n = n
+
+class Solution:
+    def findDiagonalOrder(self, matrix: List[List[int]]) -> List[int]:
+        ## Edge Case 
+        if not matrix: return []       
+        n=len(matrix)        
+        m=len(matrix[0])        
+        result=[0]*(m*n)        
+        row,column=0,0        
+        direction=1        
+        for i in range(len(result)):            
+            result[i]=matrix[row][column]            
+            if direction==1: ### Going Up                
+                if row==0:                    
+                    column+=1                    
+                    direction-=1                
+                elif column==n-1:                    
+                    row+=1                    
+                    direction-=1                
+                else:                    
+                    row-=1                    
+                    column+=1            
+            else:                
+                if row==m-1: #Going down                  
+                    column+=1                    
+                    direction+=1                
+                elif column==0:                    
+                    row+=1                    
+                    direction+=1                
+                else:                    
+                    row+=1                   
+                    column-=1        
+        return result
+                    
+                    
+                    
+               
