@@ -14,7 +14,7 @@ class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         
         if nums is None:
-            return -1
+            return []
         
         result = []
         for main_pos in range(len(nums)):
@@ -44,7 +44,7 @@ class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         
         if nums is None:
-            return -1
+            return []
         
         left_arr, right_arr, result = [None] * len(nums), [None] * len(nums), [None] * len(nums)
         left_prod, right_prod = nums[0], nums[-1]
@@ -85,7 +85,7 @@ class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
         
         if nums is None:
-            return -1
+            return []
         
         result = [None] * len(nums)
         left_prod, right_prod = nums[0], nums[-1]
