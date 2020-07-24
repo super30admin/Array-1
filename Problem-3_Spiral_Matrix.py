@@ -1,6 +1,6 @@
 # APPROACH 1: OPTIMAL SOLUTION
 # Time Complexity : O(n*m), n: number of rows of matrix and m: number of column of the matrix
-# Space Complexity : O(n*m)
+# Space Complexity : O(n*m) - size of output array, else O(1)
 # Did this code successfully run on Leetcode : Yes
 # Any problem you faced while coding this : None
 #
