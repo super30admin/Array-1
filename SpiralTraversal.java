@@ -1,3 +1,7 @@
+//TC: O(m*n), m and n are the dimensions of the matrix
+//SC: O(1)
+
+
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
         if(matrix == null || matrix.length == 0 || matrix[0].length == 0) return new ArrayList();
