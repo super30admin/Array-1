@@ -1,0 +1,26 @@
+Approach 1 : Brute Force. Two for loops with condition in second loop and store all the running products.
+Time Complexity : O(n*2)
+Space Complexity : O(n)
+Approach 2:
+Time Complexity: O(n)
+Space Complexity : O(1) -- Result Array will be used to do my calculations
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        if len(nums)==0 or nums==[]:
+            return 0
+        result=[0]*(len(nums))
+        ## left pass
+        rp,temp=1,1
+        for i in range(0,len(nums)):
+            rp=rp*temp
+            result[i]=rp
+            temp=nums[i]
+            
+        ### Right pass
+        rp,temp=1,1
+        for i in range(len(nums)-1,0,-1):
+            rp=rp*temp
+            result[i]=result[i]*rp
+            temp=nums[i]
+        
+        return result
