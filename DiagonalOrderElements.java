@@ -1,21 +1,24 @@
 /*
- * Given a matrix of M x N elements (M rows, N columns), return all elements of the matrix in diagonal order as shown in the below image.
+ * #498. Diagonal Traverse
+ * 
+ Given a matrix of M x N elements (M rows, N columns), return all elements of the matrix in diagonal order as shown in the below image.
+
+ 
 
 Example:
 
 Input:
-
 [
-
-[ 1, 2, 3 ],
-
-[ 4, 5, 6 ],
-
-[ 7, 8, 9 ]
-
+ [ 1, 2, 3 ],
+ [ 4, 5, 6 ],
+ [ 7, 8, 9 ]
 ]
 
-Output: [1,2,4,7,5,3,6,8,9]
+Output:  [1,2,4,7,5,3,6,8,9]
+
+Note:
+
+The total number of elements of the given matrix will not exceed 10,000.
 
  */
 
@@ -25,7 +28,7 @@ Output: [1,2,4,7,5,3,6,8,9]
  * 
  * Space Complexity: O (1) -> returning the same array as output which we created so no extra space
  * 
- * Did this code successfully run on leetcode: No leetcode link given
+ * Did this code successfully run on leetcode: Yes
  * 
  * Any problem you faced while coding this: Not really
  * 
@@ -34,26 +37,28 @@ Output: [1,2,4,7,5,3,6,8,9]
 
 package com.s30.edu.array1;
 
-import java.util.Arrays;
-
 public class DiagonalOrderElements {
-	public int[] findDiagonalOrder(int[][] matrix) {
-		// Initialize row and column index to 0
-		int x = 0;
-		int y = 0;
-		int numOfRows = matrix.length; // get number of rows
-		int numOfColumns = matrix[0].length; // get number of columns
+public int[] findDiagonalOrder(int[][] matrix) {
+        
+		// Base condition
+		// If matrix is null or rows/colums are zero, return empty array
+        if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
+            return new int[0];
+        }
+        
+        int x = 0; // matrix row index
+		int y = 0; // matrix column index
+		int numOfRows = matrix.length; // number of rows
+		int numOfColumns = matrix[0].length; // number of columns
 		
-		// Create a result array to store the diagonal order of matrix elements
-		// length of array will be rows x columns of given matrix
+		// Create a result array with length = total number of elements in matrix
 		int[] res = new int[matrix.length * matrix[0].length];
 		
-		// Traverse through the result array to fill it up
+		// Traverse through the result array and store the matrix elements in diagonal order
 		for(int i = 0; i < numOfRows * numOfColumns; i++) {
-			res[i] = matrix[x][y]; // copy the first element from matrix in result array
+			res[i] = matrix[x][y]; // copy the element in result array
 			
-			
-			// Then, based on the conditions, traverse downwards or upwards in the given matrix diagonally
+			// IF condition is satisfied
 			if((x + y) % 2 == 0) {
 				//If last column, then go to next row
 				if(y == numOfColumns - 1) {
@@ -68,6 +73,7 @@ public class DiagonalOrderElements {
 					y++;
 				}
 			}
+			//Else
 			else {
 				//If last row, go to next column
 				if(x == numOfRows - 1) {
@@ -86,23 +92,7 @@ public class DiagonalOrderElements {
 			}
 			
 		}
-		
-		// return the result array with matrix elements in diagonal order (upwards and downwards alternately)
-		return res;
-		
-	}
-	
-	// main method
-	public static void main(String[] args) {
-		DiagonalOrderElements dt = new DiagonalOrderElements();
-		int[][] input = {
-		         {1,2,3},
-		         {4,5,6},
-		         {7,8,9},
-		};
-		
-		int[] output = dt.findDiagonalOrder(input);
-		System.out.println(Arrays.toString(output));
-	}
+		return res; // return result array with matrix elements in diagonal order
+    }
 	
 }
