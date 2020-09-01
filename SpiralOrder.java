@@ -40,7 +40,7 @@ Input:
 /*
  * Time Complexity: O (NxM) -> To traverse the rows and columns of a matrix
  * 
- * Space Complexity: O (NxM) -> Created an array to store the matrix elements in spiral order
+ * Space Complexity: O (1) -> returning the same array as output which we created so no extra space
  * 
  * Did this code successfully run on leetcode: No leetcode link provided
  * 

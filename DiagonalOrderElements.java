@@ -23,7 +23,7 @@ Output: [1,2,4,7,5,3,6,8,9]
 /*
  * Time Complexity: O (NxM) -> To traverse the result array of size NxM
  * 
- * Space Complexity: O (NXM) ->Created result array to store the matrix elements in diagonal order
+ * Space Complexity: O (1) -> returning the same array as output which we created so no extra space
  * 
  * Did this code successfully run on leetcode: No leetcode link given
  * 
