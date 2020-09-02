@@ -5,6 +5,10 @@
 
 // Your code here along with comments explaining your approach
 
+// in first iteration take left side product of all the elements
+// next time take the right side product starting from right side(end) of the array and multipy with current left side product of the array
+// return result
+
 /*
  * Given an array nums of n integers where n > 1, return an array output such
  * that output[i] is equal to the product of all the elements of nums except
