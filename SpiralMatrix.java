@@ -2,9 +2,9 @@
 // Space Complexity : O(1)
 // Did this code successfully run on Leetcode : Yes
 // Three line explanation of solution in plain english
-//1. Maintain four pointers Top, Bottom, Left, Right to traverse though the matrix.
-//2.  Whenever you finish traversing a border update that pointer and go ahead.
-
+//1. Keep a track of four pointers representing each boundary, after traversing and adding
+//to array one of 4 side which constitute a spiral traversal, shrink the boundary.
+//repeat the same until the boundaries haven't crossed each other.
 // Your code here along with comments explaining your approach
 import java.util.*;
 

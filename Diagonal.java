@@ -2,9 +2,9 @@
 // Space Complexity : O(1)
 // Did this code successfully run on Leetcode : Yes
 // Three line explanation of solution in plain english
-//1. We traverse through the array diagonnaly and print the elements.
-//2. We set a flag value to true if we are going upwards and false if we are going downwards.
-//3. While going upward we increment the row index and decrement the column index and vice versa while going downwards.
+//1. Keep a track of three pointers representing row, column and direction.
+//2. For every direction compute three cases which can occur and manipulate the pointers accordingly.
+//3. Repeat the same until the pointers haven't reached the length and width of the matrix
 
 // Your code here along with comments explaining your approach
 public class Diagonal {
