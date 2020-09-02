@@ -9,13 +9,9 @@
 
         # Optimized approach same like basic approach: 
                               
-            # 1. calcuate.
-              2. Traverse thru the matrix one by one the break condition will be top must be less and equalt to bottom similarly left
-                 if lesser and equal to right.
-              3. Starting from left to right till the left reaches to the right. Add the elements till that point and then increment
-                 the top.
-              4. Move from top towards bottom till the top reaches to the bottom. Add the elements till that point and then 
-                 decrement the right.
+            # 1. calculate the left side multiplicate of an element.
+              2. multiple the same array position with the right side multiplication anf an element.
+              3. return result array.
     */
     import java.util.*;
     public class productExceptSelf{

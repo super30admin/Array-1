@@ -1,25 +1,20 @@
     /*  Explanation
-    # Leetcode problem link : https://leetcode.com/problems/spiral-matrix/
+    # Leetcode problem link : https://leetcode.com/problems/diagonal-traverse/
     Time Complexity for operators : o(m*n) .. number of  elements in the matrix
-    Extra Space Complexity for operators : o(1) .. List is the required return type.
+    Extra Space Complexity for operators : o(1) .. Array is the required return type.
     Did this code successfully run on Leetcode : Yes
     Any problem you faced while coding this : No
 # Your code here along with comments explaining your approach
-        # Basic approach : Traverse thru the entire matrix by considering 4 pointers..
+        # Basic approach : 
 
         # Optimized approach same like basic approach: 
                               
-            # 1. consider 4 pointers top left pointing to (0,0) theelement. Bottom will be last row and right will be for last column.
-              2. Traverse thru the matrix one by one the break condition will be top must be less and equalt to bottom similarly left
-                 if lesser and equal to right.
-              3. Starting from left to right till the left reaches to the right. Add the elements till that point and then increment
-                 the top.
-              4. Move from top towards bottom till the top reaches to the bottom. Add the elements till that point and then 
-                 decrement the right.
-              5. Move from right towards left till the right reaches to the left. Add the elements till that point and then 
-                 decrement the bottom. The corner case needs to be considered here. Check if top<=bottom so that element cannot be added again
-              6. Move from bottom towards top till the top reaches to the top. Add the elements till that point and then 
-                 increment the left. The corner case needs to be considered here. Check if left<=right so that element cannot be added again
+            # 1. traverse thru thee array but change  i and j according to the requirement in the question.
+              2. Direction flag will be  changed when moving upward and downward.
+              3. if i==0 that emans you reached at top then move one position  ahead. If it is last in the forst row then
+                 move to the next row and same column.
+              4. Similary check on the left side.
+              5. return result array.
     */
     import java.util.*;
     public class diagonalTraversalMatrix{
