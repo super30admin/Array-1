@@ -1,5 +1,5 @@
-// Time Complexity :o(n) + o(n) for the two for loops
-// Space Complexity : O(n) for storing the resultant array
+// Time Complexity :o(n) + o(n) for the two for loops where n is length of nums
+// Space Complexity : O(n) for storing the resultant array where n is length of nums
 // Did this code successfully run on Leetcode :yes
 // Any problem you faced while coding this :
 

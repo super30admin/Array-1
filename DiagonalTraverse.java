@@ -1,4 +1,4 @@
-// Time Complexity :O(n*m)
+// Time Complexity :O(n*m) where n is the unmber of rows and m is cols
 // Space Complexity : O(1)
 // Did this code successfully run on Leetcode : yes
 // Three line explanation of solution in plain english

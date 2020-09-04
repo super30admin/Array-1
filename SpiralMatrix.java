@@ -1,5 +1,5 @@
-// Time Complexity : O(n) since we are looking all the elements in the matrix once
-// Space Complexity : O(n) since we have to store the elements in the list
+// Time Complexity : O(n*m) since we are looking all the elements in the matrix once. Here n is num of rows and m is num of cols
+// Space Complexity : O(n*m) since we have to store the elements in the list. Here n is num of rows and m is num of cols
 // Did this code successfully run on Leetcode :
 // Three line explanation of solution in plain english
 
