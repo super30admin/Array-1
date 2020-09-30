@@ -1,0 +1,28 @@
+// Time Complexity - O(N)
+// Space Complexity -  O(N)
+
+
+class Solution {
+       public List<Integer> spiralOrder(int[][] matrix) { // Declare matrix with  r*n 
+        ArrayList<Integer> spiral = new ArrayList<Integer>();
+        int m = matrix.length;
+        if(m==0)
+            return spiral;
+        int n = matrix[0].length;
+        int i, j=0, k=0; 
+        while(j<m && k<n)
+        {
+            for(i=k; i<n; i++)
+                spiral.add(matrix[j][i]); // Add operation
+            j++;
+            
+            for(i=j; i<m; i++)
+                spiral.add(matrix[i][n-1]);
+            n--;
+            if(j<m)
+            {
+                for(i=n-1; i>=k; i--)
+                    spiral.add(matrix[m-1][i]);
+                m--;
+            }
+            

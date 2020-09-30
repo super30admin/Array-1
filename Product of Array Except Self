@@ -1,0 +1,23 @@
+Time Complexity - O(N)
+Space Complexity - O(N)
+
+// Multiply the left part and store values and seperately multiyply the right part and store the values
+// When a number is passed and if it sthe 3rd eleemnt left part of the array vlue is multipled with the right part of the array
+
+
+class Solution {
+	public int[] productExceptSelf(int[] nums) {
+		int[] result=new int[nums.length];
+		result[nums.length-1]=1;
+		for(int i=nums.length-2; i>=0; i--) {
+			result[i]=result[i+1]*nums[i+1];
+		}
+    
+		int left=1;
+		for(int i=0; i<nums.length; i++){
+			result[i]*=left;
+			left*=nums[i];
+		}
+		return result;
+	}
+}
