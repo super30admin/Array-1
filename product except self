@@ -1,0 +1,19 @@
+time : O(n); space : O(1)
+// we take left and right products for each element of array
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+   //     int[] output = new int[nums.length];
+        int[] left = new int[nums.length];
+        
+        left[0] = 1;
+        for(int i =1; i<nums.length; i++){
+            left[i] = left[i-1] * nums[i-1];
+        }
+        int product = 1;
+        for(int i = nums.length-1; i >= 0; i--){
+            left[i] = product * left[i];
+            product *= nums[i];
+        }
+        return left;
+    }
+}
