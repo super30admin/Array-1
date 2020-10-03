@@ -1,0 +1,47 @@
+// time complexity: O(m*n);
+//space complexity: O(m*n);
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        if(matrix.length == 0 || matrix == null) return new ArrayList<>();
+        List<Integer> result = new ArrayList<>();
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int row = 0;
+        int col = n-1;
+        int r = m-1;
+        int c =0;
+       
+    while(c <= col && row <= r){
+       //1st row:
+        for(int j = c; j <= col; j++){
+            result.add(matrix[row][j]);
+        }
+        row++;
+        
+        //last col
+        for(int i = row; i <= r; i++){
+            result.add(matrix[i][col]);
+        }
+        col--;
+        if(row <= r){
+        //last row
+            for(int j= col; j >= c; j--){
+            result.add(matrix[r][j]);
+        }
+        r--;
+        }
+        
+        if(c <= col){
+        //1st row
+            for(int i = r; i >= row; i--){
+            result.add(matrix[i][c]);
+            }
+            c++;
+        }
+    }
+    
+        return result;
+        
+    }
+}
