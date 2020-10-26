@@ -1,3 +1,11 @@
+# Time Complexity: O(m*n) - dimentions of matrix
+# Space Complexity: O(1)
+# Did this run on Leetcode: Yes
+# Approach:
+# Use pointer to keep track of the matrix boundaries and the direction of traversal
+# Start at index [0][0] moving right
+# Update the direction and shrink boundaries till the converge and cross over.
+
 class Solution(object):
     def spiralOrder(self, matrix):
         """
@@ -7,14 +15,13 @@ class Solution(object):
         result = []
         if not matrix:
             return []
-        
+
         top = 0
         right = len(matrix[0]) - 1
         bottom = len(matrix) - 1
         left = 0
         dir = 0
-        
-        
+
         while left <= right and top <= bottom:
             if dir == 0:
                 for i in range(left, right+1):
@@ -36,5 +43,5 @@ class Solution(object):
                     result.append(matrix[i][left])
                 left += 1
                 dir = 0
-                    
+
         return result

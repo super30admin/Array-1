@@ -1,5 +1,10 @@
 # Time Complexity: O(n)
-# Space Complexity: O(n)
+# Space Complexity: O(1)
+# Did this run on Leetcode: Yes
+# Approach: 
+# The product of all other elements at any index is the product of elements to the left and elements to the right of it
+# Compute the left running product in the results array
+# Use the same array and traverse it in reverse to compute the right running product
 class Solution(object):
     def productExceptSelf(self, nums):
         """
