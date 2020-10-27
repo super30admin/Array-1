@@ -2,37 +2,41 @@
 #Spacecomplexity O(1) 
 
 class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        if len(matrix)  == 0: return []
+    def findDiagonalOrder(self, matrix: List[List[int]]) -> List[int]:
+        if matrix==[]: return []
         m = len(matrix)
         n = len(matrix[0])
-        result = []
-        left, right = 0, n-1
-        up, down = 0, m-1
-  
+        result=[_ for _ in range(len(matrix)*len(matrix[0]))]
         
-        while(up<=down and left<=right):
-            
-            if up<=down and left<=right:
-                for j in range(left,right+1):
-                    result.append(matrix[up][j])
-                up+=1
+        d = 1
+        idx = 0
+        i,j = 0,0
+        while(idx < (m*n)):
+            print(idx)
+            print(result[idx],len(result))
+            result[idx] = matrix[i][j]
+            if d == 1:
+                if j == (n-1):
+                    i+=1
+                    d = -1
+                elif i == 0:
+                    j+=1
+                    d = - 1
+                else:
+                    i-=1
+                    j+=1
                 
-            if up<=down and left<=right:
-                for j in range(up, down+1):
-                    result.append(matrix[j][right]) 
-                right-=1
-                
-            if up<=down and left<=right:
-                for j in range(right, left-1, -1):
-                    result.append(matrix[down][j])  
-                down-=1
-            
-            if up<=down and left<=right:
-                for j in range(down, up-1, -1):
-                    result.append(matrix[j][left])  
-                left+=1
-                
+            else:
+                if i == (m-1):
+                    j+=1
+                    d = 1
+                elif j == 0:
+                    i+=1
+                    d = 1
+                else:
+                    i+=1
+                    j-=1
+            idx +=1
         return result
-                
+            
         
