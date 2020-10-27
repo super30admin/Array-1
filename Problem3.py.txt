@@ -1,0 +1,38 @@
+# Time Complexity : O(size_of_matrix)
+# Space Complexity : O(1)
+# Did this code successfully run on LeetCode : Yes
+# Any problem you faced while coding this : No
+
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        if len(matrix) == 0 or (len(matrix) == 1 and matrix[0] == []):
+            return []
+        
+        row = col = minRow = minCol = 0
+        maxRow = len(matrix)-1
+        maxCol = len(matrix[0])-1
+        result = []
+        
+        while maxRow >= minRow and maxCol >= minCol:
+            
+            if maxRow >= minRow and maxCol >= minCol:
+                for i in range(minCol, maxCol+1):
+                    result.append(matrix[minRow][i])
+                minRow += 1
+            
+            if maxRow >= minRow and maxCol >= minCol:
+                for i in range(minRow, maxRow+1):
+                    result.append(matrix[i][maxCol])
+                maxCol -= 1
+                
+            if maxRow >= minRow and maxCol >= minCol:
+                for i in range(maxCol, minCol-1, -1):
+                    result.append(matrix[maxRow][i])
+                maxRow -= 1
+            
+            if maxRow >= minRow and maxCol >= minCol:
+                for i in range(maxRow, minRow-1, -1):
+                    result.append(matrix[i][minCol])
+                minCol += 1
+            
+        return result
