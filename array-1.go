@@ -4,4 +4,6 @@ func main() {
 	MainDiagonal()
 
 	MainProduct()
+
+	MainSpiral()
 }
