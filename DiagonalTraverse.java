@@ -12,36 +12,28 @@ class Solution {
         Map<Integer,List<Integer>> map = new HashMap<>();
         for(int i=0;i<m;i++)
         {
-            for(int j=0;j<n;j++)
-            {
+            for(int j=0;j<n;j++){
                 int key = i+j;
-                if(!map.containsKey(key))
-                {
+                if(!map.containsKey(key)){
                     map.put(key, new ArrayList<>());
                 }
-                if(key % 2 == 0)
-                {
+                if(key % 2 == 0){
                     map.get(key).add(0, matrix[i][j]);  //   
                 }
-                else if(key % 2 == 1)
-                {
+                else if(key % 2 == 1){
                     map.get(key).add(matrix[i][j]);
                 }
             }
         }
         int[] res = new int[m*n];
         int j =0;
-        for(int i=0; i<m+n-1;i++)  // no of diagonals
-        {
+        for(int i=0; i<m+n-1;i++){ // no of diagonals
             List<Integer> l = map.get(i);
             System.out.println(i+ " "+l);
-            
-            for(Integer element:l)
-            {
+            for(Integer element:l){
                 res[j++] = element;  // adding all the diagonals in the list
             }
         }
-        
         return res;
     }
 }
