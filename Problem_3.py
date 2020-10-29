@@ -1,3 +1,17 @@
+"""
+Time Complexity : O(m*n) as we travers through the whole matrix
+Space Complexity : O(1) as we are returning the array
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+
+
+Your code here along with comments explaining your approach
+In this solution, we need to go in a spiral fashion. So, we maintain directions, and 4 pointers, ie, top, bottom,
+left and right. By keeping a watch on the direction, we increment or decrement our pointers, in order
+to move in a spiral fashion.
+"""
+
+
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         if not matrix:
