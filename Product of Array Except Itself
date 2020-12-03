@@ -1,0 +1,55 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Three line explanation of solution in plain english: Idea is to traverse from l->r && back from r->l using additional array and running product.
+
+// Your code here along with comments explaining your approach
+SOLUTION:
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        if(nums.length==0 || nums==null){
+            return new int[0];
+        }
+        
+//         int[] arr1 = new int[nums.length];
+//         int[] arr2 = new int[nums.length];
+//         int rp = 1;
+//         arr1[0] = 1;
+
+//         for(int i = 1 ; i < arr1.length ; i++){
+//             arr1[i] = rp * nums[i-1];
+//             rp = rp*nums[i-1];
+//             // System.out.println(arr1[i]);
+//         }
+        
+//         int lp = 1;
+//         arr2[arr2.length-1] = 1;
+//         for(int j = arr1.length - 2 ; j >= 0 ; j--){
+//             arr2[j] = lp * nums[j+1];
+//             lp = lp * nums[j+1];
+//             // System.out.println(arr2[j]);
+//         }
+        
+//         for(int i = 0; i < nums.length ; i++){
+//             nums[i] = arr1[i] * arr2[i];
+//         }
+
+//         return nums;
+        
+        int[] res = new int[nums.length];
+        res[0] = 1;
+        for(int i = 1 ; i < res.length ; i++){
+            res[i] = nums[i-1] * res[i-1];
+            // System.out.println(res[i]);
+        }
+        
+        int rl = 1;
+        for(int j = res.length -1 ; j>=0 ; j--){
+            res[j] = rl * res[j];
+            rl *= nums[j];
+        }
+        
+        return res;
+    }
+}
