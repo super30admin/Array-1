@@ -1,0 +1,71 @@
+/ Time Complexity : O(M*N)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :Yes
+// Three line explanation of solution in plain english
+
+/* Basically check the elements at all cornersand move the pointer with the directions; dir=1 for up and
+dir =-1 for down direction. Moving down the row increases and column decreases; moving up the row decreases and column increases. */
+
+// Your code here along with comments explaining your approach
+
+    public int[] findDiagonalOrder(int[][] matrix) {
+        if(matrix==null||matrix.length==0)
+        {return new int [0];
+        }
+        
+        int m=matrix.length; //row
+            int n=matrix[0].length; //column
+        
+        int row=0,col=0;
+        
+        int [] result= new int[m*n]; // array of given length
+        
+        int dir=1; // direction ==1 for going up and dir==-1 for going down
+        int i=0;
+        
+        while (i<m*n) //as long as the 
+        {
+            result[i]=matrix[row][col];
+            
+            if(dir==1) // check col =n-1 first to avoid adding extra column 
+            {
+                if(col==n-1)
+                {
+                    row++;
+                    dir=-1;
+                }
+                else if(row==0)
+                {
+                    col++;
+                    dir=-1;
+                }
+                else
+                {
+                    row--;
+                    col++;
+                }
+            }
+            else
+            {
+                if(row==m-1)
+                {
+                    col++;
+                    dir=1;
+                }
+                else if(col==0)
+                {
+                    row++;
+                    dir=1;
+                }
+                else
+                {
+                    row++;
+                    col--;
+                }
+            }
+            i++;
+        }
+        return result;
+        
+    }
+}

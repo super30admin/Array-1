@@ -1,0 +1,61 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Three line explanation of solution in plain english
+//check for the elements in the first row and then change the top location and go until bottom; similarly
+// change the right location. Check if the top value is still less than bottom then iterate through the matrix
+
+// Your code here along with comments explaining your approach
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> result=new ArrayList<>();
+        
+        if(matrix==null||matrix.length==0)
+            return result;
+        
+        int left=0, right=matrix[0].length-1;
+        int top=0,bottom=matrix.length-1;
+        
+        while(top<=bottom&&left<=right)
+        {
+            
+            // top row
+            for(int i=left;i<=right;i++)
+            {
+                result.add(matrix[top][i]);
+            }
+            top++;
+            
+            
+            
+            //last column
+            for(int i=top;i<=bottom;i++)
+            {
+                result.add(matrix[i][right]);
+            }
+            right--;
+            
+            //as long as the top is still less than bottom, check the last row
+            if (top<=bottom)
+            {
+                for(int i=right;i>=left;i--)
+            {
+                result.add(matrix[bottom][i]);
+            }
+            }
+            bottom--;
+            
+            //check the first column when the left element is still less than the right one. 
+            if(left<=right)
+            {
+                for(int i=bottom;i>=top;i--)
+             {
+                result.add(matrix[i][left]);
+            }
+            }
+            left++;
+        }
+        return result;
+    }
+}
