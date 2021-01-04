@@ -1,5 +1,9 @@
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        '''
+        Time: O(n^2) since we are visiting every element once
+        Space: O(1) if not considering output array
+        '''
         x = []
         k=0
         while(len(x)<len(matrix)*len(matrix[0])):
