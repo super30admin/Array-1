@@ -1,5 +1,6 @@
 class Solution:
     def findDiagonalOrder(self, matrix: List[List[int]]) -> List[int]:
+        # Time complexity: O(n^2), Space Complexity: O(1)
         x = []
         if(len(matrix)==0):
             return x
