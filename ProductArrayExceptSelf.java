@@ -5,7 +5,7 @@
 
 // Your code here along with comments explaining your approach 
 /*
-  Brute force : For each elemnet calculat product of all except itself-TC->O(n^2), SC->O(1)
+  Brute force : For each element calculate product of all except itself-TC->O(n^2), SC->O(1)
   Optimal     : 1) Create two arrays called left array and right array of similar size of input array. 
                 2) Initialize leftArr first index with 1 and then store product of 0 to n-2 elements of input array in the left array.
                 3) Initialize rightArr last index with 1 and then store product of n-1 to 1 elements of input array in the right array.
