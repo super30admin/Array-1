@@ -1,39 +1,59 @@
 // Time Complexity : O(M*N)
 // Space Complexity : O(M*N)
 // Did this code successfully run on Leetcode :Yes
-// Any problem you faced while coding this : Not too much. 
+// Any problem you faced while coding this : Figuring out that we can use begRow and endRow and begCol and endCol as indices. 
 
 // Your code here along with comments explaining your approach
 
-public class Solution {
+class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> res = new ArrayList<Integer>();
-        if(matrix.length == 0 || matrix[0].length == 0) return res;
-        
-        int top = 0;
-        int bottom = matrix.length-1;
-        int left = 0;
-        int right = matrix[0].length-1;
-        
-        while(true){
-            for(int i = left; i <= right; i++) res.add(matrix[top][i]);
-            top++;
-            if(left > right || top > bottom) break;
-            
-            for(int i = top; i <= bottom; i++) res.add(matrix[i][right]);
-            right--;
-            if(left > right || top > bottom) break;
-            
-            for(int i = right; i >= left; i--) res.add(matrix[bottom][i]);
-            bottom--;
-            if(left > right || top > bottom) break;
-            
-            for(int i = bottom; i >= top; i--) res.add(matrix[i][left]);
-            left++;
-            if(left > right || top > bottom) break;
+        if(matrix == null || matrix.length == 0){
+            return new ArrayList<Integer>();
         }
         
-        return res;
+        List<Integer> result = new ArrayList<Integer>();
+        
+        int top = 0;
+        int bot = matrix.length-1;
+        int right = matrix[0].length-1;
+        int left = 0;
+        
+        while(top <= bot && left <= right){
+
+            //traverse right
+            for(int i = left; i <= right; i++){
+                result.add(matrix[top][i]);
+            }
+
+            top++;
+            
+            //Traverse downwards
+            for(int i = top; i <= bot; i++){
+                result.add(matrix[i][right]);
+            }
+            
+            right--;
+            
+            //Traverse left
+            if(top <= bot){
+                for(int i = right; i >= left; i--){
+                    result.add(matrix[bot][i]);
+                }
+            }
+            
+            bot--;
+            
+            //Traverse Up
+            if(left <= right){
+                for(int i = bot; i >= top; i--){
+                    result.add(matrix[i][left]);
+                }
+            // System.out.println("R: " + row +", and C:" + col);
+            }
+            
+            left++;
+            
+        }
+        return result;
     }
-    
 }
