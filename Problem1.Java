@@ -1,10 +1,10 @@
 // Time Complexity : O(n) where n is the number of elements in array
-// Space Complexity : 
+// Space Complexity : O(1)
 // Did this code successfully run on Leetcode : yes
 // Three line explanation of solution in plain english - 
 // 1. Create an array with same lengeth as of input.
 // 2. Iterate from left to right calculating the product of only left elements in array and storing inside the new array which we created in step 1.
-// 3. Repeart step 2 but this time from right to left and also while we rplace the new array items, just multiple by earlier existing item in the array. Return result.
+// 3. Repeart step 2 but this time from right to left and also while we rplace the new array items, just multiply by earlier existing item in the array. Return result.
 
 
 class Solution {
