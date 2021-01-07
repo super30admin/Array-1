@@ -1,4 +1,4 @@
-// Time Complexity : O(mn) where m is number of rows and n is number of columns in matrix.
+// Time Complexity : O(m*n) where m is number of rows and n is number of columns in matrix.
 // Space Complexity : O(1)
 // Did this code successfully run on Leetcode : yes
 // Any problem you faced while coding this : no
