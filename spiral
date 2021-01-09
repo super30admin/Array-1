@@ -1,0 +1,62 @@
+// Time Complexity : O(m x n)
+// Space Complexity : O(m x n)
+// Did this code successfully run on Leetcode : yes
+// Three line explanation of solution in plain english we had 4 four loops taking care of left to right, top to bottom, righ to left, and bottom to top.
+
+// Your code here along with comments explaining your approach
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        ArrayList<Integer> ret = new ArrayList<Integer>();
+        if(matrix == null || matrix.length == 0) return ret;
+        //this is row
+        int m = matrix.length;
+        //this is coloumns
+        int n = matrix[0].length;
+        //this is return array
+        //left pointer
+        int l = 0;
+        //top pointer
+        int t = 0;
+        //right pointer 
+        int r = matrix[0].length - 1;
+        //bottomr pointer 
+        int b = matrix.length - 1;
+        
+        //while loop will go until left and right dont overlap and top and bottom dont over lap
+        while (l <= r && t <= b){
+            //this for loop takes care of left to right
+            for(int j = l; j <= r; j++){
+                ret.add(matrix[t][j]);
+            }
+            //move top down one
+            t++;
+            //this for loop takes care of top to bottom
+            if(l <= r && t <= b){
+                for(int i = t; i <= b; i++){
+                    ret.add(matrix[i][r]);
+                }
+            }
+            //move right to the left
+            r--;
+            //this for loop takes care of right to left
+            if(l <= r && t <= b){
+                for(int i = r; i >= l; i--){
+                    ret.add(matrix[b][i]);
+                }
+            //this moves bottom up one
+            b--;
+            }
+            //this for loop takes care of bottom to top
+            if(l <= r && t <= b){
+                for(int i = b; i >= t; i--){
+                    ret.add(matrix[i][l]);
+                }
+            }
+            //move the left pointer
+            l++;
+            
+        }
+        return ret;
+    }
+}
