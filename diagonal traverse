@@ -1,0 +1,56 @@
+// Time Complexity : O(m*n)
+// Space Complexity : O(m*n)
+// Did this code successfully run on Leetcode : yes
+// Three line explanation of solution in plain english: I checked the direction where it was up or down. If it was up I checked if it was first row, lats col, or anything else and went accordingly. If it was down I checked if it was last row, first col, or anything elsea nd went accordingly.
+
+// Your code here along with comments explaining your approach
+
+class Solution {
+    public int[] findDiagonalOrder(int[][] matrix) {
+        if(matrix == null || matrix.length == 0) return new int [0];
+        int [] ret = new int [matrix[0].length * matrix.length];
+        int n = matrix[0].length * matrix.length;
+        int i = 0;
+        int j = 0;
+        //ret[0] = matrix[0][0];
+        int index = 0;
+        int dir = 1;
+        while(index < matrix[0].length * matrix.length){
+            ret[index] = matrix[i][j];
+            //check direction 
+            if(dir == 1){
+                if(/*i == 0 && */ j == matrix[0].length - 1){
+                    dir = -1;
+                    i++;
+                }
+                else if(i == 0){
+                    dir = -1;
+                    j++;
+                }
+                else{
+                    dir = 1;
+                    i--;
+                    j++;
+                }
+            }
+            else{
+                if(i == matrix.length - 1){
+                    dir = 1;
+                    j++;
+                }
+                else if(j == 0){
+                    dir = 1;
+                    i++;
+                }
+                else{
+                    dir = -1;
+                    i++;
+                    j--;
+                }
+                
+            }
+            index++;
+        }
+        return ret;
+    }
+}
