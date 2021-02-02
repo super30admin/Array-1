@@ -1,0 +1,26 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Y
+// Any problems : N
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n=nums.size();
+        vector<int> leftprod(n);
+        
+        leftprod[0]=1;
+        for(int i=1;i<n;i++)
+        {
+            leftprod[i]=leftprod[i-1] * nums[i-1];
+        }
+        int temp=1;
+        for(int i=n-1;i>=0;i--)
+        {
+            leftprod[i]=temp*leftprod[i];
+            temp*=nums[i];
+        }
+        
+        return leftprod;
+    }
+};

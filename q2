@@ -1,0 +1,58 @@
+// Time Complexity : O(MN)
+// Space Complexity : :O(1)
+// Did this code successfully run on Leetcode : Y
+//Any problems : N
+
+class Solution {
+public:
+    vector<int> findDiagonalOrder(vector<vector<int>>& matrix) {
+        if(matrix.empty()) return {};
+        int m=matrix.size(),n=matrix[0].size();
+        
+        vector<int> ans(m*n);
+        int x=0, dir=1,i=0,j=0;
+        
+        while(x<m*n)
+        {
+            ans[x]=matrix[i][j];
+            x++;
+            if(dir==1)
+            {
+                if(j==n-1)
+                {
+                    i++;
+                    dir=-1;
+                }
+                else if(i==0)
+                {
+                    j++;
+                    dir=-1;
+                }
+                else
+                {
+                    i--;
+                    j++;
+                }
+            }
+            else
+            {
+                if(i==m-1)
+                {
+                    j++;
+                    dir=1;
+                }
+                else if(j==0)
+                {
+                    i++;
+                    dir=1;
+                }
+                else
+                {
+                    i++;
+                    j--;
+                }
+            }
+        }
+        return ans;
+    }
+};

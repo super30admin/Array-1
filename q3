@@ -1,0 +1,51 @@
+/ Time Complexity : O(N)
+// Space Complexity : O(N)
+// Did this code successfully run on Leetcode : Y
+//Any problems : N
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int m=matrix.size(),n=matrix[0].size();
+        vector<int> ans(m*n);
+        int x=0,top=0,bottom=m-1,left=0,right = n-1;
+        while(x<m*n)
+        {
+            for(int i=left;i<=right;i++)
+            {
+                ans[x] = matrix[top][i];
+                x++;
+            }
+            top++;
+            if(x>=m*n)
+                return ans;
+            
+            for(int i=top;i<=bottom;i++)
+            {
+                ans[x] = (matrix[i][right]);
+                x++;
+            }
+            right--;
+            if(x>=m*n)
+                return ans;
+            
+            for(int i=right;i>=left;i--)
+            {
+                ans[x] = (matrix[bottom][i]);
+                x++;
+            }
+            bottom--;
+            if(x>=m*n)
+                return ans;
+            
+            for(int i=bottom;i>=top;i--)
+            {
+                ans[x] = (matrix[i][left]);
+                x++;
+            }
+            left++;
+            if(x>=m*n)
+                return ans;
+        }
+        return ans;
+    }
+};
