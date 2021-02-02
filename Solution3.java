@@ -32,13 +32,13 @@ class Solution {
             x += dx[dir%2];
             y += dy[dir%2];
 
-            if(x>=R){ //first condition is exceeds upper limit because we diagonal is in top down fashion
+            if(x>=R){ //first condition is exceeds upper limit because the diagonal is in top down fashion
                 y +=2;
                 x--;
                 dir++;
             }
 
-            if(y>=C){ //first condition is exceeds upper limit because we diagonal is in top down fashion
+            if(y>=C){ //first condition is exceeds upper limit because the diagonal is in top down fashion
                 x += 2;
                 y--;
                 dir++;
