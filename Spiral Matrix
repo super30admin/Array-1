@@ -1,0 +1,27 @@
+#stime complexity-O(N)
+#space Complexity-O(N)
+
+
+class Solution(object):
+    def spiralOrder(self, matrix):
+        if len(matrix) == 0: return []
+        if len(matrix) == 1: return matrix[0]
+        out = []
+        M, N = len(matrix), len(matrix[0])
+        iteration, max_iteration = 0, min(M, N)
+        m = n = 0
+        while iteration < max_iteration:
+            if iteration % 2 == 0: 
+                for j in xrange(n, N):   
+                    out += [matrix[m][j]]
+                for i in xrange(m+1, M): 
+                    out += [matrix[i][N - 1]]
+                m, N = m + 1, N - 1
+            else:
+                for j in reversed(xrange(n, N)):     
+                    out += [matrix[M - 1][j]]
+                for i in reversed(xrange(m, M - 1)): 
+                    out += [matrix[i][n]]
+                n, M = n + 1, M - 1
+            iteration += 1
+        return out
