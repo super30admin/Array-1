@@ -1,0 +1,23 @@
+#time complexity-O(N)
+#space complexity-O(N)
+#the code divides the given array to left and right then calculates the product of elements on the left side of a given element and then it claculates the same for the right element
+#the code then finds the product of the left array and right array to get the product of the answer array
+
+
+class Solution(object):
+    def productExceptSelf(self, nums):
+        left,right,answer=[0]*len(nums),[0]*len(nums),[0]*len(nums)
+        left[0]=1
+        right[-1]=1
+        for i in range(1,len(nums)):
+            left[i]=nums[i-1]*left[i-1]
+            
+        for i in reversed(range(len(nums)-1)):
+            right[i]=nums[i+1]*right[i+1]
+        
+        for i in range(0,len(nums)):
+            answer[i]=left[i]*right[i]
+            
+        
+    
+        return answer
