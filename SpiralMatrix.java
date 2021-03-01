@@ -1,5 +1,5 @@
 // Time Complexity : O(n)
-// Space Complexity : O(n) n for the output array size
+// Space Complexity : O(1)
 // Did this code successfully run on Leetcode : Yes
 // Three line explanation of solution in plain english
 
