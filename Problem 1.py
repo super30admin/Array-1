@@ -15,6 +15,7 @@ class Solution:
                     res = res * nums[j]
                     ans[i] = res
         return ans'''
+# The Optimised approach
 ans1 = [1] * len(nums)
 rp = 1
 for i in range(1, (len(nums))):
