@@ -1,7 +1,7 @@
 # Array-1
 
 ## Problem 1
-
+Leetcode 238
 Given an array nums of n integers where n > 1, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
 
 Example:
@@ -14,7 +14,7 @@ Follow up:
 Could you solve it with constant space complexity? (The output array does not count as extra space for the purpose of space complexity analysis.)
 
 ## Problem 2
-
+Leetcode 498
 Given a matrix of M x N elements (M rows, N columns), return all elements of the matrix in diagonal order as shown in the below image.
 
 Example:
@@ -34,6 +34,7 @@ Input:
 Output: [1,2,4,7,5,3,6,8,9]
 
 ## Problem 3
+Leetcode 54
 Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
 
 Example 1:
