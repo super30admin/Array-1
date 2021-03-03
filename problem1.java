@@ -1,3 +1,12 @@
+// Time Complexity : O(n) where n is length of array
+// Space Complexity : 0(1)
+// Did this code successfully run on Leetcode : Yes
+// Any problem you faced while coding this : No
+
+
+// Your code here along with comments explaining your approach
+
+
 class Solution {
     public int[] productExceptSelf(int[] nums) {
         //first we will take the leftproduct initially as 1
