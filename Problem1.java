@@ -1,6 +1,6 @@
 ///Array Product Except Self
 // Time Complexity : O(n)
-// Space Complexity : O(n) Constant
+// Space Complexity : O(1) Constant
 // Did this code successfully run on Leetcode : Yes
 //Approach 
 /*
