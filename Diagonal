@@ -1,0 +1,62 @@
+// Time Complexity :O(nm)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this :
+edge case
+
+// Your code here along with comments explaining your approach
+class Solution {
+    public int[] findDiagonalOrder(int[][] matrix) {
+        if(matrix == null || matrix.length == 0)
+            return new int[] {};
+        
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int[] result = new int[n*m];
+            
+        int index =0, i=0, j=0, dir =1;
+        
+        while(index < n*m)
+        {
+            result[index] = matrix[i][j];
+            if(dir == 1)
+            {
+                if(j == n-1)
+                {
+                    i++;
+                    dir = -1;
+                }
+                else if(i == 0)
+                {
+                    j++;
+                    dir =-1;
+                }
+                else
+                {
+                    i--;
+                    j++;
+                }
+            }
+            else
+            {
+                if( i == m-1)
+                {
+                    dir = 1;
+                    j++;
+                }
+                else if( j ==0)
+                {
+                    dir =1;
+                    i++;
+                }
+                else
+                {
+                    i++;
+                    j--;
+                }
+            }
+        index++;
+        }
+        return result;
+}
+}
