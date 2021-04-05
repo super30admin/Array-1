@@ -23,7 +23,7 @@ class Solution {
       product = product*nums[i-1];
       result[i] = product * result[i];
     }
-
     return result;
   }
 }
+

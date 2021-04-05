@@ -22,8 +22,6 @@ class Solution {
     int index=0, i=0, j=0, dir=1;
 
     while(index < m*n){
-      //     System.out.println("here");
-
       result[index] = matrix[i][j];
 
       if(dir == 1){

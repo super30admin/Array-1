@@ -38,7 +38,6 @@ class Solution {
 
       up++; down--; left++; right--;
     }
-
     return result;
   }
 }
