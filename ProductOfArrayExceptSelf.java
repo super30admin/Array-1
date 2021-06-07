@@ -1,3 +1,6 @@
+// TC: O(n)
+// SC: O(n)
+// This passes over the nums array 3 times
 class Solution {
     public int[] productExceptSelf(int[] nums) {
         if(nums == null || nums.length == 0) {
