@@ -1,3 +1,15 @@
+// Problem 2
+// Time Complexity :O(m*n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :yes 
+// Three line explanation of solution in plain english
+// iterate the entire matrix use a boolean variable to change the the traversal direction and handle boundary cases specific to the direction
+// elements are added and returned in integer vector res
+
+
+
+
+
 #include<iostream>
 #include<vector>
 #include<string>
