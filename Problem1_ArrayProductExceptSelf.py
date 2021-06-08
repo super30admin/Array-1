@@ -20,10 +20,14 @@ S30 SlackID : RN32MAY2021
 #-----------------
 # Time Complexity: 
 #-----------------
+# O(N): Need to iterate over each element of the input array once
+
 
 #------------------
 # Space Complexity: 
 #------------------
+# O(1): rhs is the only variable needed to store the product of the array
+#       to the right of the current element
 
 #-----------------------
 # Leet Code Performance: 
@@ -46,4 +50,4 @@ class Solution:
             output[i] = output[i] * rhs
             rhs *= nums[i]
 
-        return output      
+        return output
