@@ -3,22 +3,42 @@
 # Did this code successfully run on Leetcode : Yes
 # Any problem you faced while coding this : No
 
-#adding x and y index and grouping them with value if value is even then reverse else append directly
+# iterating through the array while maintaining the direction and checking the conditions such the index out of bound doesn't occur
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        a = {}
-        rows = len(mat)
-        columns = len(mat[0])
-        for i in range(rows):
-            for j in range(columns):
-                if i+j in a:
-                    a[i+j].append(mat[i][j])
-                else:
-                    a[i+j] = [mat[i][j]]
+        
+        
+        m = len(mat)
+        n = len(mat[0])
+        
+        i,j,d = 0,0,1
         out = []
-        for i in range(rows+columns-1):
-            if i % 2 == 0:
-                out += a[i][::-1]
+        
+        while i < m and j < n:
+            out.append(mat[i][j])
+            
+            if d == 1:
+                if j == n-1:
+                    i += 1
+                    d *= -1
+                elif i == 0:
+                    j += 1
+                    d *= -1
+                else:
+                    j += 1
+                    i -= 1
             else:
-                out += a[i]
+                if i == m-1:
+                    j += 1
+                    d *= -1
+                elif j == 0:
+                    i += 1
+                    d *= -1
+                else:
+                    i += 1
+                    j -= 1
         return out
+            
+            
+        
+        

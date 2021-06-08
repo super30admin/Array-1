@@ -7,24 +7,20 @@
 # except for the valuje zero element
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        zero = 0
-        prod = 1
-        for i in range(len(nums)):
-            if nums[i] != 0:
-                prod *= nums[i]
-            else:
-                zero += 1
-        for i in range(len(nums)):
-            if nums[i] != 0:
-                if zero == 0:
-                    nums[i] = prod // nums[i]
-                else:
-                    nums[i] = 0
-            else:
-                if zero == 1:
-                    nums[i] = prod
-                else:
-                    nums[i] = 0
-        return nums
-            
+        if len(nums) <= 1:
+            return nums
+        left  = [1]*len(nums)
+        right = [1]*len(nums)
+
+        for i in range(1,len(nums)):
+            left[i] = nums[i-1]*left[i-1]
+        for i in range(len(nums)-2,-1,-1):
+            right[i] = nums[i+1]*right[i+1]
+        
+        left = left * right
+
+        return left
+
+a = Solution()
+print(a.productExceptSelf([1,2,3,4,5,6]))
         
