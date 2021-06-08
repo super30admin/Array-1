@@ -33,6 +33,7 @@ class Solution:
             
             # bottom row, you need the if statements for bottom and left col
             # BECAUSE if you don't have this then it will go out of bounds
+            # you should keep this in mind for array type problems
             if row_index <= row:
                 for i in range(col, col_index-1, -1):
                     res.append(matrix[row][i])
