@@ -4,6 +4,8 @@ public class ProductExceptSelf {
     /*
     TC : O(n) where n is the length of the input array
     SC :O(n)
+     Did this code successfully run on Leetcode : Yes
+ Any problem you faced while coding this : No
      */
 
     /*
@@ -52,6 +54,40 @@ public class ProductExceptSelf {
             }
 
             return answer;
+        }
+
+        /*
+    TC : O(n) where n is the length of the input array
+    SC :O(n)
+     Did this code successfully run on Leetcode : Yes
+ Any problem you faced while coding this : No
+     */
+
+        /**
+         * This approach uses the same logic just that we are storing the answer in the output array.
+         * @param nums
+         * @return
+         */
+        public int[] productExceptSelf_approach_two(int[] nums) {
+
+            int[] output = new int[nums.length];
+            int left =1;
+            int right=1;
+
+            for(int i=0; i<nums.length;i++)
+            {
+                output[i] = left;
+                left *= nums[i];
+            }
+
+            for(int j=nums.length-1;j>=0;j--)
+            {
+                output[j] *= right;
+                right *= nums[j];
+            }
+
+            return output;
+
         }
     }
 }
