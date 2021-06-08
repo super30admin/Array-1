@@ -11,23 +11,31 @@ import java.util.List;
 
 public class SpiralOrder {
     public List<Integer> spiralOrder(int[][] matrix) {
-        List ans = new ArrayList();
-        if (matrix.length == 0)
-            return ans;
-        int r1 = 0, r2 = matrix.length - 1;
-        int c1 = 0, c2 = matrix[0].length - 1;
-        while (r1 <= r2 && c1 <= c2) {
-            for (int c = c1; c <= c2; c++) ans.add(matrix[r1][c]);
-            for (int r = r1 + 1; r <= r2; r++) ans.add(matrix[r][c2]);
-            if (r1 < r2 && c1 < c2) {
-                for (int c = c2 - 1; c > c1; c--) ans.add(matrix[r2][c]);
-                for (int r = r2; r > r1; r--) ans.add(matrix[r][c1]);
+        if (matrix == null || matrix.length == 0) return null;
+        int m = matrix.length, n = matrix[0].length;
+        int top = 0, bottom = m - 1, left = 0, right = n - 1;
+        List<Integer> out = new ArrayList<>();
+        while (top <= bottom && left <= right) {
+            for (int i = left; i <= right; i++)
+                out.add(matrix[top][i]);
+            top++;
+            if (top <= bottom && left <= right) {
+                for (int i = top; i <= bottom; i++)
+                    out.add(matrix[i][right]);
             }
-            r1++;
-            r2--;
-            c1++;
-            c2--;
+            right--;
+            if (top <= bottom && left <= right) {
+                for (int i = right; i >= left; i--)
+                    out.add(matrix[bottom][i]);
+            }
+            bottom--;
+            if (top <= bottom && left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    out.add(matrix[i][left]);
+                }
+            }
+            left++;
         }
-        return ans;
+        return out;
     }
 }
