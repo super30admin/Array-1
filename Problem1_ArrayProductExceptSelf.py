@@ -33,8 +33,8 @@ S30 SlackID : RN32MAY2021
 # Leet Code Performance: 
 #-----------------------
 # Ran Successfully?: Yes
-# Time             :   220 ms  ( 97.75 %ile)
-# Space            :   21.1 MB ( 62.46 %ile)
+# Time             : 220 ms  ( 97.75 %ile)
+# Space            : 21.1 MB ( 62.46 %ile)
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
