@@ -1,11 +1,10 @@
 """
 https://leetcode.com/problems/diagonal-traverse/#
 
-Time Complexity: O(n)
+Time Complexity: O(m*n)
 Space Complexity: O(1)
 I tried it on Leetcode.
 I did not get any errors.
-
 """
 
 
