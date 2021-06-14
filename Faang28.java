@@ -1,7 +1,7 @@
 package leetcode;
 
 //time complexity =O(M*N)
-//space complexity=O(m*n)
+//space complexity=O(1)
 
 import java.util.ArrayList;
 import java.util.List;
