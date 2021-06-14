@@ -1,7 +1,7 @@
 package leetcode;
 
 //time complexity =O(m*n)
-//space complexity=O(m*n)
+//space complexity=O(1)
 
 class Faang27 {
     public int[] findDiagonalOrder(int[][] mat) {
