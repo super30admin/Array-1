@@ -1,7 +1,7 @@
 // Time Complexity : O(N)
-// Space Complexity :
+// Space Complexity : O(N)
 // Did this code successfully run on Leetcode : yes
-// Three line explanation of solution in plain english
+// Three line explanation of solution in plain english: Calculating the left product and right product for each index of the given array and then taking the product of left and right product of each index to result array.
 
 // Your code here along with comments explaining your approach
 class Solution {
