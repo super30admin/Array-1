@@ -5,6 +5,53 @@
 package problem2;
 
 public class DiagonalTraverse {
+	/* -------------- Using a direction variable -------------- */
+	public int[] findDiagonalOrderSimulation(int[][] mat) {
+		if (mat == null || mat.length == 0) {
+			return new int[0];
+		}
+
+		int m = mat.length;
+		int n = mat[0].length;
+
+		int[] ans = new int[m * n];
+
+		int curRow = 0;
+		int curCol = 0;
+
+		int dir = 1;
+
+		for (int i = 0; i < ans.length; i++) {
+			ans[i] = mat[curRow][curCol];
+			if (dir == 1) {
+				if (curCol == n - 1) {
+					curRow++;
+					dir = -1;
+				} else if (curRow == 0) {
+					curCol++;
+					dir = -1;
+				} else {
+					curRow--;
+					curCol++;
+				}
+			} else {
+				if (curRow == m - 1) {
+					curCol++;
+					dir = 1;
+				} else if (curCol == 0) {
+					curRow++;
+					dir = 1;
+				} else {
+					curRow++;
+					curCol--;
+				}
+			}
+		}
+
+		return ans;
+	}
+
+	/* -------------- Using odd/ even check -------------- */
 	public int[] findDiagonalOrder(int[][] mat) {
 		if (mat == null || mat.length == 0) {
 			return new int[0];

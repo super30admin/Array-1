@@ -32,13 +32,30 @@ public class ArrayProduct {
 	}
 
 	/* -------------------------------------------------------------------------- */
-	/* -------------------------- DYNAMIC PROGRAMMING --------------------------- */
+	/* ------------------------------- THREE PASS ------------------------------- */
 	public int[] productExceptSelf(int[] nums) {
 		if (nums == null || nums.length == 0) {
 			return nums;
 		}
 
-		return nums;
+		int n = nums.length;
+
+		int[] result = new int[n];
+
+		result[0] = 1;
+
+		for (int i = 1; i < n; i++) {
+			result[i] = result[i - 1] * nums[i - 1];
+		}
+
+		int right = 1;
+
+		for (int i = n - 1; i >= 0; i--) {
+			result[i] *= right;
+			right *= nums[i];
+		}
+
+		return result;
 	}
 
 	public static void main(String[] args) {
@@ -47,7 +64,7 @@ public class ArrayProduct {
 		int[] newNums = obj.productExceptSelfBruteForce(nums);
 		System.out.println("New Array: ");
 		for (int i = 0; i < newNums.length; i++) {
-			System.out.println(newNums[i] + " ");
+			System.out.print(newNums[i] + " ");
 		}
 	}
 
