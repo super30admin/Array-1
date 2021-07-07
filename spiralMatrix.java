@@ -1,5 +1,5 @@
 // Time Complexity : O(M*N)
-// Space Complexity : O(M*N)
+// Space Complexity : O(1)
 // Did this code successfully run on Leetcode : yes
 // Three line explanation of solution in plain english
 
@@ -7,35 +7,45 @@
 
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
-        List ans = new ArrayList();
+        if(matrix == null || matrix.length == 0)
+            return new ArrayList<>();
         
-        if (matrix.length == 0)
-            return ans;
+        List<Integer> result = new ArrayList<>();
+        //no. of rows & cols
+        int m = matrix.length, n = matrix[0].length;
+        //top, bottom, left, right
+        int top = 0, bottom = m-1, left = 0, right = n-1;
         
-        int r1 = 0, r2 = matrix.length - 1;
-        int c1 = 0, c2 = matrix[0].length - 1;
-        
-        while (r1 <= r2 && c1 <= c2) {
-            
-            for (int c = c1; c <= c2; c++) 
-                ans.add(matrix[r1][c]);
-            
-            for (int r = r1 + 1; r <= r2; r++) 
-                ans.add(matrix[r][c2]);
-            
-            if (r1 < r2 && c1 < c2) {
-                
-                for (int c = c2-1; c > c1; c--) 
-                    ans.add(matrix[r2][c]);
-                
-                for (int r = r2; r > r1; r--) 
-                    ans.add(matrix[r][c1]);
+        while(top<=bottom && left<=right){
+            //left to right
+            for(int i=left; i<=right; i++){
+                result.add(matrix[top][i]);
             }
-            r1++;
-            r2--;
-            c1++;
-            c2--;
-        }
-        return ans;
+            top++;
+            
+            //top to bottom
+            for(int i=top; i<=bottom; i++){
+                result.add(matrix[i][right]);
+            }
+            right--;
+            
+            //right to left
+            if(top<=bottom){
+                for(int i=right; i>=left;i--){
+                result.add(matrix[bottom][i]);
+                }
+                bottom--;
+            }
+            
+            
+            //bottom to top
+            if(left<=right){
+                for(int i=bottom; i>=top; i--){
+                result.add(matrix[i][left]);
+                }
+                left++;
+            }
     }
+      return result;
+}
 }
