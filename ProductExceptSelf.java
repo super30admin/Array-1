@@ -1,20 +1,28 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
 
-        //o(n) space and o(n) time
-        int[] left = new int[nums.length];
-        int[] right = new int[nums.length];
-        left[0] = nums[0];
-        int run = 1;
+        //O(n) time and O(1) space
+
+        if (nums == null || nums.length == 0) return result;
+
+        int[] ans = new int[nums.length];
+
+        ans[0] = 1;
+
         for (int i=1; i<nums.length; i++) {
-            left[i] = left[i - 1] * run;
+
+            ans[i] = ans[i-1] * nums[i - 1];
+
         }
 
-        run = 1;
-        for (int i=nums.length; i>=0; i--) {
-            right[i] = right[i + 1] * left[i];
+        int rSum = 1;
+        for (int i=nums.length - 1; i>=0; i--) {
+
+            ans[i] = ans[i] * rSum;
+            rSum = rSum * nums[i];
         }
-        return right;
+
+        return ans;
 
     }
 }
