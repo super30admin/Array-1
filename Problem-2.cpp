@@ -14,7 +14,7 @@ public:
             if(dir)                                                     //when traversing bottom to top diagonally.
             {
                 if(c==n-1)                                              //The order of if-else here matters a lot.
-                {
+                {                                                       //when traversing bottom to top diagonally, at one point we reach the row=0, then we increment our coloumn by 1, at one time when coloumn becomes coloumn+1, we get out of bound. To manage this we have this order of if else.
                     r++;
                     dir=0;
                 }
@@ -31,7 +31,7 @@ public:
             else                                                         //when traversing top to bottom diagonally.
             {
                 if(r==m-1){                                              //The order of if-else here matters a lot.
-                    c++;
+                    c++;                                                 //when traversing top to bottom diagonally, at one point we reach the coloumn=0, then we increment our row by 1, at one time when row becomes row+1, we get out of bound. To manage this we have this order of if else.
                     dir=1;
                 }
                 else if(c==0){
