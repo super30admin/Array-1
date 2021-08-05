@@ -43,6 +43,7 @@ public:
                     c--;
                 }
             }
+            //ans.push_back(mat[r][c]);         we can't enter the matrix element into our ans vector here beacuse when we will be on last element of matrix our row or coloumn(one of these) will get out of bound as per our code.
             i++;
         }
         return ans;
