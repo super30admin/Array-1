@@ -1,5 +1,5 @@
 // Time Complexity: O(n) we are performing 3 passes through the whole array giving us 3n of complexity. approximately O(n).
-// Space Complexity: O(2n) as we have taken 2 arrays => O(n)
+// Space Complexity: O(1) manipulating only result array
 // Did you complete it at leetcode: Yes
 // any problems faced: could not identify it as a DP solution initially as it seemed to be single pass exclusion. With failing edge cases, had to look for other possibilities
 
@@ -11,19 +11,18 @@
 // finally result of left and right part is result.
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        int[] result = new int[nums.length];
-        int[] leftMul = new int[nums.length];
-        int[] rightMul = new int[nums.length];
-        leftMul[0] = 1; rightMul[rightMul.length-1] = 1;
-        for(int i = 1; i<nums.length; i++) {
-            leftMul[i] = leftMul[i-1]*nums[i-1];
+        int [] left = new int[nums.length];
+        int rProd=1;
+        left[0] = rProd;
+        for(int i=1; i<nums.length; i++) {
+            rProd = rProd*nums[i-1];
+            left[i] = rProd;
         }
-        for(int j=nums.length-1; j>0; j--) {
-            rightMul[j-1] = rightMul[j]*nums[j];
+        rProd=1;
+        for(int j= nums.length-2; j>=0; j--) {
+            rProd = rProd*nums[j+1];
+            left[j] = rProd * left[j];
         }
-        for(int k = 0; k<nums.length; k++) {
-            result[k] = leftMul[k]*rightMul[k];
-        }
-        return result;
+        return left;
     }
 }
