@@ -1,3 +1,13 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Three line explanation of solution in plain english
+/**
+ * We need to traverse the matrix in alternative directions diagnolly we need
+ * too handele the edge cases that occure in up and down direction
+ */
+// Your code here along with comments explaining your approach
+
 public class MatrixTrav {
     public int[] findDiagonalOrder(int[][] mat) {
 
