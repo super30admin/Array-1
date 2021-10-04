@@ -1,7 +1,8 @@
-# Time complexity: O(n) where n is the length of the array
+# Time complexity: O(n) m is the rowLength and n is the colLength
 # Space complexity: O(1)
 # Did this run successfully on Leetcode: Yes
 # Did you face any problem in solving this: No, I had seen this problem before
+
 class Solution:
     def productExceptSelf(self, nums):
         if not nums:
