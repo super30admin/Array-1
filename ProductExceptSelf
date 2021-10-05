@@ -1,0 +1,40 @@
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+       int[] leftMul = new int[nums.length]; // running multiplication from left to right
+       int[] rightMul = new int[nums.length]; //running multiplication from right to left stored
+       leftMul[0] = nums[0];
+       rightMul[nums.length-1]=nums[nums.length-1];
+       
+       //left running sum
+       for(int i=1;i<nums.length;i++){
+           leftMul[i] = leftMul[i-1]*nums[i];
+       }
+        
+       //right running sum
+       for(int i=nums.length-2;i>=0;i--){
+            rightMul[i]= rightMul[i+1]*nums[i];
+       }
+         
+       for(int i=0;i<nums.length;i++){
+           if(i==0){
+               nums[i] = rightMul[i+1];
+           }
+           else if(i==nums.length-1){
+               nums[i] = leftMul[i-1];
+           }
+           else{
+               nums[i]=leftMul[i-1]*rightMul[i+1];
+           }
+       }
+        return nums;
+    }
+}
+
+//time: O(n) -- 3n for 3 iterations for all different arrays each time so n+n+n  which comes to O(n)
+//space : O(n) --- 3n for 3 arrays and n with each array which comes to O(n)
+//Approach : didnt get this solution on my own. I had to look for solutions
+//Ran successfully on leetcode
+
+//Approach -- added to other array one calculating the multiplication from left to right and other right to left. Edge case i put if conditions to see if there are only 2 elements 
+//doesn't goes out of bound as min 2 elements are given in constraints. Otherwise i will replace the current num[element] by multiplying previous of left mul and next of right mul.
+

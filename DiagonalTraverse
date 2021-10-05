@@ -1,0 +1,59 @@
+class Solution {
+    public int[] findDiagonalOrder(int[][] matrix) {
+    
+        if(matrix==null || matrix.length==0)
+            return new int[0];
+        
+        int r = matrix.length;
+        int c = matrix[0].length;
+        
+        int[] output = new int[r*c]; //result array
+        int idx=0; //idx of output
+        
+        int i=0;
+        int j=0;
+        int dir=1;// toggle and starting from 1 which is up at first element
+        
+        while(idx<r*c){ //to fill the output array.
+            output[idx]=matrix[i][j];
+            idx++;
+            //for upward direction
+            if(dir==1){
+              if(j== c-1){ //last element in col
+                  dir=-1;
+                  i++;
+              }
+              else if(i==0){
+                  dir=-1;
+                  j++;
+                  
+              }else{
+                  i--;
+                  j++;
+              }    
+            }
+            else{ //for downwards direction
+                if(i== r-1){ //last element in col
+                  dir=1;
+                  j++;
+              }
+              else if(j==0){
+                  dir=1;
+                  i++;
+                  
+              }else{
+                  j--;
+                  i++;
+              }
+              
+            }
+        } 
+            
+    return output;
+    }
+}
+
+//time : O(r*c) where r is rows and c is columns
+//Space : O(1) as using the same matrix
+//Approach: Array 2d traversal with edge cases
+//ran successfully on leetcode

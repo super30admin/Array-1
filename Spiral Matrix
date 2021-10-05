@@ -1,0 +1,46 @@
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int rowEndIdx = matrix.length-1;
+        int colEndIdx= matrix[0].length-1;
+        int rowStartIdx = 0,colStartIdx=0;
+        
+        List<Integer> list= new ArrayList<>();
+        if (matrix.length == 0) {
+            return list;
+        }
+        while(rowStartIdx<=rowEndIdx && colStartIdx<=colEndIdx){
+    
+            //right iteration of row
+            for(int j=colStartIdx;j<=colEndIdx;j++){
+                list.add(matrix[rowStartIdx][j]);
+            }
+            rowStartIdx++;
+        
+            //top>down iteration of col
+            for(int i=rowStartIdx;i<=rowEndIdx;i++){
+                list.add(matrix[i][colEndIdx]);
+            }
+            colEndIdx--;
+        
+            //right->left row
+            if(rowStartIdx<=rowEndIdx  && colStartIdx<=colEndIdx){
+               for(int j=colEndIdx;j>=colStartIdx;j--){
+                   list.add(matrix[rowEndIdx][j]);
+               } 
+           
+            rowEndIdx--;
+            
+             //bottom ->up col
+                for(int i=rowEndIdx;i>=rowStartIdx;i--){
+                    list.add(matrix[i][colStartIdx]);
+                }
+            colStartIdx++;
+            }
+        }
+        return list;
+    }
+}
+
+//time : O(n*m)
+//Space : O(1)
+//Ran successfully on leetcode. I made mistake in while loop brackets so it was breaking my code.
