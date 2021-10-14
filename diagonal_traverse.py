@@ -1,5 +1,5 @@
 """
-Time Complexity: O(n)
+Time Complexity: O(n*m)
 Space Complexity: O(1)
 Did your code run on leetcode?: yes
 Issues faced: I was getting wrong output because of using incorrect syntax which changed the meaning. Instead of j-= 1, I typed j =- 1
