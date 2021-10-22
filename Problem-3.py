@@ -2,7 +2,7 @@
 # https://leetcode.com/problems/spiral-matrix/
 
 # Time complexiety: O(nm)
-# Space complexiety: O(nm)
+# Space complexiety: O(1)
 
 class Solution:
     def spiralOrder(self, matrix):
