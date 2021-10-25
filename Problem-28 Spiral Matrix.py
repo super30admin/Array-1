@@ -4,6 +4,13 @@
 # Time complexiety: O(nm)
 # Space complexiety: O(1)
 
+# Logic: We have 4 pointers left(0,0), right(0,m-1), top(0,0) and bottom(m-1,0).
+# We start the left pointer till we reach right pointer. At this time we increase the top by 1.
+# Then we iterate top till bottom and decrease right by 1
+# Then we iterate right till left and decrease bottom by 1
+# Then we iterate bottom till top and increase left by 1
+# We stop when length of result array is equal to n*m 
+
 class Solution:
     def spiralOrder(self, matrix):
         res = []
