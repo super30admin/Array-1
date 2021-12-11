@@ -1,6 +1,6 @@
 https://leetcode.com/problems/diagonal-traverse/
 //Time :O(m*n)(Total no of elements there in 2D array
-//Space:O(m*n)
+//Space:O(1)
 //LeetCode:Yes
 
 
