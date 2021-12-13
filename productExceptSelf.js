@@ -23,7 +23,7 @@ var productExceptSelf = function (nums) {
 
 console.log(productExceptSelf([1, 2, 3, 4]));
 
-// Brute force attempt
+// Brute force attempt with O(n^2) time complexity
 // var productExceptSelf = function (nums) {
 //   const producedArr = [];
 //   for (let i = 0; i < nums.length; i++) {
