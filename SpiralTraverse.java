@@ -1,3 +1,10 @@
+// Time Complexity :O(m*n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode : yes
+
+
+// Your code here along with comments explaining your approach
+
 public class SpiralTraverse {
     public List<Integer> spiralOrder(int[][] matrix) {
         if(matrix == null || matrix.length == 0) return new ArrayList<>();
