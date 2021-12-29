@@ -1,0 +1,43 @@
+class Solution {
+public:
+    // Time Complexity --> O(num_of_rows * num_of_cols);
+    // space Complexity --> O(num_of_rows * num_of_cols);
+    vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
+        int num_of_rows = mat.size();
+        int num_of_cols = mat[0].size();
+        vector<int> result(num_of_rows *num_of_cols,0);
+        int direc = 1;
+        int index = 0;
+        int i =0;
+        int j =0;
+        while(index < num_of_rows *num_of_cols){
+            result[index] = mat[i][j];
+            index++;
+            if(direc == 1){
+                if(j == num_of_cols-1){
+                    i++;
+                    direc = -1;
+                }
+                else if(i == 0){
+                    j++;
+                    direc = -1;
+                }else{
+                    i--;
+                    j++;
+                }
+            }else{
+                if(i == num_of_rows-1){
+                    j++;
+                    direc = 1;
+                }else if(j == 0){
+                    i++;
+                    direc = 1;
+                }else{
+                    i++;
+                    j--;
+                }
+            }
+        }
+        return result;
+    }
+};
