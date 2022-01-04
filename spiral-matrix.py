@@ -32,7 +32,7 @@ class Solution:
                 top = top + 1
                 direction = 'D'
 
-            # while moving in the down direction update the right key
+            # while moving in the downward direction update the right key
             elif direction == 'D':
                 for i in range(top, bottom + 1):
                     result.append(matrix[i][right])
@@ -40,7 +40,7 @@ class Solution:
                 right = right - 1
                 direction = 'L'
 
-            # for left direction update bottom_key
+            # while moving in the left direction update the bottom key
             elif direction == 'L':
                 for i in range(right, left - 1, -1):
                     result.append(matrix[bottom][i])
@@ -48,7 +48,7 @@ class Solution:
                 bottom = bottom - 1
                 direction = 'U'
 
-            # for up direction update left_key
+            # while moving in the upward direction update the left key
             else:
                 for i in range(bottom, top - 1, -1):
                     result.append(matrix[i][left])
