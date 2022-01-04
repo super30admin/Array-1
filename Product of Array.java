@@ -1,4 +1,4 @@
-// Time Complexity : O(n)
+// Time Complexity : O(n); where n = length of input array
 // Space Complexity : O(1)
 // Did this code successfully run on Leetcode : Yes
 
