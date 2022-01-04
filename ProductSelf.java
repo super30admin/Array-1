@@ -1,3 +1,6 @@
+//TimeComplexity O(n)
+//Space Complexity O(1)
+
 class ProductSelf {
     public int[] productExceptSelf(int[] nums) {
        
