@@ -1,7 +1,7 @@
 # Time Complexity : O(n)
 # Space Complexity : O(1)
 # Did this code successfully run on Leetcode : Yes
-# Any problem you faced while coding this : No really but just took a little time to understand the range of for loop from right side
+# Any problem you faced while coding this : Not really but just took a little time to understand the range of for loop from right side
 
 class Solution(object):
     def productExceptSelf(self, nums):
