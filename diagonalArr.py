@@ -1,4 +1,4 @@
-# TC: O(N)
+# TC: O(NxM)
 # SC: O(1)
 #LC : YESs
 # difficulty: i pre-assumed that the both mat and mat[0] length is going to be same
