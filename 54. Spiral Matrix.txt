@@ -1,0 +1,63 @@
+// Time Complexity : O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :yes
+// Three line explanation of solution in plain english
+//by looking at the problem it is evident that we keep on exhausting row column row column...so as we progess, we keep
+//the track of all rows and columns that have been traversed and keep changing the boundaries that way. we stop finally as we exhaust everything
+
+// Your code here along with comments explaining your approach
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int first_row=0;
+        int first_column = 0;
+        int last_column= matrix[0].length-1;
+        int last_row= matrix.length-1;
+        int count = 0;
+        int row=0;
+        int column=0;
+        
+        List<Integer> result = new ArrayList<>(matrix[0].length* matrix.length + 1);
+        
+      while(count<matrix[0].length*matrix.length){
+          while(column<=last_column & count!=matrix[0].length*matrix.length){
+              result.add(matrix[row][column]);
+              column++;
+              count++;
+          }
+          column--;
+          row++;
+          first_row++;
+          
+           while(row<=last_row & count!=matrix[0].length*matrix.length){
+              result.add(matrix[row][column]);
+              row++;
+              count++;
+          }
+          row--;
+          column--;
+          last_column--;
+          
+           while(column>=first_column & count!=matrix[0].length*matrix.length){
+              result.add(matrix[row][column]);
+              column--;
+              count++;
+          }
+          column++;
+          row--;
+          last_row--;
+          
+           while(row>=first_row & count!=matrix[0].length*matrix.length){
+              result.add(matrix[row][column]);
+              row--;
+              count++;
+          }
+          row++;
+          column++;
+          first_column++;
+      }
+        
+        return result;
+        
+    }
+}

@@ -1,0 +1,30 @@
+// Time Complexity : O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode : yes
+// Three line explanation of solution in plain english
+//As we find the product of all numbers except the element, we find multiplication of elements on the left of the element and right of the elements.
+//so we maintain product of elements in resukt array in first where we start from one for 0th element
+//in second pass we start from length-2 as last elemnt is gonna be one therer. and we multply our new product with the value at that index to get multiplication
+//of values on left and right this way.
+
+// Your code here along with comments explaining your approach
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        
+        int[] result = new int[nums.length];
+        int rProd = 1;
+        //for product on left
+        result[0]=1;
+        for(int i=1; i<nums.length; i++){
+            rProd = rProd* nums[i-1];
+            result[i]=rProd;
+        }
+        rProd=1;
+        //for product on right and final answer
+        for(int i=nums.length-2;i>=0; i--){
+            rProd=rProd*nums[i+1];
+            result[i]= result[i]*rProd;
+        }
+        return result;
+    }
+}
