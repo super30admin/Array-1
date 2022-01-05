@@ -1,40 +1,38 @@
 # tc : O(mn)
-# sc: O(1)
+# sc : O(1)
 class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
-        
-        m = len(matrix)
-        n = len(matrix[0])
-        
-        left = 0 
-        right = n -1 
-        top = 0 
-        bottom = m -1 
-        result = []
-        while(top <= bottom and left<=right ):
-            # top row
-            for i in range(left, right+1):
-                result.append(matrix[top][i])
-            top += 1
-            
-            # for right top to down 
-            if top <= bottom and left<=right :
-                for i in range(top, bottom + 1 ):
-                    result.append(matrix[i][right])
-                right = right -1
-            
-            # for down most row
-            if top <= bottom and left<=right:
-                for i in range(right, left -1 , -1):
-                    result.append(matrix[bottom][i])
-                bottom = bottom - 1
-            
-            # for left most column
-            if top <= bottom and left<=right:
-                for i in range(bottom, top - 1, -1):
-                    result.append(matrix[i][left])
-                left = left + 1
-            print(result)
-        return result      
-            
-        
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        dir = 1    
+        res = []
+        m = len(mat)
+        n = len(mat[0])
+        r = 0 
+        c = 0
+        while True:
+            res.append(mat[r][c])
+            if r == m -1 and c == n - 1:
+                break
+            print( r, c)
+            if dir == 1:
+                if c == n -1:
+                    r = r + 1
+                    dir = -1
+                elif r == 0: # why this came down is a logic to ponder about 
+                    c = c + 1
+                    dir = -1
+                else:
+                    c = c + 1
+                    r = r - 1
+                    
+            elif dir == -1:
+                if r == m -1:
+                    c = c + 1
+                    dir = 1
+                elif c == 0:
+                    r = r + 1
+                    dir = 1
+                
+                else:
+                    r = r + 1
+                    c = c -1
+        return res
