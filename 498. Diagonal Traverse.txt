@@ -1,0 +1,64 @@
+// Time Complexity : O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode : yes
+// Three line explanation of solution in plain english
+//At any point we will either be going up or down, so we identify the conditions when to go upwards and when to go downwarsd
+//by keeping all the edge cases in mind and travaerse throught the matrix that way
+//we check if we already completed traversing thwe array in while to avoind going over the total numbers of elements as it happens
+//in a few cases.
+// Your code here along with comments explaining your approach
+
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        
+        int dir = 1;
+        int col=0;
+        int row=0;
+        int i=0;
+        int[] result = new int[mat.length * mat[0].length];
+       
+        int max=mat.length * mat[0].length;
+        
+        while(i< max){
+            if(dir==1){
+                while(row>=0 && col<=mat[0].length-1 && i< max){
+                    result[i]= mat[row][col];
+                    i++;
+                    col++;
+                    row--;
+                }
+                col--;
+                row++;
+                
+                if(col==mat[0].length-1){
+                    row++;
+                    dir=0;
+                }else if(row==0){
+                    col++;
+                    dir=0;
+                }
+                 
+            }
+            
+            if(dir==0){
+                while(col>=0 && row<=mat.length-1 && i< max){
+                     result[i]= mat[row][col];
+                    i++;
+                    col--;
+                    row++;
+                }
+                col++;
+                row--;
+                
+                if(row==mat.length-1){
+                    col++;
+                    dir=1;
+                }else if(col==0){
+                    row++;
+                    dir=1;
+                }
+            }
+        }
+                 return result;
+    }
+}
