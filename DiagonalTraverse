@@ -1,0 +1,40 @@
+//TC: O(m*n) because we are traversing through all the elements
+//SC:O(1)
+//passed on leetcode: yes
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        if (mat==null) return new int[0];
+        int m= mat.length;
+        int n=mat[0].length;
+        int []result = new int[m*n];
+        int dir = 1;
+        int k= 0; int i =0; int j=0;
+        while (k < m*n) {
+            result[k] = mat[i][j];
+            k++;
+            if (dir==1) {
+                if (j==n-1) {
+                    i++; dir = -1;
+                }
+                else if (i==0) {
+                    j++; dir = -1;
+                }
+                else {
+                    i--;j++;
+                }
+            }
+            else{ 
+                if (i==m-1) {
+                    j++; dir = 1;
+                } 
+                else if (j==0){
+                    i++; dir = 1;
+                }
+                else {
+                    i++; j--;
+                }
+            }
+        }
+        return result;
+    }
+}
