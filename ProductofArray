@@ -1,0 +1,23 @@
+//TC:O(n)
+//SC:O(1)
+//passed on leetcode:yes
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        if (nums == null || nums.length == 0) return new int [0];
+        int []result = new int [nums.length];
+        //leftpass
+        int rp =1; //making the 1st element one
+        for (int i= 1;i<nums.length;i++){
+            result[0] = 1;
+            rp = rp*nums[i-1];
+            result[i] = rp;
+        }
+        //rightpass
+        rp=1;
+        for (int j=nums.length-2;j>=0;j--) {
+            rp = rp*nums[j+1];
+            result[j]= rp*result[j]; //without creating another array, to save space, utilizing previous return array to be used and multiplied with leftpass result
+        }
+        return result;
+    }
+}
