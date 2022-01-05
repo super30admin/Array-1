@@ -1,3 +1,7 @@
+/*
+Time complexity : O(m*n)
+Space complexity: O(1)
+*/
 public class spiralMatrix {
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> result = new ArrayList<>();
