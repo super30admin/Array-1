@@ -1,0 +1,52 @@
+// Time Complexity : O(m * n) where m - row size, n - col size of matrix 
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+        
+        int m = matrix.length, n = matrix[0].length;
+        int top = 0, bottom = m - 1, left = 0, right = n - 1;
+        
+        while(left <= right && top <= bottom)
+        {
+            // top row
+            for(int i = left; i <= right; i++)
+            {
+                result.add(matrix[top][i]);
+            }
+            top++;
+            
+            // right col
+            for(int j = top; j <= bottom; j++)
+            {
+                result.add(matrix[j][right]);
+            }
+            right--;
+            
+            if(top <= bottom)
+            {
+                // bottom row
+                for(int i = right; i >= left; i--)
+                {
+                    result.add(matrix[bottom][i]);
+                }
+                bottom--;
+            }
+            
+            if(left <= right)
+            {
+                // left col
+                for(int i = bottom; i >= top; i--)
+                {
+                    result.add(matrix[i][left]);
+                }
+                left++;
+            }
+        }
+        return result;
+    }
+}
+
