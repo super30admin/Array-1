@@ -1,11 +1,12 @@
-// Time Complexity :
-// Space Complexity :
-// Did this code successfully run on Leetcode :
-// Three line explanation of solution in plain english
+// Time Complexity : O(N)
+// Space Complexity :O(1) [no extra space is required]
+// Did this code successfully run on Leetcode : Yes
+// Three line explanation of solution in plain english: 
 
 // Your code here along with comments explaining your approach
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
+    	//result list
         List<Integer> a = new ArrayList<Integer>();
         int m = matrix.length;
         int n = matrix[0].length;
