@@ -1,3 +1,6 @@
+//time complexity - O(N)
+//Space Complexity - O(1)
+// Code is accepted in Leetcode
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
         
