@@ -1,0 +1,54 @@
+class Solution {
+    private static final int UP=0, DOWN=2;
+    
+    public int[] findDiagonalOrder(int[][] matrix) {
+        int m = matrix.length;   //m = length of x axis
+        int n = matrix[0].length; //n = length of y axis
+        
+        
+        int[] res = new int[m*n];
+        int resultIndex = 0;
+        
+        int x = 0, y = 0;
+        int direction = UP;
+        
+        //break if x and y are invalid
+        while(x>=0 && x<m && y>=0 && y<n){
+        
+        res[resultIndex] = matrix[x][y];
+        resultIndex++;
+
+        
+        if(direction == UP){ //MOVE DOWN
+            if(y==n-1){
+                x++;
+                direction = DOWN;
+            } else if(x==0){  //MOVE RIGHT
+                y++;
+                direction = DOWN;
+            } else{
+                x=x-1;
+                y=y+1;
+            }
+            
+        }
+        else{
+              //MOVE RIGHT
+                if(x==m-1){
+                    y++;
+                    direction = UP;
+                    
+                } else if(y==0){    //MOVE DOWN
+                    x++;
+                    direction = UP;
+                } else{
+                    x=x+1;
+                    y=y-1;
+                }
+                
+            }
+        }
+        return res;
+        
+    }
+}
