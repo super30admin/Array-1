@@ -1,0 +1,48 @@
+//TC = O(m x n)
+//SC = O(1)
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+        
+        int m = matrix.length;
+        int n = matrix[0].length;
+        
+        //FirstRow LastRow FirstCoulumn LastColumn
+        int fR=0, lR=m-1, fC=0, lC=n-1;  
+        
+        while(fR<=lR && fC<=lC){   //iterating row and column
+            
+            for(int j = fC; j<=lC; j++){   //RIGHT
+                result.add(matrix[fR][j]);  //Adding to list
+            }
+            fR++;
+            
+            for(int i = fR; i<=lR;i++){     //DOWN
+                result.add(matrix[i][lC]);
+            }
+            lC--;
+            
+            if(fR<=lR){    //checking for non square matrix
+            
+            for(int j = lC; j>=fC; j--){    //LEFT
+                result.add(matrix[lR][j]);
+            }
+            lR--;
+            }
+            
+            if(fC<=lC){  //checking for non squar matrix
+            
+            for(int i = lR; i>=fR; i--){    //UP
+                result.add(matrix[i][fC]);
+            }
+            fC++;
+            }
+                
+                
+            
+        }
+        
+        return result;
+        
+    }
+}
