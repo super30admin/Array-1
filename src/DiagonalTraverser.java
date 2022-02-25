@@ -1,3 +1,9 @@
+// Time Complexity:           O(m*n)
+// Space Complexity:          O(1)
+// where m is number of rows of array, n is number of columns of array
+// Yes, this code ran successfully
+// No, I didn't face any problem in this problem statement
+
 package src;
 
 public class DiagonalTraverser {
@@ -26,37 +32,37 @@ public class DiagonalTraverser {
             ans[index] = mat[i][j];
             index++;
 
-            if(up)
+            if(up)                                              // UP direction
             {
-                if(j==n-1)
+                if(j==n-1)                                      // last column
                 {
-                    i++;
+                    i++;                                        // then increase row only
                     up = false;
                 }
-                else if(i==0)
+                else if(i==0)                                   // first row
                 {
-                    j++;
+                    j++;                                        // then increase column only
                     up = false;
                 }
-                else
+                else                                            // else decrease row, increase column
                 {
                     i--;
                     j++;
                 }
             }
-            else
+            else                                                // not UP direction
             {
-                if(i==m-1)
+                if(i==m-1)                                      // last row
                 {
-                    j++;
+                    j++;                                        // then increase column only
                     up = true;
                 }
-                else if(j==0)
+                else if(j==0)                                   // first column
                 {
-                    i++;
+                    i++;                                        // then increase row only
                     up = true;
                 }
-                else
+                else                                            // else increase row, decrease column
                 {
                     i++;
                     j--;
