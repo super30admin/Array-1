@@ -1,0 +1,18 @@
+//Time complexity O(n)
+//leetcode tested
+public class ProductOfArrayExceptSelf {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[]output = new int[n];
+        output[0]=1;
+        for (int i = 1; i < nums.length; i++) {
+            output[i] = nums[i-1] * output[i-1];
+        }
+        int right =1;
+        for (int i = n-2; i >=0 ; i--) {
+            right = right * nums[i+1];
+            output[i] = output[i] * right;
+        }
+        return output;
+    }
+}
