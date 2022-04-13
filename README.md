@@ -64,3 +64,11 @@ Input:
 
 ]
 Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+
+
+
+//problem1.java has O(n) time complexity and O(1) space complexity
+
+//problem2.java has O(m*n) time complexity and O(1) space complexity
+
+//problem3.java has O(m*n) time complexity and O(1) space complexity
