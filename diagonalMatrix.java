@@ -5,6 +5,52 @@ TC: O(n * m)
 SC: O(1)
 */
 class Solution {
+    // Approach 1
+    public int[] findDiagonalOrder(int[][] matrix) {
+        
+        if (matrix == null || matrix.length == 0) {
+            return new int[0];
+        }
+        
+        int M = matrix.length;
+        int N = matrix[0].length;
+        int row = 0, column = 0;
+        // Set to up initially
+        int direction = 1;
+        
+        int[] result = new int[M*N];
+        // pointer within result array
+        int r = 0;
+
+        while (r < M * N) {
+            result[r++] = matrix[row][column];
+            
+            if (direction == 1) {
+                if (column == N - 1) {
+                    direction = 0;
+                    ++row;
+                } else if (row == 0) {
+                    direction = 0;
+                    ++column;
+                } else {
+                    --row; ++column;
+                }
+            } else {
+                if (row == M - 1) {
+                    direction = 1;
+                    ++column;
+                } else if (column == 0) {
+                    direction = 1;
+                    ++row;
+                } else {
+                    ++row; --column;
+                }
+            }
+        }
+        return result;      
+    }
+
+    // Approach 2 : cleaner code
     public int[] findDiagonalOrder(int[][] matrix) {
         
         if (matrix == null || matrix.length == 0) {

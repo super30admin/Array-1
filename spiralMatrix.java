@@ -6,31 +6,48 @@ SC: O (1)
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> result = new ArrayList<>();
-        int rows = matrix.length;
-        int cols = matrix[0].length;
-        int r1 = 0, r2 = rows - 1, c1 = 0, c2 = cols - 1;
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int top = 0;
+        int bottom = m - 1;
+        int left = 0; 
+        int right = n - 1;
         
-        while (r1 <= r2 && c1 <= c2) {
-            for (int c = c1; c <= c2; ++c) {
-                result.add(matrix[r1][c]);
+        while (top <= bottom && left <= right) {
+            // Left to right
+            for (int j = left; j <= right; ++j) {
+                result.add(matrix[top][j]);
             }
+            ++top;
             
-            for (int r = r1 + 1; r <= r2; ++r) {
-                result.add(matrix[r][c2]);
+            // Top to bottom
+            // If top and bottom goes out of bounds, the for loop will take care of it.
+            // We don't need to take care of left and right because we haven't updated it since the check within while loop. So we know it is valid.
+            for (int i = top; i <= bottom; ++i) {
+                result.add(matrix[i][right]);
             }
+            --right;
             
-            if (r1 < r2 && c1 < c2) {
-                for (int c = c2 - 1; c > c1; --c) {
-                    result.add(matrix[r2][c]);
+            // Right to left
+            // If left and right goes out of bounds, the for loop will take care of it.
+            // But we need to take care of top and bottom because we updated top.
+            if (top <= bottom) { 
+                for (int j = right; j >= left; --j) {
+                    result.add(matrix[bottom][j]);
                 }
-                
-                for (int r = r2; r > r1; --r) {
-                    result.add(matrix[r][c1]);
-                }
+                --bottom;
             }
-            ++c1; ++r1;
-            --c2;--r2;
-        } 
+
+            // Bottom to top
+            // If top and bottom goes out of bounds, the for loop will take care of it.
+            // But we need to take care of left and right because we updated right.
+            if (left <= right) { 
+                for (int i = bottom; i >= top; --i) {
+                    result.add(matrix[i][left]);
+                }
+                ++left;
+            }
+        }
         return result;
     }
 }
