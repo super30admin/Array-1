@@ -1,4 +1,6 @@
 public class DiagonalTraverse {
+    // Time complexity: O(m * n)
+    // Space complexity: O(1)
     public int[] findDiagonalOrder(int[][] mat) {
         if(mat == null || mat.length == 0) return new int[0];
 
