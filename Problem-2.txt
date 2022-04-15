@@ -1,0 +1,65 @@
+//https://leetcode.com/problems/diagonal-traverse/
+// Time Complexity :O(m*n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :Yes
+// Three line explanation of solution in plain english
+
+// Your code here along with comments explaining your approach
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        int n = mat.length;
+        int m = mat[0].length;
+        int dir=1;
+        int row=0;
+        int col =0;
+        int[] result = new int[n*m];
+        
+        int index =0;
+        
+        while(index < n*m)
+        {
+            result[index] = mat[row][col];
+           
+            index++;
+//up direction
+            if(dir ==1)
+            {
+                if(col == m-1)
+                {
+                    dir =-1;
+                    row++;
+                }
+                else if(row == 0)
+                {
+                    dir =-1;
+                    col++;
+                }
+                else{
+                    row--;
+                    col++;
+                }
+            }
+  //down direction          
+            else if(dir == -1)
+            {
+                if(row == n-1)
+                {
+                    dir =1;
+                    col++;
+                }
+                else if(col==0)
+                {
+                    dir =1;
+                    
+                    row++;
+                }
+                else{
+                    row++;
+                    col--;
+                }
+                
+            }
+        }
+      return result;  
+    }
+}
