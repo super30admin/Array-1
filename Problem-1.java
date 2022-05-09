@@ -17,27 +17,27 @@ class ProductExceptSelf {
 
     int length = nums.length;
 
-    int[] L = new int[length];
-    int[] R = new int[length];
+    int[] LeftArray = new int[length];
+    int[] RightArray = new int[length];
 
     int[] answer = new int[length];
 
-    L[0] = 1;
+    LeftArray[0] = 1;
     for (int i = 1; i < length; i++) {
 
-      L[i] = nums[i - 1] * L[i - 1];
+      LeftArray[i] = nums[i - 1] * LeftArray[i - 1];
     }
 
-    R[length - 1] = 1;
+    RightArray[length - 1] = 1;
 
     // elements to the right of index 'i'
     for (int i = length - 2; i >= 0; i--) {
-      R[i] = nums[i + 1] * R[i + 1];
+      RightArray[i] = nums[i + 1] * RightArray[i + 1];
     }
 
     // Constructing the answer array
     for (int i = 0; i < length; i++) {
-      answer[i] = L[i] * R[i];
+      answer[i] = LeftArray[i] * RightArray[i];
     }
 
     return answer;
