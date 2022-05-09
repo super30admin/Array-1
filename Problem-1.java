@@ -28,12 +28,16 @@ class ProductExceptSelf {
       LeftArray[i] = nums[i - 1] * LeftArray[i - 1];
     }
 
+    System.out.println("LeftSub-Array:                                  " + Arrays.toString(LeftArray));
+
     RightArray[length - 1] = 1;
 
     // elements to the right of index 'i'
     for (int i = length - 2; i >= 0; i--) {
       RightArray[i] = nums[i + 1] * RightArray[i + 1];
     }
+
+    System.out.println("RightSub-Array:                                 " + Arrays.toString(RightArray));
 
     // Constructing the answer array
     for (int i = 0; i < length; i++) {
@@ -45,7 +49,7 @@ class ProductExceptSelf {
 
   public static void main(String[] args) {
     int[] inputs = { 1, 2, 3, 4 };
-    System.out.println("Given Array: " + Arrays.toString(inputs));
+    System.out.println("Given Array:                                    " + Arrays.toString(inputs));
     int[] res = productExceptSelf(inputs);
     System.out.println("ProductArray of elements Except element itself: " + Arrays.toString(res));
   }
