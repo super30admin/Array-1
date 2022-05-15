@@ -1,8 +1,7 @@
 
-
-
-from tarfile import GNU_MAGIC
-
+#Time Complexity O(MN) Traversing Matrix elements
+#Space Complexity Maximum of M or N that much calls 
+#It successfully runs on leetcode
 
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
