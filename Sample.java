@@ -1,5 +1,5 @@
 //****PRODUCT OF ARRAY EXCEPT SELF****
-// Time Complexity :
+// Time Complexity : O(n);
 // Space Complexity :O(1);
 // Did this code successfully run on Leetcode : y
 // Three line explanation of solution in plain english
