@@ -1,3 +1,5 @@
+#TC: O(n)
+#SC: O(1)
 class Solution(object):
     def spiralOrder(self, matrix):
         """
