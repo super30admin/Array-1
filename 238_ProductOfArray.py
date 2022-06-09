@@ -24,7 +24,7 @@ class Solution:
             rp = rp * nums[i-1]
             # store that rp into result array. 
             result[i] = rp
-            # leftProdct = [1,1,2,6]
+            # leftProduct = [1,1,2,6]
 
         # right product
         # set Running product 1, so for the last element left rp = 1
