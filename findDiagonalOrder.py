@@ -1,3 +1,7 @@
+# Time Complexity : O(m*n)
+# Space Complexity : O(1)
+# Did this code successfully run on Leetcode : yes
+# Any problem you faced while coding this : No
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
         num_rows=len(mat)
