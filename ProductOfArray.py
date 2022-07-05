@@ -1,6 +1,6 @@
 from pip import List
 #Time Complexity = O(n)
-#Space Complexity = O(n)
+#Space Complexity = O(1), Because we had to return an array as an output
 
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
