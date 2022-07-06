@@ -1,0 +1,32 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+// Three line explanation of solution in plain english : For each element in the input, the array calculate the product of all the elements on its left. 
+//Similarly, calculate the product of elements on its right. At the end multiply both right and left products to obtain the answer.
+
+// Your code here along with comments explaining your approach
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        if(nums == null || nums.length== 0)
+        {
+            return new int[] {};
+        }
+        int RunningProduct = 1;
+        int[] leftProduct = new int[nums.length];
+        leftProduct[0]=1;
+        
+        
+        for(int i=1; i<nums.length ; i++)
+        {
+            leftProduct[i] = nums[i-1] * leftProduct[i-1];
+        }
+        
+        for(int j=nums.length-1 ;j>-1 ;j--)
+        {
+            leftProduct[j] = leftProduct[j] * RunningProduct;
+            RunningProduct = RunningProduct * nums[j];
+        }
+        return leftProduct;
+    }
+}
