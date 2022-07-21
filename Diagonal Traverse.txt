@@ -1,0 +1,44 @@
+Time Complexity = O(mxn)
+Space Complexity = O(1)
+
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        if mat == None or len(mat) == 0:
+            return []
+        
+        m = len(mat)
+        n = len(mat[0])
+        result = [None] * (m*n)
+        direction = True #upwards
+        index = 0 #index for result array
+        i = 0
+        j = 0
+        while(index < (m*n)):
+            result[index] = mat[i][j]
+            index = index + 1
+            #Determine (i,j) of next element in mat as per diagonal traversal
+            if direction == True:
+                if(j == n-1):
+                    direction = False #downwards
+                    i = i + 1
+                elif (i == 0):
+                    direction = False
+                    j = j + 1
+                else:
+                    i = i - 1
+                    j = j + 1
+            else:
+                if(i == m-1):
+                    direction = True
+                    j = j + 1
+                elif(j == 0):
+                    direction = True
+                    i = i + 1
+                else:
+                    i = i + 1
+                    j = j - 1
+                    
+                    
+        return result
+                    
+                
