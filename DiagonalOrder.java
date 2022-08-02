@@ -1,3 +1,9 @@
+// Time Complexity : O(mn)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+// mantain a flag for direcation and index at each iteration. if column and row are going out of bound change direction and update whichever is going
+// out of bound.
+
 class Solution {
     public int[] findDiagonalOrder(int[][] mat) {
         if(mat == null || mat.length == 0) return null;
