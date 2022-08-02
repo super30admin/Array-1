@@ -8,7 +8,7 @@
 // 2. If the direction is upwards, it either breaches right and top side of matrix, hence identified edge cases for them and handled for up direction
 // 3. If the direction is downwards, it either breaches left or down side of matrix, hence identified edge cases for them and handled for down direction
 
-// 498. Diagonal Traverse - https://leetcode.com/problems/diagonal-traverse/
+// 498. Diagonal Traverse (Medium) - https://leetcode.com/problems/diagonal-traverse/
 class Solution {
     public int[] findDiagonalOrder(int[][] mat) {
         if (mat == null || mat.length == 0) return new int[] {};
