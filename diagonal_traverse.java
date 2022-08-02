@@ -1,5 +1,5 @@
 // Time Complexity : O(m*n)
-// Space Complexity : O(m*n)
+// Space Complexity : O(1)
 // Did this code successfully run on Leetcode : Yes
 // Three line explanation of solution in plain english: maintain a flag that gives a choice to select traverse upward or downward and then check for the base condition for rows and columns not going out of boundary, do not consider index to find the direction
 
