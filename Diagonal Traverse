@@ -1,0 +1,43 @@
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        m,n = len(mat),len(mat[0])
+        r,c,idx,dir = 0,0,0,1
+        res = [0]*(m*n)
+        if len(mat) ==0 or mat is None:
+            return []
+        
+        while (idx<(m*n-1)):
+            print(r,c)
+            res[idx] = mat[r][c]
+            idx += 1
+            #UP
+            if dir == 1:
+                
+                if c==n-1:
+                    dir = -1
+                    r += 1
+                elif r==0:
+                    dir = -1
+                    c += 1
+                else:
+                    r -= 1
+                    c += 1
+
+            else:
+                #down
+                
+                if r==m-1:
+                    dir = 1
+                    c += 1
+                if c==0:
+                    dir = 1
+                    r += 1
+                else:
+                    c -= 1
+                    r += 1
+        
+        return res
+                
+                
+        
+        
