@@ -1,3 +1,7 @@
+// Time Complexity :o(m*n)
+// Space Complexity : o(1)
+// Did this code successfully run on Leetcode :Yes
+
 public class DiagonalTraversalMatrix {
     public int[] findDiagonalOrder(int[][] mat) {
         int n= mat.length;
