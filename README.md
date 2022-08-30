@@ -1,66 +1,151 @@
 # Array-1
 
-## Problem 1
+## Problem 1: Product of Array Except Self
 
-Given an array nums of n integers where n > 1, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
+```Java
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
+//Explanation: This approach is when we want to get the output in O(n) time and O(1) space. A result[] is for storing
+//             the elements on the left side (call it left pass). Once we calculate left pass, we declared a variable
+//             runningProduct which in initialiased to 1 and we then calculate the running product from right side (i.e n-2)
+//             for right pass and update the array for left pass. Hence, instead of using 2 arrays, we were able to solve it 
+//             using single array.
 
-Example:
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
 
-Input: [1,2,3,4]
-Output: [24,12,8,6]
-Note: Please solve it without division and in O(n).
+        //null check
+        if(nums == null || n == 0)
+            return result;
 
-Follow up:
-Could you solve it with constant space complexity? (The output array does not count as extra space for the purpose of space complexity analysis.)
+        int runningProduct = 1;
+        result[0] = 1;
 
-## Problem 2
+        //left pass
+        for(int i=1; i<n; i++){
+            runningProduct *= nums[i-1];
+            result[i] = runningProduct;
+        }
 
-Given a matrix of M x N elements (M rows, N columns), return all elements of the matrix in diagonal order as shown in the below image.
+        //right pass
+        runningProduct = 1;
+        for(int i=n-2;i>=0;i--){
+            runningProduct *= nums[i+1];
+            result[i] = result[i] * runningProduct;
+        }
+        return result;
+    }
+}
+```
+## Problem 2: Diagonal Traverse
 
-Example:
+```Java
+// Time Complexity : O(m*n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
 
-Input:
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        //null check
+        if(mat == null || mat.length == 0)
+            return new int[]{};
+        
+        int m = mat.length;
+        int n = mat[0].length;
+        int[] result = new int[m*n];
+        int r=0, c=0, dir=1;
+        int idx = 0;
+        
+        while(idx<result.length){ //check if we covered all the elements
+            result[idx] = mat[r][c];
+            idx++;
+            
+            //up direction
+            if(dir == 1){
+                if(c == n-1){
+                    r++;
+                    dir = -1;
+                }
+                else if(r == 0){
+                    c++;
+                    dir = -1;
+                }
+                else{
+                    r--;
+                    c++;
+                }
+            }
+        
+            //down direction
+            else{
+                if(r == m-1){
+                    c++;
+                    dir = 1;
+                }
+                else if(c == 0){
+                    r++;
+                    dir = 1;
+                }
+                else{
+                    r++;
+                    c--;
+                }
+            }
+        }
+        return result;
+    }
+}
+```
+## Problem 3: Spiral Matrix
 
-[
+```Java
+// Time Complexity : O(m*n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : yes
 
-[ 1, 2, 3 ],
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int left = 0, right = n - 1;
+        int top = 0, bottom = m - 1;
 
-[ 4, 5, 6 ],
+        List<Integer> result = new ArrayList<>();
 
-[ 7, 8, 9 ]
+        while (top <= bottom && left <= right) {
+            //top row
+            for (int j = left; j <= right; j++) {
+                result.add(matrix[top][j]);
+            }
+            top++;
 
-]
+            //right wall
+            for (int i = top; i <= bottom; i++) {
+                result.add(matrix[i][right]);
+            }
+            right--;
 
-Output: [1,2,4,7,5,3,6,8,9]
+            //bottom wall
+            if (top <= bottom) {
+                for (int j = right; j >= left; j--) {
+                    result.add(matrix[bottom][j]);
+                }
+            }
+            bottom--;
 
-## Problem 3
-Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+            //left wall
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    result.add(matrix[i][left]);
+                }
+            }
+            left++;
 
-Example 1:
-
-Input:
-
-[
-
-[ 1, 2, 3 ],
-
-[ 4, 5, 6 ],
-
-[ 7, 8, 9 ]
-
-]
-Output: [1,2,3,6,9,8,7,4,5]
-Example 2:
-
-Input:
-
-[
-
-[1, 2, 3, 4],
-
-[5, 6, 7, 8],
-
-[9,10,11,12]
-
-]
-Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+        }
+        return result;
+    }
+}
+```
