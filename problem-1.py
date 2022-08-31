@@ -1,3 +1,6 @@
+#tc: O(n)
+#sc: O(2n)
+
 class Solution(object):
     def productExceptSelf(self, nums):
         """

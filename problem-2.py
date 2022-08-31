@@ -1,3 +1,6 @@
+#tc: O(m*n)
+#sc: O(1)
+
 class Solution:
     def findDiagonalOrder(self, mat):
         m = len(mat)
