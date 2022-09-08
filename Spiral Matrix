@@ -1,0 +1,28 @@
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        m = len(matrix)
+        n = len(matrix[0])
+        res = []
+        i = 0
+        j = 0
+        count = 0
+        direction = [0,1]
+        while count != m*n:
+            if direction == [0, 1] and (j == n-1 or matrix[i][j+1] == 'p') : 
+                direction = [1, 0]
+            if direction == [1, 0] and (i == m-1 or matrix[i+1][j] == 'p') : 
+                direction = [0, -1]
+            if direction == [0,-1] and (j == 0 or matrix[i][j-1] == 'p') : 
+                direction = [-1, 0]
+            if direction == [-1,0] and (i == 0 or matrix[i-1][j] == 'p') : 
+                direction = [0, 1]
+            res.append(matrix[i][j])        
+            matrix[i][j] = 'p'  
+            i += direction[0]
+            j += direction[1]
+            count += 1
+        return res
+
+# Time Complexity: O(mn)
+# Space Complexity: O(1)
+# Successfully implemented on Leetcode
