@@ -1,0 +1,17 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        l = len(nums)
+        l2r = [0]*l                 # Left to Right
+        ans = [0]*l
+        ans[l-1] = 1
+        for i in range(l-2, -1, -1):
+            ans[i] = ans[i+1]*nums[i+1]
+        curProduct = nums[0]
+        for i in range(1, l):
+            ans[i] = curProduct*ans[i]
+            curProduct *= nums[i]
+        return ans
+    
+# Time Complexity: O(n)
+# Space Complexity: O(1)
+# Successfully implemented on Leetcode
