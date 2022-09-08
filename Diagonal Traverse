@@ -1,0 +1,35 @@
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        m = len(mat)
+        n = len(mat[0])
+        r = 0
+        c = 0
+        res = []
+        goingUp = True
+        while r < m and c < n:
+            res.append(mat[r][c])
+            if goingUp:
+                if (r - 1) < 0 or (c + 1) >= n:
+                    if c + 1 < n:
+                        c += 1
+                    else:
+                        r += 1
+                    goingUp = not goingUp
+                else:
+                    r -= 1
+                    c += 1
+            else:
+                if (r + 1) >= m or (c - 1) < 0:
+                    if (r+1) < m:
+                        r += 1
+                    else:
+                        c += 1
+                    goingUp = not goingUp
+                else:
+                    r += 1
+                    c -= 1
+        return res
+    
+# Time Complexity: O(mn)
+# Space Complexity: O(1)
+# Successfully implemented on Leetcode
