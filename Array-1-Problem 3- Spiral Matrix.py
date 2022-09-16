@@ -1,5 +1,5 @@
 """
-S30 FAANMG Problem #28 {Medium }
+ FAANMG Problem #28 {Medium }
 
 
 54. Spiral Matrix
@@ -81,7 +81,7 @@ class Solution:
             
   
 """
-S30 FAANMG Problem #28 {Medium }
+ FAANMG Problem #28 {Medium }
 
 
 54. Spiral Matrix

@@ -1,5 +1,5 @@
 """
-S30 FAANMG Problem #26 {Medium}
+ FAANMG Problem #26 {Medium}
 
 238. Product of Array Except Self
 

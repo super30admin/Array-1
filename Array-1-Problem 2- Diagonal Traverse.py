@@ -1,5 +1,5 @@
 """
-S30 FAANMG Problem #27 {Medium}
+ FAANMG Problem #27 {Medium}
 
 498. Diagonal Traverse
 
@@ -56,7 +56,7 @@ class Solution:
                     
     
 """
-S30 FAANMG Problem #27 {Medium)
+ FAANMG Problem #27 {Medium)
 
 498. Diagonal Traverse
 
