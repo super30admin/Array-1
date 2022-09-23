@@ -1,53 +1,38 @@
+//approach - g from left to right and make a running product and add those into the output arrt=ay
+//take from left tot right//TC-O(n) + O(n) = O(2n) = O(n) -- aswe ignore the constant 
+//SC- no auxiliary space used , we returned the output array, so it doesnt count and so SC - O(1)
 
-import java.util.Arrays;
-
-public class ProductExceptSelf {
-    public int[] productExceptSelf(int[] nums)
-    {
-        int len = nums.length;
-        int[] left = new int[len];
-        left[0] = 1;
-        for(int i =1; i < len; i++)
-        {   //nums: [4,1,3,2]
-            //left: [1,4,4,12]
-            //right: [6,6,2,1]
-            left[i] = nums[i-1]*left[i-1];
-        }
-        int[] right = new int[len];
-        right[len-1] =1;
-        for(int i = len-2; i >=0; i--)
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        
+        if(nums == null || nums.length ==0) return new int[]{};
+        
+        int rp =1; //running product
+        int[] output = new int[nums.length];
+        //nums - [2,3,4,5]
+        //array * rp = [1,2,6,24]
+        //output - [ 60 ,40,30, 25]
+    
+        //go from left to right on the input array
+        output[0] = rp;//1st element as rp
+        
+        for(int i=0; i< nums.length-1; i++)
         {
-            right[i] = nums[i+1]*right[i+1];
+            rp = rp * nums[i];
+            output[i+1] =  rp;
         }
-
-        for(int i=0; i<len; i++)
+        //array after this for loop is  --
+        //[1,2,6,24]
+       
+        //Go from right to left
+        rp =1;
+        for(int i = nums.length -1;  i>=0; i--)
         {
-            right[i] = right[i]*left[i];
+          output[i] = rp*output[i];
+            rp = rp * nums[i];
         }
-
-        return right;
-    }
-
-}
-
-class Main
-{
-    public static void main(String[] args) {
-        int[] nums = {4,1,3,2};
-        ProductExceptSelf p = new ProductExceptSelf();
-        int[] arr = p.productExceptSelf(nums);
-
-        System.out.println("New Array is: "+ Arrays.toString(arr));
-
+        //[60,40,30,24]
+    return output;
+        
     }
 }
-
-
-/*
-approach: Here I am taking two arrays left and right.
-for left array I will traverse from left to right keeping 0th element as 1.
-same way for right , I will traverse from end to start, keeping end element as 1.
-At last I will multiply ith element from left and right array anf that will be my result.
-Time Complexity: O(2N) = O(N)
-* Space:O(N) returning the left array as result, so, but right array will count in auxiliary space
- */
