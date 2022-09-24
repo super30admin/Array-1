@@ -1,5 +1,5 @@
 //Time: O(n*m) n= rows, m=columns
-//Space: O(n*m)
+//Space: O(1)
 //Solutions runs on leetcode and is a accpted solution.
  var findDiagonalOrder = function(mat) {
     let r = 0;

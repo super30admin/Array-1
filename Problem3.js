@@ -1,4 +1,4 @@
-//Time: O(n*m), Space: O(n*m)
+//Time: O(n*m), Space: O(1)
 //Solution is accepted and runs on leetcode
 
  var spiralOrder = function(matrix) {
