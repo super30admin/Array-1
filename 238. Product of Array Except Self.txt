@@ -1,0 +1,14 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        rp=1
+        ls=[]
+        for i in range(len(nums)):
+            ls.append(rp)
+            rp=rp*nums[i]
+        rp=1
+        for i in range(len(nums)-1,-1,-1):
+            ls[i]=ls[i]*rp
+            rp=rp*nums[i]
+        return ls
+TC-O(n), n is length of nums array
+SC-O(1)
