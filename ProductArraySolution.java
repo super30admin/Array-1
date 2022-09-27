@@ -4,3 +4,7 @@
 // Three line explanation of solution in plain english
 
 // Your code here along with comments explaining your approach
+
+public class ProductArraySolution {
+    
+}
