@@ -5,7 +5,7 @@ TC - O(mn)
 SC - O(mn)
 """
 
-m = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+mat = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
 
 def diagonalTraverse(matrix):
@@ -46,4 +46,4 @@ def diagonalTraverse(matrix):
     return rtnData
 
 
-print(diagonalTraverse(m))
+print(diagonalTraverse(mat))
