@@ -1,0 +1,63 @@
+Problem 1
+#TC:O(len(nums))
+#SC:O(1)
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        ans = [1 for _ in nums]
+        
+        left = 1
+        right = 1
+        
+        for i in range(len(nums)):
+            ans[i] *= left
+            ans[-1-i] *= right
+            left *= nums[i]
+            right *= nums[-1-i]
+        
+        return ans
+
+
+Diagonal Traverse
+#TC:O((mn)*2)
+#SC:O(1)
+class Solution(object):
+    def findDiagonalOrder(self, matrix):
+        result = [ ]
+        dd = collections.defaultdict(list)
+        if not matrix: 
+            return result
+        for i in range(0, len(matrix)):
+            for j in range(0, len(matrix[0])):
+                dd[i+j+1].append(matrix[i][j]) 
+        for k in sorted(dd.keys()):
+            if k%2==1: dd[k].reverse()
+            result += dd[k]
+        return result
+
+Spiral Matrix
+#TC:O(mn)
+#SC:O(1)
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        l, r = 0, len(matrix[0]) - 1
+        u, d = 0, len(matrix) - 1
+        res = []
+        step = 0
+        while l <= r and u <= d:
+            match (step % 4):
+                case 0:
+                    for i in range(l, r+1):
+                        res.append(matrix[u][i])
+                    u += 1
+                case 1:
+                    for i in range(u, d+1):
+                        res.append(matrix[i][r])
+                    r -= 1
+                case 2:
+                    for i in range(r, l-1, -1):
+                        res.append(matrix[d][i])
+                    d -= 1
+                case 3:
+                    for i in range(d, u-1, -1):
+                        res.append(matrix[i][l])
+                    l += 1
