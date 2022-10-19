@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/diagonal-traverse/
-# // Time Complexity : O(n)
-# // Space Complexity : O(n)
+# // Time Complexity : O(nxm)
+# // Space Complexity : O(nxm)
 # // Did this code successfully run on Leetcode : Yes
 # // Any problem you faced while coding this : No
 class Solution:
