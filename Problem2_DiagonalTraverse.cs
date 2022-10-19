@@ -1,6 +1,7 @@
 // Approach : By case analysis, consider moving up and down traversing through the matrix with edge cases
 // Space Complexity : O(1)
 // Time Complexity : O(m*n) where m is num of rows and n is num of cols
+// https://leetcode.com/problems/diagonal-traverse/
 public class Solution {
     private static readonly int Up = 0, Down = 1;
     
