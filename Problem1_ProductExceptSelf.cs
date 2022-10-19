@@ -1,6 +1,8 @@
 // Approach: multiply prefix product and store in answer. multiply suffix product to the answer array
 // Time Complexity: O(n) , nis the size of nums array
 // Space Complexity: O(1)
+// https://leetcode.com/problems/product-of-array-except-self/
+
 public class Solution {
     public int[] ProductExceptSelf(int[] nums) {
         int[] prod = new int[nums.Length];
