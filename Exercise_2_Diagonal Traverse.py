@@ -1,3 +1,11 @@
+'''
+Time Complexity : O(N*M), N: no of row, M:no of cols
+Space Complexity : O(1)
+Did this code successfully run on Leetcode : Yes
+'''
+
+
+
 class Solution:
     def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
         direction_UP = True
