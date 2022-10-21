@@ -1,5 +1,7 @@
 package s30.arrays.array1;
 
+// Time Complexity: O(n) // it is O(2n) asymptotically it will be O(n);
+// Space Complexity: O(1); // As we are using output array.
 public class ProductExceptSelf {
     public static int[] productExceptSelf(int[] nums) {
         int length = nums.length;

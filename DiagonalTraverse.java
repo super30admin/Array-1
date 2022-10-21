@@ -1,5 +1,9 @@
 package s30.arrays.array1;
 
+
+// Time Complexity: O(m*n) // As we are traversing through every element of the matrix.
+// Space COmplexity: O(1) // We are not using any auxilory space.
+
 public class DiagonalTraverse {
 
 

@@ -1,5 +1,8 @@
 package s30.arrays.array1;
 
+// Time Complexity: O(m*n) As we are traversing every element of the matrix
+// Space Complexity: O(1)
+
 import java.util.ArrayList;
 import java.util.List;
 
