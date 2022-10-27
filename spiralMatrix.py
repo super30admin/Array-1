@@ -3,6 +3,8 @@
 
 # Approach is to translate the traversal into different for loops and check the edge condition.
 
+# Added a checking condition before each loop, because I am using While loop, it will not take into consideration if edge condition is breached.
+
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         m = len(matrix)
