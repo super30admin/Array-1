@@ -1,40 +1,51 @@
-// Time complexity is O(m*n) and space complexity is O(1)
 class Solution {
-    public List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> ans = new ArrayList<>();
+    private static final int UP = 0, DOWN = 1;
 
-        int m = matrix.length;
-        int n = matrix[0].length;
+    public int[] findDiagonalOrder(int[][] mat) {
 
-        int rowStart = 0, rowEnd = m - 1;
-        int colStart = 0, colEnd = n - 1;
+        // define lengths
+        int m = mat.length, n = mat[0].length;
 
-        while (ans.size() != m * n) {
-            // right; same row next col
-            for (int i = colStart; i <= colEnd; ++i) {
-                ans.add(matrix[rowStart][i]);
-            }
-            ++rowStart;
-            // down ; same col next row
-            for (int j = rowStart; j <= rowEnd; ++j) {
-                ans.add(matrix[j][colEnd]);
-            }
-            --colEnd;
+        int[] result = new int[m * n];
+        int resultIndex = 0;
 
-            // left ; same row prev col
-            if (rowStart <= rowEnd)
-                for (int i = colEnd; i >= colStart; --i) {
-                    ans.add(matrix[rowEnd][i]);
+        int direction = UP;
+        int row = 0, col = 0;
+
+        while (resultIndex != m * n) {
+
+            result[resultIndex] = mat[row][col];
+            ++resultIndex;
+
+            if (direction == UP) {
+
+                if (col == n - 1) {
+                    direction = DOWN;
+                    ++row;
                 }
-            --rowEnd;
 
-            // up ; same col prev row
-            if (colStart <= colEnd)
-                for (int j = rowEnd; j >= rowStart; --j) {
-                    ans.add(matrix[j][colStart]);
+                else if (row == 0) {
+                    direction = DOWN;
+                    ++col;
+                } else {
+                    --row;
+                    ++col;
                 }
-            ++colStart;
+            }
+            // direction is down
+            else {
+                if (row == m - 1) {
+                    direction = UP;
+                    ++col;
+                } else if (col == 0) {
+                    direction = UP;
+                    ++row;
+                } else {
+                    ++row;
+                    --col;
+                }
+            }
         }
-        return ans;
+        return result;
     }
 }
