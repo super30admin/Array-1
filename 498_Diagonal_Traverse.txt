@@ -1,0 +1,70 @@
+
+// Time Complexity : o(nm)
+// Space Complexity : o(1)
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+
+// Your code here along with comments explaining your approach
+/*
+* Keep dirction flag to tell if we need to go up or down
+* Traverse as follows for up
+*   1. if top right cell then move to next row
+*   2. else if top row , move to next col
+*   3. else if last col, move to next row
+*   4. else move to prev row and next col
+* Traverse as follows for down
+*   1. if bottom left cell then move to next col
+*   2. else if bottom row , move to next col
+*   3. else if first col, move to next row
+*   4. else move to next row and prev col
+* */
+
+
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        boolean up = true;
+        int n = mat.length;
+        int m = mat[0].length;
+        int res[] = new int[n*m];
+        int r = 0; int c = 0;
+        for(int i = 0; i< res.length; i++){
+            res[i] = mat[r][c];
+            if(up){
+                if(r == 0 && c == m -1){
+                    up = false;
+                    r++;
+                }
+                else if(r==0){
+                    up = false;
+                    c++;
+                }
+                else if(c==m-1){
+                    up = false;
+                    r++;
+                } else{
+                    r--;
+                    c++;
+                }
+
+            } else {
+                if(r == n-1 && c == 0){
+                    up = true;
+                    c++;
+                }
+                else if(r==n-1){
+                    up = true;
+                    c++;
+                }
+                else if(c==0){
+                    up = true;
+                    r++;
+                } else{
+                    r++;
+                    c--;
+                }
+            }
+        }
+        return res;
+    }
+}
