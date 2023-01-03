@@ -1,0 +1,38 @@
+// Time Complexity : o(n)
+// Space Complexity : o(2n) have used two additional array of size n
+// Did this code successfully run on Leetcode : yes
+// Any problem you faced while coding this : no
+
+
+// Your code here along with comments explaining your approach
+/*
+* Calculate the forward product except self
+* calculate the backward product except self
+* Result is the product of forward and backward array at the respective indices
+* */
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+
+        int n = nums.length;
+        int[] forward = new int[n];
+        int[] backward = new int[n];
+        int result[] = new int[n];
+        forward[0] = 1;
+        backward[n-1] = 1;
+
+        for(int i = 1; i < n; i++){
+            forward[i] = nums[i-1] * forward[i-1];
+            backward[n-i-1] = nums[n - i]*   backward[n-i];
+
+        }
+
+        for(int i = 0; i < n; i++){
+            result[i] = forward[i] * backward[i];
+        }
+
+        return result;
+
+
+    }
+}
