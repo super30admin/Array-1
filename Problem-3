@@ -1,0 +1,80 @@
+
+Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+
+Example 1:
+
+Input:
+
+[
+
+[ 1, 2, 3 ],
+
+[ 4, 5, 6 ],
+
+[ 7, 8, 9 ]
+
+] Output: [1,2,3,6,9,8,7,4,5] Example 2:
+
+Input:
+
+[
+
+[1, 2, 3, 4],
+
+[5, 6, 7, 8],
+
+[9,10,11,12]
+
+] Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+
+Answer:
+
+// Time Complexity : O(m*n)
+// Space Complexity :O(1) --> even though we use result array here, result array is the output.
+                                Input and outputs are not considered for space complexity
+// Did this code successfully run on Leetcode :yes
+// Three line explanation of solution in plain english
+
+
+class Solution {
+public:
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+        int top = 0, bottom = m-1;
+        int left = 0, right = n-1;
+
+        vector<int> result;
+        while((top<=bottom) && (left <= right)) {
+            //top row
+            for(int j = left; j<=right; j++) {
+                result.push_back(matrix[top][j]); 
+            }       
+            top++;
+            //right col
+
+                for(int j = top; j<=bottom; j++) {
+                    result.push_back(matrix[j][right]); 
+                }
+                right--;            
+            //bottom row
+            if ((top<=bottom)) {
+                for(int j = right; j >= left; j--) {
+                    result.push_back(matrix[bottom][j]); 
+                }            
+                bottom--;
+            }
+
+            //left
+            if (left <= right) {
+                for(int i= bottom; i>= top; i--) {
+                    result.push_back(matrix[i][left]); 
+                }
+                left++;
+            } 
+            
+        }
+
+     return result;   
+    }
+};
