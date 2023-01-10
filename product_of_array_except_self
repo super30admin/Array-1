@@ -1,0 +1,27 @@
+// Time Complexity : O(N)
+// Space Complexity : O(1)
+// Did this code successfully run in leetcode : Yes
+// Any problems faced : No
+// calc left prod and right prod of given arr
+// mul of both is the res
+
+class Solution {
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        vector<int> mul(nums.size());
+        mul[0] = 1;
+        
+        // left product
+        for(int i = 1; i < nums.size(); i++) {
+            mul[i] = mul[i - 1] * nums[i - 1];
+        }
+
+        // right product (modifying mul array)
+        int rp = 1;
+        for(int i = nums.size() - 2; i >= 0; i--) {
+            rp = rp * nums[i + 1];   // to maintain original product, rp is used
+            mul[i] *= rp;
+        }
+        return mul;
+    }
+};
