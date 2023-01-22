@@ -32,3 +32,70 @@ class Solution
         return arr;
     }
 }
+
+
+
+
+
+Problem 498-(Diagonal Traverse)
+
+// Time Complexity :O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :YES
+// Three line explanation of solution in plain english
+    
+    
+    
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        int m=mat.length;
+        int n=mat[0].length;
+        int[] result=new int[m*n];
+        int i=0,j=0,k=0;
+        //result[0]=mat[0][0];
+       
+        //even
+        while(i<=m-1 && j<=n-1)
+        {
+            if((i+j) %2==0)
+            {
+                result[k]=mat[i][j];
+                k++;
+                
+                if(j+1==n && i-1<=0){
+                    i++;
+                }
+                else if( j+1>n || i-1<0 )
+                {
+                    
+                    j++;
+                }
+                else
+                {
+                    j++;
+                    i--;
+                }
+            }
+            else
+            {
+                result[k]=mat[i][j];
+                k++;
+                
+                if(i+1==m && j-1<=0)
+                {
+                    j++;
+                }
+                else if(i+1>m || j-1<0)
+                {
+                    i++;
+                }
+                else
+                {
+                    i++;
+                    j--;
+                }
+            }
+        }
+        return result;
+    }
+}
