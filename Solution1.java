@@ -3,13 +3,13 @@
 // Did this code successfully run on Leetcode : Yes
 // Three line explanation of solution in plain english
 
+
+// Your code here along with comments explaining your approach
 /*
  * I iterate through the array once and maintain the prefix product (product of all the elements occurring before the current element).
  * For the first element, the prefix product is 1. Similarly, I calculate the postfix product and multiple it with the prefix
  * product of each element respectively. 
  */
-
-// Your code here along with comments explaining your approach
 
 class Solution1 {
     public int[] productExceptSelf(int[] nums) {
