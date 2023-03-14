@@ -1,0 +1,60 @@
+//time complexity: O(n)
+//space complexity: O(1)
+// getting ArrayIndexOutOfBoundsException
+
+class DiagonalTraverse {
+    public int[] findDiagonalOrder(int[][] mat) {
+        int row = 0;
+        int col= 0;
+        int m= mat.length;
+        int n= mat[0].length;
+        int matLength= m*n;
+        boolean flag=true;
+
+        int result[] = new int[matLength];
+        int i=0;
+        while(i<matLength){
+            result[i] = mat[row][col];
+            i++;
+
+            //up
+            if(flag){
+            if(col==n-1){
+                 flag= false;
+               row++;
+              
+            }
+            else if(row==0){
+               flag= false;
+               col++;
+                
+            }
+            else{
+            row--;
+            col++;
+            
+            }
+            }
+
+            //down
+        else{
+              if(row==m-1){
+               flag= false;
+               col++;
+            
+            }else if(col==0){
+             flag= true;
+             row++; 
+                
+            }
+            else{
+            col--;
+            row++;
+            }
+        }
+              
+    
+        }
+            return result;
+    }
+}
