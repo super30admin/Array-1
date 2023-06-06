@@ -1,0 +1,23 @@
+//238. Product of Array Except Self
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+      //TC= O(n)  SC=O(1)
+      int n=nums.length;
+      int[] result=new int[n];
+
+  //left pass
+    result[0]=1;
+    int sum=1;
+    for(int i=1;i<n;i++){
+       sum=sum*nums[i-1];
+     result[i]=sum;
+    }  
+    sum=1;
+  for(int i=n-2;i>=0;i--){
+     sum=sum*nums[i+1];
+     result[i]=result[i]*sum;    
+  } 
+      return result;
+    }
+}

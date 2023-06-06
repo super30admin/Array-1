@@ -1,0 +1,43 @@
+//54. Spiral Matrix
+
+class Solution {
+//TC=O(m*n) SC=O(m*n)
+    public List<Integer> spiralOrder(int[][] matrix) {
+    int m=matrix.length; int n=matrix[0].length;
+    List<Integer> result=new ArrayList<>();
+    int left=0,right=n-1;
+    int top=0,bottom=m-1;
+
+    while(top<=bottom && left<=right){
+        for(int i=left;i<=right;i++){
+            result.add(matrix[top][i]);
+        }
+        top++;
+        
+        if(top<=bottom && left<=right){
+            for(int i=top;i<=bottom;i++){
+                result.add(matrix[i][right]);
+        }
+        right--;
+        }
+    
+        if(top<=bottom && left<=right){
+            for(int i=right;i>=left;i--){
+                result.add(matrix[bottom][i]);
+        }
+        bottom--;
+        }
+ 
+        if(top<=bottom && left<=right){
+            for(int i=bottom;i>=top;i--){
+                result.add(matrix[i][left]);
+        }
+        left++;
+        }
+   
+ 
+    }        
+    return result;
+
+    }
+}
