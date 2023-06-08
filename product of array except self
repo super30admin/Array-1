@@ -1,0 +1,23 @@
+TC=O(n), SC = O(1)
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+           //null
+        int n = nums.length;
+        int runningProduct = 1;
+        int [] result = new int[n];
+        result[0] = 1;
+        //left pass
+        for(int i=1; i<n; i++){
+            runningProduct = runningProduct * nums[i-1];
+            result[i] = runningProduct;
+        }
+        runningProduct = 1;
+        //right pass
+        for(int i = n-2;i>=0;i--){
+            runningProduct = runningProduct * nums[i+1];
+            result[i] = result[i] *runningProduct;
+        }
+        return result;
+    }
+}
