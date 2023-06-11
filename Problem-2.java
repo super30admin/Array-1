@@ -1,6 +1,6 @@
 class Solution {
     //Time Complexity:- O(m*n) Because you need to traverse through all the element so O(m*n)
-    //Space Complexity:- O(1) Becuase you using result array as the final result array,So it will not get considered.
+    //Space Complexity:- O(1) Becuase you using result array as the final result array,So it will not get considered.(auxiliary memory)
     public int[] findDiagonalOrder(int[][] mat) {
         int m = mat.length; int n=mat[0].length;
         int[] result = new int[m*n];

@@ -1,6 +1,6 @@
 class Solution {
     //Time Complexity:-O(m*n)//Because you need to travel through all the element of the matrix
-    //Space Complexity:-O(1)//Because you using the result List as the final return List so it will not be considered
+    //Space Complexity:-O(1)//Because you using the result List as the final return List so it will not be considered(auxiliary memory)
     public List<Integer> spiralOrder(int[][] matrix) {
         int m=matrix.length;int n=matrix[0].length;
         List<Integer> result = new ArrayList<>();

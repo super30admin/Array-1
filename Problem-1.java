@@ -1,7 +1,7 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-//Time Complexity is:- O(n);
-//Space Complexity is:- O(1); // Becuase axilary memory(input and ouput memory)doesn't count; 
+//Time Complexity is:- O(n);// Because we need to travese through all the element
+//Space Complexity is:- O(1); // Becuase auxiliary memory(input and ouput memory)doesn't count; 
 
 
         //null check
