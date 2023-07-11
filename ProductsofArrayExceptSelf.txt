@@ -1,0 +1,23 @@
+class Solution {
+    /**
+    Time Complexity O(n) 
+    Space Complexity O(1)
+     */
+    public int[] productExceptSelf(int[] nums) {
+        int[] results = new int[nums.length];
+
+        int runningProduct = 1;
+        results[0] = 1;
+        for (int i=1; i < results.length; i++) {
+            runningProduct = runningProduct* nums[i-1];
+            results[i] = runningProduct;
+        }
+
+        runningProduct = 1;
+        for (int j= results.length-2; j >=0  ; j--) {
+            runningProduct = runningProduct*nums[j+1];
+            results[j] = runningProduct*results[j];
+        }
+        return results;
+    }
+}

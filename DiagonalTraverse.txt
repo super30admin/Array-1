@@ -1,0 +1,49 @@
+class Solution {
+    /*
+     Time complexity - O(nxm)
+     Space Complexity - O(1)
+    */
+   public static int[] findDiagonalOrder(int[][] mat) {
+        int n = mat.length;
+        int m = mat[0].length;
+        int[] results = new int[n*m];
+
+        int row =0, col=0;
+        boolean goingUp = true;
+        int i = 0;
+        while (i != n*m) {
+            if (row < n && col < m) {
+                results[i++] = mat[row][col];
+            }
+            if (goingUp) {
+                if (row == 0 && col < m) {
+                    col++;
+                    // ceiling due to row
+                    goingUp = false;
+                }
+                else if (col == m-1) {
+                    // ceiling due to column
+                    row++;
+                    goingUp = false;
+                } else {
+                    row--;
+                    col++;
+                }
+            }
+            else {
+                if (row < n && col == 0) {
+                    row++;
+                    goingUp=true;
+                }
+                else if (row == n-1) {
+                    col++;
+                    goingUp = true;
+                } else {
+                    row++;
+                    col--;
+                }
+            }
+        }
+        return results;
+    }
+}
