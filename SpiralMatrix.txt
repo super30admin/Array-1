@@ -1,0 +1,51 @@
+class Solution {
+    /**
+    time complexity - O(n*m)
+    Space complexit - O(1)
+     */
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int n = matrix.length -1;
+        int m = matrix[0].length -1;
+        int top =0, left = 0;
+        int bottom = n ;
+        int right = m;
+
+        List<Integer> results = new ArrayList<>();
+
+        while (left <= right &&  top <= bottom) {
+
+            // top -> left
+            if (left <= right && top <= bottom) {
+                for (int i=left; i <= right; i++) {
+                    results.add(matrix[top][i]);
+                }
+                top++;
+            }
+
+            // top right -> bottom
+            if (left <= right && top <= bottom) {
+                for (int i=top; i <= bottom; i++) {
+                    results.add(matrix[i][right]);
+                }
+                right--;
+            }
+
+            // bottom
+            if (left <= right && top <= bottom) {
+                for (int i=right; i >= left; i--) {
+                    results.add(matrix[bottom][i]);
+                }
+                bottom--;
+            }
+
+            // left
+            if (left <= right && top <= bottom) {
+                for (int i=bottom; i >= top; i--) {
+                    results.add(matrix[i][left]);
+                }
+                left++;
+            }
+        }
+        return results;
+    }
+}
