@@ -1,3 +1,16 @@
+// Time Complexity :O(n)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :
+// Three line explanation of solution in plain english
+
+//we are checking the rp from both the ways of the array and multiplyiing both the sides
+//and returning the result. First we calculate the left running product of each element and
+//store it in the result. Then we iterate over the original array and find the right running
+//product of that particular element and multiply it with the left running product already existing
+//in the result.
+
+// Your code here along with comments explaining your approach
+
 #include <iostream>
 #include <vector>
 

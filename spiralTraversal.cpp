@@ -1,3 +1,18 @@
+// Time Complexity :O(mxn)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode : yes
+// Three line explanation of solution in plain english
+
+/*
+In this we maintain 4 variables to keep track of the boundaries
+of the matrix and we traverse the matrix until the top<=bottom && left<=right.
+After we reach the boundary, remove the column/ row that was traversed. 
+
+
+*/
+
+
+// Your code here along with comments explaining your approach
 #include <iostream>
 #include <vector>
 

@@ -1,3 +1,17 @@
+// Time Complexity : O(mxn)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode :
+// Three line explanation of solution in plain english
+
+/*
+While traversing the matrix, the traversal is either going up or down at any particular
+instance. So starting from 00, it starts going up and whenever it find the edge of the matrix
+it changes the direction and vice versa. we first write the solution for going up, and for 
+when it changes the direction, we write the solution for going down.
+*/
+
+// Your code here along with comments explaining your approach
+
 #include <iostream>
 #include <vector>
 
@@ -71,3 +85,4 @@ public:
         
     }
 };
+
