@@ -104,3 +104,84 @@ public int[] findDiagonalOrder(int[][] mat) {
         }
         return res;
     }
+
+//---------------------------------SPIRAL TRAVERSAL------------------------
+// Time Complexity : O(m+n)
+// Space Complexity : O(1) if we dont count result list
+// Did this code successfully run on Leetcode : yes
+// Three line explanation of solution in plain english: Denote 4 variables, left right top bottom, iterate within the matrix bounds of these variables.
+
+// Your code here along with comments explaining your approach
+List<Integer> res1= new ArrayList<>();
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> res= new ArrayList<>();
+        int top=0,bottom=matrix.length-1,left=0,right=matrix[0].length-1;
+        // while(top<=bottom && left<=right){
+        //     //traverse on top row from left to right
+        //     for(int j=left;j<=right;j++){
+        //         res.add(matrix[top][j]);
+        //     }
+        //     top++;
+
+        //     //traverse on right col
+        //     //if(top<=bottom && left<=right){
+        //         for(int j=top;j<=bottom;j++){
+        //             res.add(matrix[j][right]);
+        //         }
+        //         right--;
+        //     //}
+
+        //     //traverse on bottom row
+        //     if(top<=bottom){
+        //         for(int j=right;j>=left;j--){
+        //             res.add(matrix[bottom][j]);
+        //         }
+        //     bottom--;
+        //     }
+        //     //traverse on left col
+        //     if(left<=right){
+        //         for(int j=bottom;j>=top;j--){
+        //             res.add(matrix[j][left]);
+        //         }
+        //         left++;
+        //     }
+        // }
+        // return res;
+
+        //recursive
+        dfs(matrix, top, bottom, left, right);
+        return res1;
+    }
+    private void dfs(int[][] matrix, int top, int bottom, int left, int right){
+        if(left>right || top>bottom) return;
+
+            //traverse on top row from left to right
+            for(int j=left;j<=right;j++){
+                res1.add(matrix[top][j]);
+            }
+            top++;
+
+            //traverse on right col
+            //if(top<=bottom && left<=right){
+                for(int j=top;j<=bottom;j++){
+                    res1.add(matrix[j][right]);
+                }
+                right--;
+            //}
+
+            //traverse on bottom row
+            if(top<=bottom){
+                for(int j=right;j>=left;j--){
+                    res1.add(matrix[bottom][j]);
+                }
+            bottom--;
+            }
+            //traverse on left col
+            if(left<=right){
+                for(int j=bottom;j>=top;j--){
+                    res1.add(matrix[j][left]);
+                }
+                left++;
+            }
+        dfs(matrix, top, bottom, left, right);
+    }
