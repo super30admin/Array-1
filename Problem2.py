@@ -1,5 +1,7 @@
 '''
-1. 
+1. Maintain a flag that tells us the direction to traverse. Append every value encountered.
+2. We start traversing up initially. If we reached top row or last column we switch the direction. Otherwise we traverse diagonally upwards.
+3. Similary when traversing down, we check if we reached last row or left most column to switch direction. Else we travel down diagonally.
 '''
 
 class Solution:
