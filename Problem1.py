@@ -3,6 +3,9 @@
 2. Since there is nothing to left of 1, include 1 to the leftproduct array. 
 3. Similarly get the rightproduct array comprising of all the products to right of each element
 4. The result would be the product of these two arrays with 2nd reversed element wise eventually getting the product of all numbers excluding that one.
+
+TC: O(n^2)
+SC: O(n)
 '''
 
 def getProduct(arr):
@@ -19,9 +22,6 @@ def productArray(nums):
     for i in range(1,len(nums)):
         leftproduct.append(getProduct(nums[:i]))
         rightproduct.append(getProduct(nums[::-1][:i]))
-    print(leftproduct)
-    print(rightproduct)
-
     for i in range(len(leftproduct)):
         return [i*j for i,j in zip(leftproduct,rightproduct[::-1])]
 

@@ -2,6 +2,9 @@
 1. We have 4 variables top, bottom, left, right keeping the boundaries of our traversal
 2. We start off traversing in the order of right, down, left and up using 4 for loops modifying the boundaries.
 3. We append each value encountered and return the final list. We perform a check to prevent left going ahead of right and bottom going above top.  
+
+TC: O(n)
+SC: O(n)
 '''
 
 def spiralOrder(mat):
