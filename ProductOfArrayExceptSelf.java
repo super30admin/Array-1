@@ -3,7 +3,7 @@ class ProductOfArrayExceptSelf {
     //return the array of products by mutating the result array
     //TC will be O(n), as iterating over the array
     //SC will be O(1), as just mutating the result array and not using additional array.
-    public int[] productExceptSelf(int[] nums) {
+    public int[] productExcept(int[] nums) {
         if(nums==null || nums.length==0){       //base condnt to check if array is empty
             return new int[]{};       //return 0 as no product
         }
@@ -25,10 +25,15 @@ class ProductOfArrayExceptSelf {
         }
         return result; //return the array
     }
-
     public static void main(String[] args){
         int[] nums = {1,2,3,4};
         ProductOfArrayExceptSelf obj = new ProductOfArrayExceptSelf();
-        System.out.println(obj.productExceptSelf(nums));
+        int[] result= obj.productExcept(nums);
+
+        for (int num : result){
+            System.out.println(num);
+        }
+
     }
+
 }
