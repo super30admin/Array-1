@@ -1,4 +1,6 @@
 public class DiagonalArray {
+    //TC will be O(m * n) where m * n is the size ot 2D matrix
+    //SC will be O(1), as return just 1D array as required answer.
     public int[] findDiagonalOrder(int[][] mat){
         if(mat == null || mat.length==0){           //base cond to check if array is empty.
             return new int[]{};             //return empty array
