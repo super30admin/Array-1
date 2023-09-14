@@ -1,61 +1,87 @@
+//Time complexity: O(m*n)
+//Space complexity O(1)
+//Approach: we are trying to maintain a flag either 1 or -1
+// 1: bottom to top -1: top to bottom
+//we will always start from mat[0][0] and resultant array would be sized M*N
+//everytime we hit row 0 
+
 class Solution {
 public:
     vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
-        
-        
-        int i=0;
-        int m=mat.size();
-        int n=mat[0].size();
-        int col=0;
-        int row=0;
-        int dir=1;
-        int s=m*n;
-        
-        vector<int> res(s);
-        
-        while(i<s)
+      
+      int m=mat.size();
+      int n=mat[0].size();
+      int index=0;
+      int dir=1;
+      int r=0, c=0;
+        vector<int> res(m*n);
+        while(index<m*n)
         {
-            res[i]=mat[row][col];
-            if(dir==1)  //go upwards
+            res[index]=mat[r][c];
+            index++;
+            if(dir==1) //going bottom to top
             {
-                if(col==n-1)
-                {
-                    row++;
-                    dir=-1;
-                }
-                else if(row==0)
+                if(c==n-1)
                 {
                     dir=-1;
-                    col++;
+                    r++;
                 }
+                else if(r==0)
+                {
+                    dir=-1;
+                    c++;
+                }              
                 else
                 {
-                    row--;
-                    col++;
+                    r--; c++;
                 }
-                
             }
-            else if(dir==-1)  //go downwards
+            else //going top to bottom
             {
-                if(row==m-1)
+                if(r==m-1)
                 {
                     dir=1;
-                    col++;
-                    
+                    c++;
                 }
-                else if(col==0)
+                else if(c==0)
                 {
-                    row++;
+                    r++;
                     dir=1;
                 }
                 else
                 {
-                    col--;
-                    row++;
+                    r++; c--;
                 }
             }
-            i++;  
         }
-        return res;
+            return res;
+        
+
+      
+      
+      
+      /*  
+        int n=mat.size();
+        int m=mat[0].size();
+        vector<int> ans;
+        map<int, vector<int>> mp;
+        
+        for(int i=0;i<mat.size();i++)
+        {
+            for(int j=0;j<mat[0].size();j++)
+            {
+                mp[i+j].push_back(mat[i][j]);
+            }
+        }
+        
+        for(auto i: mp)
+        {
+            if(i.first%2==0)
+                reverse(i.second.begin(), i.second.end());
+        for(auto x: i.second)
+            ans.push_back(x);
+        }
+        
+        return ans;*/
     }
 };

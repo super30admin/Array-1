@@ -1,27 +1,26 @@
+//Time complexity: O(n)
+//Space complexity: O(1)
+
+//Appraoch here is that we find product of left and right numbers for number in considerarion, in the end we take product of the numbers in left and right array
+
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
-     
-        vector<int> res(nums.size());
+        vector<int> result(nums.size());
+        result[0]=1;
         
-        vector<int> left(nums.size());
-        vector<int>right(nums.size());
-        
-        left[0]=1;
-        right[nums.size()-1]=1;
-        for(int a=1;a<nums.size();a++)
+        int product=1;
+        for(int i=1;i<nums.size();++i)
         {
-            left[a]=nums[a-1]*left[a-1];
+            product*=nums[i-1];
+            result[i]=product;
         }
-        for(int b=nums.size()-2; b>=0; b--)
-        {
-            right[b]=right[b+1]*nums[b+1];
-        }
-        
-       for(int c=0;c<nums.size();c++)
-       {
-           res[c]=left[c]*right[c];
-       }
-        return res;
+        product=1; //reset the product
+         for(int i=nums.size()-2;i>=0;--i)
+         {
+                product*=nums[i+1];
+                result[i]*=product;
+         }
+        return result; 
     }
 };
