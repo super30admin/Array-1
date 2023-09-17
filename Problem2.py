@@ -9,7 +9,7 @@
 
 
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+    def findDiagonalOrder(self, mat):
         if not mat:
             return []
         m, n, dirn, row, col = len(mat), len(mat[0]), 1, 0, 0

@@ -16,7 +16,7 @@
 
 
 class Solution:
-    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+    def spiralOrder(self, matrix):
         m, n = len(matrix), len(matrix[0])
         top, bottom = 0, m-1
         left, right = 0, n-1
