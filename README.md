@@ -34,6 +34,7 @@ Input:
 Output: [1,2,4,7,5,3,6,8,9]
 
 ## Problem 3
+
 Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
 
 Example 1:
