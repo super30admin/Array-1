@@ -1,0 +1,40 @@
+#time complexity: O(m*n)
+#space complexity: O(1)
+#did it run on leetcode: yes
+class Solution:
+    def findDiagonalOrder(self, matrix: List[List[int]]) -> List[int]:
+        m,n = len(matrix), len(matrix[0])
+        idx = 0
+        result = [0]*(m*n)
+        i,j = 0,0
+        d = True
+        while idx<(m*n):
+            result[idx] = matrix[i][j]
+            idx+=1
+            #up
+            if d:
+                if(i==0 and j!=n-1):
+                    j+=1
+                    d = False
+                elif j==n-1:
+                    i+=1
+                    d = False
+                else:
+                    i-=1
+                    j+=1
+            #down
+            else:
+                if(j==0 and i!=m-1):
+                    i+=1
+                    d = True
+                elif i==m-1:
+                    j+=1
+                    d = True
+                else:
+                    j-=1
+                    i+=1
+        
+        return result
+
+
+        
