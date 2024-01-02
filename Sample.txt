@@ -1,0 +1,27 @@
+Problem: Product of the Array
+Time Complexity : O(n)
+Space Complexity : O(n)
+Did this code successfully run on Leetcode : Yes
+Any problem you faced while coding this : No
+
+Your code here along with comments explaining your approach:
+We first take the product of all the items to the left, then take product of all the items to the right and then take
+the product of left and right
+
+Problem: Diagonal Matrix traversal
+Time Complexity : O(m x n)
+Space Complexity : O(m x n)
+Did this code successfully run on Leetcode :yes
+Any problem you faced while coding this :no
+
+Your code here along with comments explaining your approach:
+We divide the logic for up and down direction, based on the indexes and if the element is border elem
+
+Problem: Spiral Matrix traversal
+Time Complexity : O(m x n)
+Space Complexity : O(m x n)
+Did this code successfully run on Leetcode :yes
+Any problem you faced while coding this :no
+
+Your code here along with comments explaining your approach:
+We take 4 pointers and shift the pointers to shift the 4 walls of the matrix
