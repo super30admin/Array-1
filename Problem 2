@@ -1,0 +1,32 @@
+# Diagonal Traverse
+
+class Solution(object):
+    def findDiagonalOrder(self, mat):
+        """
+        :type mat: List[List[int]]
+        :rtype: List[int]
+        """
+        if not mat or not mat[0]:
+            return []
+
+        m, n = len(mat), len(mat[0])
+        result = []
+
+        for diagonal_sum in range(m + n - 1):
+            # For even diagonal sums, go up; for odd diagonal sums, go down
+            if diagonal_sum % 2 == 0:
+                # Traverse the current diagonal going up
+                row, col = min(diagonal_sum, m - 1), max(0, diagonal_sum - (m - 1))
+                while row >= max(0, diagonal_sum - (n - 1)) and col < n:
+                    result.append(mat[row][col])
+                    row -= 1
+                    col += 1
+            else:
+                # Traverse the current diagonal going down
+                row, col = max(0, diagonal_sum - (n - 1)), min(diagonal_sum, n - 1)
+                while row < m and col >= max(0, diagonal_sum - (m - 1)):
+                    result.append(mat[row][col])
+                    row += 1
+                    col -= 1
+
+        return result

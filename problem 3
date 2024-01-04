@@ -1,0 +1,31 @@
+# Spiral Matrix
+
+class Solution(object):
+    def spiralOrder(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+        result = []
+        
+        while matrix:
+            # Traverse top row
+            result.extend(matrix.pop(0))
+            
+            # Traverse right column
+            if matrix and matrix[0]:
+                for row in matrix:
+                    result.append(row.pop())
+            
+            # Traverse bottom row
+            if matrix:
+                result.extend(matrix.pop()[::-1])
+            
+            # Traverse left column
+            if matrix and matrix[0]:
+                for row in matrix[::-1]:
+                    result.append(row.pop(0))
+        
+        return result
+
+        
