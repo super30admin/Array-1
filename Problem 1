@@ -1,0 +1,30 @@
+# Product of Array Except Self
+
+class Solution(object):
+    def productExceptSelf(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        n = len(nums)
+
+        # Initialize left and right arrays to store product values
+        left_products = [1] * n
+        right_products = [1] * n
+
+        # Calculate products to the left of each element
+        left_product = 1
+        for i in range(1, n):
+            left_product *= nums[i - 1]
+            left_products[i] = left_product
+
+        # Calculate products to the right of each element
+        right_product = 1
+        for i in range(n - 2, -1, -1):
+            right_product *= nums[i + 1]
+            right_products[i] = right_product
+
+        # Calculate the final result by multiplying left and right products
+        result = [left * right for left, right in zip(left_products, right_products)]
+
+        return result
