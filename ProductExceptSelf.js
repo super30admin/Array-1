@@ -46,7 +46,7 @@ console.log(productExceptSelf([-1, 1, 0, -3, 3]));
 
 
 // Time Complexity : O(2n) ==> O(n)
-// Space Complexity : O(n), since we are using a 'result' array of size n (length of array) to store values
+// Space Complexity : O(1), since we are using a 'result' array of constant auxillary space.
 // Did this code successfully run on Leetcode : yes
 // Three line explanation of solution in plain english: 
 // We have used the running product approach here. 
