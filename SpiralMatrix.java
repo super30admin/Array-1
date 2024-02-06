@@ -1,6 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// TC - O(MN)
+// SC - O(1)
+
+// Constraints:
+// m == matrix.length
+// n == matrix[i].length
+// 1 <= m, n <= 10
+// -100 <= matrix[i][j] <= 100
+
 public class SpiralMatrix {
     class Solution {
         public List<Integer> spiralOrder(int[][] matrix) {
