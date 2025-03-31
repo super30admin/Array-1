@@ -1,0 +1,30 @@
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        // [1,2,3,4] brute for approach would be O(n2) 
+        // where we use two loops - in the innner loop we calculate = the product(left sub-array) * product(right-sub array) and fill the current index 
+
+
+// Bruteforce internal process of calcuating the product(left / right SUBARRAY) is kindof repeting to some indexes which can be an optimization if we just calculated for the entire array from both hte directions and re use it 
+
+        // Optimization is - PRE-PROCESSING the inout array for O(3n) ~(n) 
+            // 1st iteration - to calculate the the product from the left untill that index product(left-sub array) 
+            // 2nd iteration - to calculate the product from right to left untill that index mimicing the product(right-sub array)
+
+
+        int n = nums.length;
+        int[] outputArr = new int[n];
+        outputArr[0] = 1;
+        for(int i=1; i< n ;i++){
+            outputArr[i] = outputArr[i-1]  * nums[i-1]; // [ 1,1,2,6] [ 1,1,2,6]
+        }
+
+        // optimization with single array for O(1) space
+        int leftProduct = 1;
+        for(int i= n-2 ; i>=0 ; i--){
+            leftProduct = leftProduct * nums[i+1];
+            outputArr[i] = leftProduct * outputArr[i];
+        }
+        
+        return outputArr;
+    }
+}
