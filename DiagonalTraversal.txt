@@ -1,0 +1,71 @@
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        
+        // swithc to flip the direction - boolean flag
+        // will use a for loop to run trough the array elements and decement the count till it reaches  0 
+        int n = mat.length;
+        int m = mat[0].length;
+        int count = m*n;
+        int i=0, j=0;
+        boolean direction = true;
+        int[] res = new int[count];
+        int idx = 0;
+        while(idx < count){
+            if(direction){
+                if(i==0 && j == m-1){
+                    res[idx] = mat[i][j];
+                    idx++;
+                    i++;
+                    direction = false;
+                }else if(i==0){
+                    res[idx] = mat[i][j];
+                    idx++;
+                    j++;
+                    direction = false;
+                }else if(j == m-1){
+                    res[idx] = mat[i][j];
+                    i++;
+                    idx++;
+                    direction = false;
+                }else {
+                    res[idx] = mat[i][j];
+                    idx++;
+                    i--; j++;
+                }
+            }else{
+                if(j == 0 && i == n-1){
+                    res[idx] = mat[i][j];
+                    idx++;
+                    j++;
+                    direction = true;
+                }else if(j == 0){
+                    res[idx] = mat[i][j];
+                    idx++;
+                    i++;
+                    direction = true;
+                }else if (i == n-1){
+                    res[idx] = mat[i][j];
+                    idx++;
+                    j++;
+                    direction = true;
+                }else{
+                    res[idx] = mat[i][j];
+                    idx++;
+                    i++;
+                    j--;
+                }
+            }
+        }
+        // 2 cases to flip direction - when we reach the TOP EDGE 
+        // i == 0 j == m-1 - read the value - increment j++ , read the value & flip the direction DOWN
+        //else if j == m-1 - increment j & flip the direction DOWN
+        //else  regularly traverse the matrix incerement i and deceremtn j
+
+        // 2 cases to flip the direction - when we reach the BOTTOM EDGE
+        // j == 0 & i==n-1 - incerement i++,  read the value & flip the direction UP 
+        // else if i==n-1 - inceremtnt i++; read value flip the direction UP
+        // else regular traversal decrement i and increment j
+        return res;
+
+    }
+}

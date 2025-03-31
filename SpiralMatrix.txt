@@ -1,0 +1,53 @@
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        // take four pointer to sweep the marix across for directions 
+        // TOP , BOTTOM  -- LEFT , RIGHT
+
+        // loop trough the count OR ( top crosses bottom || left crosses right)
+
+        // RIGHT >> start at top and sweep the row that top is assigned with >> 
+            // top++ along row 
+        // DOWN >> start at top index and move till down 
+            // right-- along column 
+        // LEFT >> start at eight index and move towards till left index
+            // bottom -- alonf row
+        // UP  >>  start at bottom and move towords top 
+            // left ++ along column
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int left = 0, right = m-1;
+        int top = 0 , bottom = n-1;
+        List<Integer> out = new ArrayList<>();
+
+        while(top <= bottom && left <= right){
+        //    if(top <= bottom){
+                for(int i=top, j=left; j <= right; j++){
+                    out.add(matrix[i][j]);
+                }
+                top++;
+        //    }
+
+            if(top <= bottom && left <= right){
+                for(int i=top, j=right; i<= bottom; i++ ){
+                    out.add(matrix[i][j]);
+                }
+                right --;
+            }
+
+            if(left <= right && top<= bottom ){
+                for(int i=bottom, j=right ; j >= left ; j-- ){
+                    out.add(matrix[i][j]);
+                }
+                bottom--;
+            }
+            if(top <= bottom && left<= right){
+                for(int i=bottom , j=left ; i >= top ; i-- ){
+                    out.add(matrix[i][j]);
+                }
+                left++;
+            }
+        }
+        
+        return out;
+    }
+}
