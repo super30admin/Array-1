@@ -45,9 +45,3 @@ class Solution(object):
                     row = row + 1
                     col = col - 1
         return diagonal_arr
-        
-obj = Solution()
-sol1 = obj.findDiagonalOrder([[1,2,3],[4,5,6],[7,8,9]])
-print(sol1)
-sol2 = obj.findDiagonalOrder([[1,2],[3,4]])
-print(sol2)
