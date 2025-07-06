@@ -33,10 +33,3 @@ class Solution(object):
                     spiral_arr.append(matrix[i][left])
                 left = left + 1
         return spiral_arr
-    
-obj = Solution()
-sol1 = obj.spiralOrder([[1,2,3],[4,5,6],[7,8,9]])
-print(sol1)
-sol2 = obj.spiralOrder([[1,2,3,4],[5,6,7,8],[9,10,11,12]])
-print(sol2)
-        
