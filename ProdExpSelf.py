@@ -19,10 +19,3 @@ class Solution(object):
             rp = rp * nums[i+1]
             prod_arr[i] = rp * prod_arr[i]
         return prod_arr
-    
-obj = Solution()
-sol1 = obj.productExceptSelf([1,2,3,4])
-print(sol1)
-sol2 = obj.productExceptSelf([-1,1,0,-3,3])
-print(sol2)
-        
