@@ -1,0 +1,45 @@
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        if(matrix == null || matrix[0].length == 0){
+            return new ArrayList<Integer>(){};
+        }
+        List<Integer> result = new ArrayList<>();
+        //for matrix, we are tracking up, down, left, right which will keep changing as we traverse in spiral order
+        int top = 0;
+        int down = matrix.length - 1;
+        int left = 0;
+        int right = matrix[0].length - 1;
+        while(left <= right && top <= down){
+            //traverse from left to right in top row
+            for(int i = left; i<=right; i++){
+                result.add(matrix[top][i]);
+            }
+            //now top will be next row
+            top = top+1;
+            //traverse from top to bottom
+            for(int i = top; i<=down; i++){
+                result.add(matrix[i][right]);
+            }
+            //last column is done so right will be right-1
+            right = right-1;
+            //no to revisit, adding extra check as the top and right values change
+            if(top<=down){
+                //traversing from right to left in down(below) row
+                for(int i = right; i>= left; i--){
+                    result.add(matrix[down][i]);
+                }
+                //down row changes to above one(down-1)
+                down = down-1;
+            }
+            if(left <= right){
+                //traversing from down to top in left column
+                for(int i = down; i>=top; i--){
+                    result.add(matrix[i][left]);
+                }
+                 //col changes to next one(col+1)
+                left = left+1;
+            }
+        }
+        return result;
+    }
+}

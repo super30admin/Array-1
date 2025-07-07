@@ -1,0 +1,49 @@
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        if(mat == null || mat.length == 0){
+            return new int[]{};
+        }
+        int m = mat.length;
+        int n = mat[0].length;
+        int result[] = new int[m*n];
+        //since there's 2 directions the diagonal can traverse (up and down)
+        boolean up = true;   //initially up direction
+        int row= 0, col = 0;
+        for(int i=0; i<m*n; i++){
+            result[i] = mat[row][col];
+            if(up){
+                //if it reached last column, next element will be in next row
+                if(col == n-1){
+                    row++;
+                    up = false;
+                }
+                //traversing, it reaches 0 row, next element will in next column
+                else if(row == 0){
+                    col++;
+                    up = false;
+                }
+                //up diagonal, next elements will be above row(row-1) and next column(col+1)
+                else{
+                    row--; col++;
+                }
+            }
+            else{
+                //In downward diagonal, if it is last row, next element will be in next column
+                if(row == m-1){
+                    col++;
+                    up = true;
+                }
+                //traversing, it reaches 0 col, next element will in next row
+                else if(col == 0){
+                    row++;
+                    up = true;
+                }
+                //down diagonal, next elements will be below row(row+1) and previous column(col-1)
+                else{
+                    col--; row++;
+                }
+            }
+        }
+        return result;
+    }
+}

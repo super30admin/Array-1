@@ -1,0 +1,23 @@
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        if(nums == null || nums.length == 0){
+            return new int[]{};
+        }
+        int lp = 1; //left product initially 1
+        int[] result = new int[nums.length];
+        //1st we calculate left left product of the element (element = product od all elements before that)
+        result[0] = lp;
+        for(int i=1; i<nums.length; i++){
+            lp = lp * nums[i-1];
+            result[i] = lp;
+        }
+        int rp = 1; //right product initially 1
+        //Now traversing from end of result, by multiplying it with right runnig product(product of right elements) we get product of that position's left and right product (which is product of all elements except that number)
+        //As last element in result is already product of before elements, we are traversing from last but one element adn multiplying right product
+        for(int i = nums.length - 2; i>=0; i--){
+            rp = rp * nums[i+1];
+            result[i] = result[i] * rp;
+        }
+        return result;
+    }
+}
