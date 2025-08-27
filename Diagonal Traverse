@@ -1,0 +1,39 @@
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        if not mat or not mat[0]:
+            return []
+
+        m, n = len(mat), len(mat[0])
+        result = []
+        r, c = 0, 0
+        direction = 1  # 1 for up-right, -1 for down-left
+
+        while len(result) < m * n:
+            result.append(mat[r][c])
+
+            # Move to the next cell based on the current direction
+            if direction == 1:
+                # Up-right direction
+                next_r, next_c = r - 1, c + 1
+            else:
+                # Down-left direction
+                next_r, next_c = r + 1, c - 1
+
+            # Check if the next cell is within bounds
+            if 0 <= next_r < m and 0 <= next_c < n:
+                r, c = next_r, next_c
+            else:
+                # Hit a boundary, change direction and adjust position
+                direction *= -1
+                
+                # Correctly adjust position based on the boundary hit
+                if r == 0 and c < n - 1 and direction == -1: # Hit top, move right
+                    c += 1
+                elif c == n - 1 and direction == -1: # Hit right, move down
+                    r += 1
+                elif r == m - 1 and direction == 1: # Hit bottom, move right
+                    c += 1
+                elif c == 0 and direction == 1: # Hit left, move down
+                    r += 1
+
+        return result
