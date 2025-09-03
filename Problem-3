@@ -1,0 +1,48 @@
+// Time Complexity : O(m*n), where m -> number of rows, n -> number of columns
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+
+// Starting from the top left corner, traverse the matrix in spiral order
+// Shrink boundary values like top, bottom, left, right when a boundary is reached
+// Store the values in a list while traversing till boundaries cross eachother
+
+// Your code here along with comments explaining your approach
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int top = 0, bottom = m-1, left = 0, right = n-1;
+        while(top <= bottom && left <= right) {
+            // left to right
+            for(int j = left; j <= right; j++) {
+                result.add(matrix[top][j]);
+            }
+            top++;
+
+            // top to bottom
+            for(int i = top; i <= bottom; i++) {
+                result.add(matrix[i][right]);
+            }
+            right--;
+
+            // right to left
+            if(top <= bottom) {
+                for(int j = right; j >= left; j--) {
+                    result.add(matrix[bottom][j]);
+                }
+                bottom--;
+            }
+
+            // bottom to top
+            if(left <= right) {
+                for(int i = bottom; i >= top; i--) {
+                    result.add(matrix[i][left]);
+                }
+                left++;
+            }
+        }
+        return result;
+    }
+}

@@ -1,0 +1,60 @@
+// Time Complexity : O(m*n), where m -> number of rows, n -> number of columns
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+
+// Starting from the top left corner, traverse the matrix alternating in up and down direction
+// Switch directions when boundaries like top, down, left or right is reached
+// Store the values in an array while traversing
+
+// Your code here along with comments explaining your approach
+
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        boolean upDir = true;
+        int m = mat.length;
+        int n = mat[0].length;
+        int[] result = new int[m*n];
+        int r = 0;
+        int c = 0;
+        for(int i = 0; i < m*n; i++) {
+            result[i] = mat[r][c];
+            // traveling up
+            if(upDir) {
+                // right boundary is reached
+                if(c == n-1) {
+                    r++;
+                    upDir = false;
+                }
+                // top boundary is reached
+                else if(r == 0) {
+                    c++;
+                    upDir = false;
+                }
+                // keep moving up
+                else {
+                    r--;
+                    c++;
+                }
+            }
+            // traveling down
+            else {
+                // bottom boundary is reached
+                if(r == m-1) {
+                    c++;
+                    upDir = true;
+                }
+                // left boundary is reached
+                else if(c == 0) {
+                    r++;
+                    upDir = true;
+                }
+                // keep moving down
+                else {
+                    r++;
+                    c--;
+                }
+            }
+        }
+        return result;
+    }
+}

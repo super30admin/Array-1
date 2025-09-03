@@ -1,0 +1,29 @@
+// Time Complexity : O(n)
+// Space Complexity : O(1)
+// Did this code successfully run on Leetcode : Yes
+
+// Store the running product before the current index while traversing from left to right of the array
+// Traverse from right to left and multiple the results with the right side values
+
+// Your code here along with comments explaining your approach
+
+class Solution {
+    public int[] productExceptSelf(int[] nums) {
+        int prod = 1;
+        int n = nums.length;
+        int[] prodArr = new int[n];
+        prodArr[0] = 1;
+        // left to right pass
+        for(int i = 1; i < n; i++) {
+            prod = prod * nums[i-1]; 
+            prodArr[i] = prod;
+        }
+        // right to left pass
+        prod = 1;
+        for(int i = n-2; i >= 0; i--) {
+            prod = prod * nums[i+1];
+            prodArr[i] = prodArr[i] * prod;
+        }
+        return prodArr;
+    }
+}
