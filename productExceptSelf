@@ -1,0 +1,21 @@
+class Solution(object):
+    def productExceptSelf(self, nums):
+        n = len(nums)
+        res = [1] * n
+
+        # left pass: res[i] = product of nums[0..i-1]
+        rp = 1
+        for i in range(1, n):
+            rp *= nums[i - 1]
+            res[i] = rp
+
+        # right pass: multiply by product of nums[i+1..n-1]
+        rp = 1
+        for i in range(n - 2, -1, -1):
+            rp *= nums[i + 1]
+            res[i] *= rp
+
+        return res
+
+
+        
