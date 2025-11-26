@@ -13,6 +13,10 @@ Note: Please solve it without division and in O(n).
 Follow up:
 Could you solve it with constant space complexity? (The output array does not count as extra space for the purpose of space complexity analysis.)
 
+* 1st approach - use 2 loops O(n^2) where if(i!=j) res[]*=nums[j]
+* 2nd approach = var rp=1, take left product array product of element in left side of nums[i], right product array product of element in right side of nums[i]. 
+* Take product of left array & right array.
+
 ## Problem 2
 
 Given a matrix of M x N elements (M rows, N columns), return all elements of the matrix in diagonal order as shown in the below image.
@@ -32,6 +36,10 @@ Input:
 ]
 
 Output: [1,2,4,7,5,3,6,8,9]
+
+* 2 directions in traversal given by boolean flag
+* do the edge condition where direction is changing
+
 
 ## Problem 3
 Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
@@ -64,3 +72,7 @@ Input:
 
 ]
 Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+
+* we need to consider the elements in Spiral. don't repeat the elements.
+* 4 directions - 4 pointers - top, bottom, left, right.
+* form loop around how is the movement.
