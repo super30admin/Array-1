@@ -1,4 +1,4 @@
-#Time complexity - 0(m*n) & space complexity - o(1)
+
 class Solution:
     def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         if matrix == None or len(matrix) ==0:
@@ -31,11 +31,3 @@ class Solution:
             
 
         return result
-
-
-        
-
-    
-
-
-        
