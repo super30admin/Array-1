@@ -8,6 +8,9 @@
  In each iteration, we traverse the top row from left to right, then the right column from top to bottom,    followed by the bottom row from right to left, and finally the left column from bottom to top. 
 
  After completing one full spiral layer, we move the boundaries inward (top++, bottom--, left++, right--) to a  avoid revisiting elements. The loop continues as long as the boundaries are valid, ensuring every cell is visited exactly once in spiral order.
+
+ Time Complexity: O(m * n)
+ Space Complexity: O(1)
  */
 var spiralOrder = function (mat) {
     const res = [];
