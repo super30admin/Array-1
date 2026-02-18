@@ -1,0 +1,39 @@
+# Time Complexity : O(m * n)
+# Space Complexity : O(1)
+# Did this code successfully run on Leetcode : Yes
+# Any problem you faced while coding this : No
+# Approach : Keep track of direction and increment/decrement row and column index based on it.
+
+class Solution:
+    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
+        dir = True  # upward = True; downward = False
+        rows, cols = len(mat), len(mat[0])
+        res = []
+
+        r, c = 0, 0
+
+        while r < rows and c < cols:
+            res.append(mat[r][c])
+
+            if dir:  # upward
+                if c == cols - 1:
+                    r += 1
+                    dir = False
+                elif r == 0:
+                    c += 1
+                    dir = False
+                else:
+                    r -= 1
+                    c += 1
+            else:  # downward
+                if r == rows - 1:
+                    c += 1
+                    dir = True
+                elif c == 0:
+                    r += 1
+                    dir = True
+                else:
+                    r += 1
+                    c -= 1
+
+        return res
