@@ -1,0 +1,25 @@
+class ProductExceptSelf {
+    public int[] productExceptSelf(int[] nums) {
+
+        int[] leftProduct = new int[nums.length];
+        int[] rightProduct = new int[nums.length];
+        int[] result = new int[nums.length];
+        int lproduct = 1, rproduct = 1;
+
+        leftProduct[0] = 1;
+        rightProduct[nums.length - 1] =  1;
+
+        for(int i = 1, j = nums.length - 2;i < nums.length && j >= 0;i++, j--) {
+            lproduct *= nums[i - 1];
+            leftProduct[i] = lproduct;
+
+            rproduct *= nums[j + 1];
+            rightProduct[j] = rproduct;
+        }
+
+        for(int i = 0; i < nums.length;i++) {
+            result[i] = leftProduct[i] * rightProduct[i];
+        }
+        return result;
+    }
+}
