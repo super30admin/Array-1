@@ -1,43 +1,32 @@
 public class DiagonalTraverse {
     public int[] findDiagOrder(int[][] mat) {
-        // up = 1;
-        // down = 0;
-        if (mat == null) {
-            return null;
-        }
-
-        int m = mat.length * mat[0].length;
-        int[] diagonal = new int[m];
-        int direction = 1, i = 0, col = 0, row = 0;
-
-        while (i < m) {
-            diagonal[i] = mat[row][col];
-            i++;
-            // Direction = 1
-            if (direction == 1) {
-                if (row == 0) {
-                    col++;
-                    direction = 0;
-                } else if (col == mat[0].length - 1) {
-                    row++;
-                    direction = 0;
+        int row = mat.length;
+        int col = mat[0].length;
+        int[] ans = new int[row*col];
+        int r = 0;
+        int c = 0;
+        boolean flag = true;
+        for (int i=0; i<row*col; i++){
+            ans[i] = mat[r][c];
+            if (flag) {
+                if (c==col-1) {
+                    r++; flag=false; 
+                } else if (r==0) {
+                    flag = false;
+                    c++;
                 } else {
-                    col++;
-                    row--;
+                    r--; c++;
                 }
             } else {
-                if (col == 0) {
-                    row++;
-                    direction = 1;
-                } else if (row == mat.length - 1) {
-                    col++;
-                    direction = 1;
+                if (r==row-1) {
+                    c++; flag=true;
+                } else if (c==0) {
+                    r++; flag=true;
                 } else {
-                    col--;
-                    row++;
+                    c--; r++;
                 }
             }
-        }
-        return diagonal;
+        }   
+        return ans;
     }
 }
