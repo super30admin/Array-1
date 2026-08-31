@@ -1,0 +1,59 @@
+//Time Complexity : O(m * n)
+//Space Complexity: O(1)
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+
+        List<Integer> result = new ArrayList<>();
+
+        //Validate inputs
+        if (matrix == null || matrix.length == 0) return result;
+
+        int top = 0, left = 0;
+        int right = matrix[0].length - 1;
+        int bottom = matrix.length - 1;
+
+        while(left <= right && top <= bottom)
+        {
+            //Left to right
+            for(int i = left; i <= right; i++)
+            {
+                result.add(matrix[top][i]);
+            }
+
+            //Move the top
+            top++;
+
+            //Top to bottom
+            for(int i = top; i <= bottom; i++)
+            {
+                result.add(matrix[i][right]);
+            }
+
+            //Move the right
+            right--;
+
+            // Recheck the condition since top is modified after initial
+            if(top <= bottom){
+                // Right to Left
+                for(int i = right; i >= left; i--){
+                    result.add(matrix[bottom][i]);
+                }
+            }
+
+            //Move bottom
+            bottom--;
+
+            //Recheck this condition since the right is modified after above
+            if(left <= right){
+                //Bottom to Top iteration
+                for(int i = bottom; i >= top; i--){
+                    result.add(matrix[i][left]);
+                }
+            }
+
+            //Move Left
+            left++;
+        }
+        return result;
+    }
+}
