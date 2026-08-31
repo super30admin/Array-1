@@ -1,0 +1,59 @@
+//Time Complexity: O(mxn)
+//Space Complexity: O(1)
+class Solution {
+    int[] result;
+    public int[] findDiagonalOrder(int[][] mat) {
+        int m = mat.length;
+        int n = mat[0].length;
+        this.result = new int[m * n];
+
+        //Validate inputs
+        if(mat == null || mat.length == 0) return result;
+
+        boolean upward = true;
+        int i = 0, row = 0, col = 0;
+
+        while(i < m*n)
+        {
+            result[i] = mat[row][col];
+
+            // Going upward direction
+            if(upward)
+            {
+                if(col == n-1) // Right most element is reached - This needs to be checked as there is a chance for 0, n-1
+                {
+                    row++;
+                    upward = false;
+                }
+                else if(row == 0) // Initially when we move from first element to right
+                {
+                    col++;
+                    upward = false;
+                }
+                else{ // Regular upward movement
+                    row--;
+                    col++;
+                }
+            }
+            else
+            {
+                if(row == m-1)
+                {
+                    col++;
+                    upward = true;
+                }
+                else if(col == 0)
+                {
+                    row++;
+                    upward = true;
+                }
+                else{
+                    row++;
+                    col--;
+                }
+            }
+            i++;
+        }
+        return result;
+    }
+}
