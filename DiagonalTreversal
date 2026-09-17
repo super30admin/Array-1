@@ -1,0 +1,62 @@
+// Time Complexity :O (m*n) m- number of rows n - number of columns
+// Space Complexity : o(1)
+// Did this code successfully run on Leetcode :Yes
+// Any problem you faced while coding this :No
+
+/*Approach: Take 3 by 3 matrix and draw directions. 2 alternate directions:
+            1. Up: while going up 
+                1.1>row becomes -ve=> col++, dir=false, 
+                1.2> row is in bound => row--, col++
+                1.3> row and column goes out of bound: row++, dir= false
+            2. down : while going down 
+                2.1>column becomes -ve=> row++, dir=true, 
+                2.2> column is in bound => row++, col--
+                2.3> row and column goes out of bound: row++, dir= false
+*/
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        if (mat == null || mat[0].length == 0)
+            return new int[] {};
+
+        int r = 0;
+        int c = 0;
+        boolean dir = true;
+        int rows = mat.length;
+        int cols = mat[0].length;
+        int[] result = new int[rows * cols];
+
+        for (int i = 0; i < rows * cols; i++) {
+            result[i] = mat[r][c];
+            //up
+            if (dir) {
+                if (c == cols - 1) {//corner case when row will become negative and column will go outof bound (top right element)
+                    r++;
+                    dir = false;
+
+                } else if (r == 0) { //corner case when row will become negative and but column will be inbound (top left 1st element)
+                    c++;
+                    dir = false;
+                } else {// nrormal case
+                    r--;
+                    c++;
+                }
+
+            } else {//down
+                if (r == rows - 1) {
+                    c++;
+                    dir = true;
+
+                } else if (c == 0) {
+                    r++;
+                    dir = true;
+                } else {
+                    c--;
+                    r++;
+                }
+
+            }
+        }
+
+        return result;
+    }
+}
