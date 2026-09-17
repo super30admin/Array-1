@@ -1,0 +1,53 @@
+// Time Complexity :O (m*n) m- number of rows n - number of columns
+// Space Complexity : o(1)
+// Did this code successfully run on Leetcode :Yes
+// Any problem you faced while coding this :No
+
+Approach: Print top row , right column, bottom row and left column and squeeze the boundries for next spiral.
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+        if (matrix == null || matrix.length == 0)
+            return result;
+
+        int top = 0;
+        int bottom = matrix.length - 1;
+        int left = 0;
+        int right = matrix[0].length - 1;
+
+        while (top <= bottom && left <= right) {
+            
+            //1. Print top row from left to right
+            for (int col = left; col <= right; col++) {
+                result.add(matrix[top][col]);
+            }
+            top++;
+
+            //2. Print left column from top to bottom
+            if (top <= bottom && left <= right) {
+                for (int row = top; row <= bottom; row++) {
+                    result.add(matrix[row][right]);
+                }
+                right--;
+            }
+
+            //3. Print bottom row from right to left
+            if (top <= bottom && left <= right) {
+                for (int col = right; col >= left; col--) {
+                    result.add(matrix[bottom][col]);
+                }
+                bottom--;
+            }
+
+            //4. Print left column from bottom to top
+            if (top <= bottom && left <= right) {
+                for (int row = bottom; row >= top; row--) {
+                    result.add(matrix[row][left]);
+                }
+                left++;
+            }
+        }
+        return result;
+    }
+}
